@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZinzinLand — Wiki du serveur</title>
+  <meta name="description" content="Wiki officiel du serveur Minecraft ZinzinLand : armes sentientes, âmes, autel & rituel, monnaie, vies et rangs." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💀</text></svg>" />
+</head>
+<body>
+  <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+
+  <div class="layout">
+    <!-- ===== Sidebar ===== -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="logo">💀</div>
+        <div>
+          <h1>ZinzinLand</h1>
+          <small>Wiki du serveur</small>
+        </div>
+      </div>
+      <ul class="nav">
+        <li><a href="#accueil" class="active"><span class="ico">🏠</span> Accueil</a></li>
+        <li class="group">Le pouvoir des âmes</li>
+        <li><a href="#armes"><span class="ico">⚔️</span> Armes sentientes</a></li>
+        <li><a href="#faux"><span class="ico">🌾</span> La Faux des Âmes</a></li>
+        <li><a href="#essence"><span class="ico">✨</span> Essence d'âme</a></li>
+        <li><a href="#fiole"><span class="ico">🧪</span> Fiole d'âmes</a></li>
+        <li><a href="#autel"><span class="ico">🔮</span> Autel &amp; rituel</a></li>
+        <li class="group">Survie</li>
+        <li><a href="#vies"><span class="ico">❤️</span> Vies &amp; cœurs</a></li>
+        <li><a href="#monnaie"><span class="ico">🪙</span> Monnaie</a></li>
+        <li><a href="#rangs"><span class="ico">🎖️</span> Rangs</a></li>
+        <li class="group">Aide</li>
+        <li><a href="#commandes"><span class="ico">⌨️</span> Commandes</a></li>
+      </ul>
+    </aside>
+
+    <!-- ===== Content ===== -->
+    <main class="content">
+      <header class="hero" id="accueil">
+        <h2>Bienvenue sur ZinzinLand 💀</h2>
+        <p>Un serveur survie où les <b>âmes des morts-vivants</b> sont une ressource. Récolte-les
+          avec la Faux, distille-les en fioles, et offre-les à l'autel pour <b>gagner des vies</b>.
+          Ce wiki rassemble tout ce qu'il faut savoir pour jouer.</p>
+        <div class="stats">
+          <div class="stat"><b>5</b><span>armes sentientes</span></div>
+          <div class="stat"><b>3</b><span>vies max</span></div>
+          <div class="stat"><b>4</b><span>types de monnaie</span></div>
+          <div class="stat"><b>1</b><span>autel des âmes</span></div>
+        </div>
+      </header>
+
+      <!-- ===== Armes sentientes ===== -->
+      <section class="section" id="armes">
+        <h3>⚔️ Armes sentientes</h3>
+        <p class="lead">Cinq armes uniques au modèle custom, incassables, qui vivent de leur propre vie.
+          La plus convoitée : la <b>Faux des Âmes</b>.</p>
+        <div class="cards">
+          <div class="card">
+            <div class="title">🪓 Hache sentiente</div>
+            <div class="desc">Une hache de fer habitée. Fiable au corps à corps.</div>
+            <span class="tag">Sentient</span>
+          </div>
+          <div class="card">
+            <div class="title">🏹 Arc sentient</div>
+            <div class="desc">Un arc qui murmure. (L'animation de tension n'est pas encore portée — il reste au repos visuellement.)</div>
+            <span class="tag">Sentient</span>
+          </div>
+          <div class="card">
+            <div class="title">🔪 Couperet sentient</div>
+            <div class="desc">Lame courte et brutale, taillée pour le combat rapproché.</div>
+            <span class="tag">Sentient</span>
+          </div>
+          <div class="card" style="border-color: var(--accent-2);">
+            <div class="title">🌾 Faux des Âmes</div>
+            <div class="desc">La pièce maîtresse : elle récolte les âmes des morts-vivants.</div>
+            <div class="stat-line"><span>Dégâts <b>6</b></span><span>Vitesse d'attaque <b>2.5</b></span></div>
+            <span class="tag soul">Récolte d'âmes</span>
+          </div>
+          <div class="card">
+            <div class="title">🗡️ Épée sentiente</div>
+            <div class="desc">L'épée classique, mais animée d'une volonté propre.</div>
+            <span class="tag">Sentient</span>
+          </div>
+        </div>
+        <div class="callout">
+          Les armes sentientes affichent leurs <b>vrais dégâts et vitesse d'attaque</b> en blanc dans
+          l'infobulle, comme une arme vanilla — pas de bonus vert/rouge trompeur.
+        </div>
+      </section>
+
+      <!-- ===== Faux ===== -->
+      <section class="section" id="faux">
+        <h3>🌾 La Faux des Âmes</h3>
+        <p class="lead">L'outil central du serveur. Sans elle, impossible de récolter les âmes.
+          <b>6 dégâts</b>, <b>2.5</b> de vitesse d'attaque.</p>
+
+        <h4>Recette (table de craft)</h4>
+        <div class="recipe">
+          <div class="craft-grid">
+            <div class="cell">🥩<span class="lbl">C</span></div>
+            <div class="cell">👁️<span class="lbl">O</span></div>
+            <div class="cell">🥩<span class="lbl">C</span></div>
+            <div class="cell">👁️<span class="lbl">O</span></div>
+            <div class="cell">🪏<span class="lbl">H</span></div>
+            <div class="cell">👁️<span class="lbl">O</span></div>
+            <div class="cell">🥩<span class="lbl">C</span></div>
+            <div class="cell">👁️<span class="lbl">O</span></div>
+            <div class="cell">🥩<span class="lbl">C</span></div>
+          </div>
+          <div class="arrow">➜</div>
+          <div class="result">🌾</div>
+        </div>
+        <ul class="legend">
+          <li><b>C</b> — Chair putréfiée (×4, aux angles)</li>
+          <li><b>O</b> — Œil d'araignée fermenté (×4, sur les côtés)</li>
+          <li><b>H</b> — Houe en diamant (×1, au centre)</li>
+        </ul>
+        <div class="callout tip">
+          Garde la Faux <b>en main principale</b> quand tu tues un mort-vivant : c'est la seule façon de
+          faire tomber une <a href="#essence">Essence d'âme</a>.
+        </div>
+      </section>
+
+      <!-- ===== Essence ===== -->
+      <section class="section" id="essence">
+        <h3>✨ Essence d'âme</h3>
+        <p class="lead">La matière première du pouvoir des âmes. Elle ne tombe que d'une façon bien précise.</p>
+        <div class="cards">
+          <div class="card">
+            <div class="title">Comment l'obtenir ?</div>
+            <div class="desc">Tue un <b>mort-vivant</b> (zombie, squelette, noyé, wither squelette…)
+              en tenant la <b>Faux des Âmes</b> en main principale.</div>
+            <span class="tag soul">40 % de drop</span>
+          </div>
+          <div class="card">
+            <div class="title">À quoi ça sert ?</div>
+            <div class="desc">Assemble <b>8 Essences</b> autour d'une bouteille en verre pour distiller
+              une <a href="#fiole">Fiole d'âmes</a>.</div>
+            <span class="tag">Ingrédient</span>
+          </div>
+        </div>
+        <div class="callout warn">
+          Sans la Faux en main, <b>aucune essence ne tombe</b> — même en tuant 100 zombies. C'est l'arme qui récolte, pas toi.
+        </div>
+      </section>
+
+      <!-- ===== Fiole ===== -->
+      <section class="section" id="fiole">
+        <h3>🧪 Fiole d'âmes</h3>
+        <p class="lead">Huit âmes condensées dans une fiole. C'est l'offrande qu'attend l'autel.</p>
+
+        <h4>Recette (table de craft)</h4>
+        <div class="recipe">
+          <div class="craft-grid">
+            <div class="cell">✨<span class="lbl">E</span></div>
+            <div class="cell">✨<span class="lbl">E</span></div>
+            <div class="cell">✨<span class="lbl">E</span></div>
+            <div class="cell">✨<span class="lbl">E</span></div>
+            <div class="cell">🍶<span class="lbl">B</span></div>
+            <div class="cell">✨<span class="lbl">E</span></div>
+            <div class="cell">✨<span class="lbl">E</span></div>
+            <div class="cell">✨<span class="lbl">E</span></div>
+            <div class="cell">✨<span class="lbl">E</span></div>
+          </div>
+          <div class="arrow">➜</div>
+          <div class="result">🧪</div>
+        </div>
+        <ul class="legend">
+          <li><b>E</b> — Essence d'âme (×8, tout autour)</li>
+          <li><b>B</b> — Bouteille en verre (×1, au centre)</li>
+        </ul>
+        <div class="callout">
+          La Fiole se <b>boit</b> (clic droit maintenu) — c'est ainsi qu'on déclenche le rituel sur l'autel.
+          En dehors d'un autel valide, la boire ne fait rien (un message d'aide s'affiche).
+        </div>
+      </section>
+
+      <!-- ===== Autel ===== -->
+      <section class="section" id="autel">
+        <h3>🔮 Autel &amp; rituel des âmes</h3>
+        <p class="lead">Le cœur du serveur : sacrifie une Fiole d'âmes sur un autel pour <b>gagner +1 vie</b>
+          (jusqu'à un maximum de 3).</p>
+
+        <h4>Construire l'autel (3×3×3)</h4>
+        <p>L'autel se construit sur trois niveaux. Tu te tiens debout <b>sur la table d'enchantement</b>, au centre.</p>
+        <ul class="legend">
+          <li><b>Couche du dessus</b> — 4 bougies aux angles (allumées)</li>
+          <li><b>Couche du milieu</b> — la table d'enchantement au centre, entourée de socle</li>
+          <li><b>Couche du bas</b> — un bloc d'<b>or</b> juste sous le centre</li>
+        </ul>
+
+        <h4>Faire le rituel</h4>
+        <ol class="steps">
+          <li>Construis l'autel et <b>allume les 4 bougies</b>.</li>
+          <li>Monte <b>sur la table d'enchantement</b>, au centre de l'autel.</li>
+          <li><b>Bois la Fiole d'âmes</b> (maintiens le clic droit).</li>
+          <li>Une séquence de sons et de particules violettes se déclenche pendant ~3 secondes.</li>
+          <li>À la fin : <b>+1 vie</b>, les bougies s'éteignent et le bloc d'or se change en basalte lisse.</li>
+        </ol>
+        <div class="callout warn">
+          Si tu es déjà à <b>3 vies (le max)</b>, le rituel ne démarre pas et ta Fiole n'est pas consommée. Garde-la pour plus tard.
+        </div>
+        <div class="callout tip">
+          La structure de l'autel est <b>configurable par les admins</b> (taille, blocs, bougies) dans la config du serveur.
+        </div>
+      </section>
+
+      <!-- ===== Vies ===== -->
+      <section class="section" id="vies">
+        <h3>❤️ Vies &amp; cœurs</h3>
+        <p class="lead">Tes vies sont précieuses (max <b>3</b>). Deux façons d'en regagner : le rituel de l'autel, ou un Cœur de vie.</p>
+        <div class="cards">
+          <div class="card">
+            <div class="title">❤️ Cœur de vie</div>
+            <div class="desc">Un consommable qui rend <b>+1 vie</b> dans une explosion d'effets « swag » :
+              foudre cosmétique, spirale violette, titre « +1 VIE », régénération et absorption.</div>
+            <span class="tag">+1 vie</span>
+          </div>
+          <div class="card">
+            <div class="title">🧙 Marchand des Âmes</div>
+            <div class="desc">Un PNJ qui veille sur le commerce des cœurs et des âmes. Va le voir pour échanger.</div>
+            <span class="tag">PNJ</span>
+          </div>
+          <div class="card">
+            <div class="title">🔮 Rituel de l'autel</div>
+            <div class="desc">L'autre voie : sacrifie une <a href="#fiole">Fiole d'âmes</a> sur l'<a href="#autel">autel</a>.</div>
+            <span class="tag soul">+1 vie</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Monnaie ===== -->
+      <section class="section" id="monnaie">
+        <h3>🪙 Monnaie</h3>
+        <p class="lead">Quatre métaux servent de monnaie sur ZinzinLand, du plus commun au plus précieux.</p>
+        <div class="cards">
+          <div class="card"><div class="title">🟤 Cuivron</div><div class="desc">La petite monnaie du quotidien.</div></div>
+          <div class="card"><div class="title">⚪ Ferron</div><div class="desc">Un cran au-dessus du cuivron.</div></div>
+          <div class="card"><div class="title">🟡 Aurin</div><div class="desc">Monnaie de valeur, faite d'or.</div></div>
+          <div class="card"><div class="title">💎 Diamantin</div><div class="desc">La monnaie la plus précieuse du serveur.</div></div>
+        </div>
+        <div class="callout">Consulte ton solde et gère tes pièces avec la commande <code>/coin</code>.</div>
+      </section>
+
+      <!-- ===== Rangs ===== -->
+      <section class="section" id="rangs">
+        <h3>🎖️ Rangs</h3>
+        <p class="lead">Progresse et débloque des <b>badges custom</b> affichés à côté de ton pseudo,
+          gagnés selon tes hauts faits (advancements).</p>
+        <div class="callout">Tape <code>/grades</code> pour voir tous les rangs et ta progression.</div>
+      </section>
+
+      <!-- ===== Commandes ===== -->
+      <section class="section" id="commandes">
+        <h3>⌨️ Commandes utiles</h3>
+        <p class="lead">Les commandes principales pour les joueurs.</p>
+        <table class="cmds">
+          <thead><tr><th>Commande</th><th>Effet</th></tr></thead>
+          <tbody>
+            <tr><td><code>/coin</code></td><td>Gérer et consulter ta monnaie</td></tr>
+            <tr><td><code>/vie</code></td><td>Voir tes vies</td></tr>
+            <tr><td><code>/grades</code></td><td>Voir les rangs et ta progression</td></tr>
+          </tbody>
+        </table>
+        <div class="callout tip">
+          D'autres commandes (donner des items, panel admin…) sont <b>réservées au staff</b>.
+        </div>
+      </section>
+
+      <footer class="footer">
+        Wiki du serveur <b>ZinzinLand</b> · Plugin maison 2026 · MC 1.21.11 · Fait avec 💀 par la team Zinzin.
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Menu mobile
+    const menuBtn = document.getElementById('menuBtn');
+    const sidebar = document.getElementById('sidebar');
+    menuBtn.addEventListener('click', () => sidebar.classList.toggle('open'));
+    sidebar.querySelectorAll('a').forEach(a => a.addEventListener('click', () => sidebar.classList.remove('open')));
+
+    // Highlight de la section active au scroll
+    const links = [...document.querySelectorAll('.nav a')];
+    const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const onScroll = () => {
+      let current = sections[0];
+      for (const s of sections) { if (s.getBoundingClientRect().top <= 120) current = s; }
+      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current.id));
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
+</body>
+</html>
