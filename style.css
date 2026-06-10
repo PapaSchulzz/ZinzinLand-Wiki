@@ -60,9 +60,12 @@ a:hover { text-decoration: underline; }
 .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
 .brand .logo {
   width: 42px; height: 42px; border-radius: 10px;
-  background: linear-gradient(135deg, var(--accent), var(--soul));
-  display: grid; place-items: center; font-size: 22px;
-  box-shadow: 0 6px 18px rgba(182,87,255,.4);
+  display: grid; place-items: center; overflow: hidden;
+  box-shadow: 0 6px 18px rgba(45,180,220,.4);
+}
+.brand .logo img {
+  width: 100%; height: 100%; object-fit: cover;
+  image-rendering: pixelated;
 }
 .brand h1 { font-size: 19px; margin: 0; letter-spacing: .3px; }
 .brand small { color: var(--muted); font-size: 12px; }
