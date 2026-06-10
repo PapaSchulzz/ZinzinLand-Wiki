@@ -3,19 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZinzinLand — Wiki du serveur</title>
+  <title>ZinzinLand · Wiki du serveur</title>
   <meta name="description" content="Wiki officiel du serveur Minecraft ZinzinLand : armes sentientes, âmes, autel & rituel, monnaie, vies et rangs." />
-  <link rel="stylesheet" href="style.css?v=2" />
-  <link rel="icon" type="image/png" href="assets/logo.png?v=2" />
+  <link rel="stylesheet" href="style.css?v=3" />
+  <link rel="icon" type="image/png" href="assets/logo.png?v=3" />
 </head>
 <body>
   <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
 
   <div class="layout">
-    <!-- ===== Sidebar ===== -->
     <aside class="sidebar" id="sidebar">
       <div class="brand">
-        <div class="logo"><img src="assets/logo.png?v=2" alt="ZinzinLand"></div>
+        <div class="logo"><img src="assets/logo.png?v=3" alt="ZinzinLand"></div>
         <div>
           <h1>ZinzinLand</h1>
           <small>Wiki du serveur</small>
@@ -38,7 +37,6 @@
       </ul>
     </aside>
 
-    <!-- ===== Content ===== -->
     <main class="content">
       <header class="hero" id="accueil">
         <h2>Bienvenue sur ZinzinLand 💀</h2>
@@ -53,7 +51,6 @@
         </div>
       </header>
 
-      <!-- ===== Armes sentientes ===== -->
       <section class="section" id="armes">
         <h3>⚔️ Armes sentientes</h3>
         <p class="lead">Cinq armes uniques au modèle custom, incassables, qui vivent de leur propre vie.
@@ -66,7 +63,7 @@
           </div>
           <div class="card">
             <div class="title"><img class="i" src="assets/bow.png" alt=""> Arc sentient</div>
-            <div class="desc">Un arc qui murmure. (L'animation de tension n'est pas encore portée — il reste au repos visuellement.)</div>
+            <div class="desc">Un arc qui murmure. (L'animation de tension n'est pas encore portée, il reste au repos visuellement.)</div>
             <span class="tag">Sentient</span>
           </div>
           <div class="card">
@@ -88,11 +85,10 @@
         </div>
         <div class="callout">
           Les armes sentientes affichent leurs <b>vrais dégâts et vitesse d'attaque</b> en blanc dans
-          l'infobulle, comme une arme vanilla — pas de bonus vert/rouge trompeur.
+          l'infobulle, comme une arme vanilla, sans bonus vert/rouge trompeur.
         </div>
       </section>
 
-      <!-- ===== Faux ===== -->
       <section class="section" id="faux">
         <h3><img class="i" src="assets/faux.png" alt=""> La Faux des Âmes</h3>
         <p class="lead">L'outil central du serveur. Sans elle, impossible de récolter les âmes.
@@ -115,9 +111,9 @@
           <div class="result"><img src="assets/faux.png" alt="Faux des Âmes"></div>
         </div>
         <ul class="legend">
-          <li><b>C</b> — Chair putréfiée (×4, aux angles)</li>
-          <li><b>O</b> — Œil d'araignée fermenté (×4, sur les côtés)</li>
-          <li><b>H</b> — Houe en diamant (×1, au centre)</li>
+          <li><b>C</b> : Chair putréfiée (×4, aux angles)</li>
+          <li><b>O</b> : Œil d'araignée fermenté (×4, sur les côtés)</li>
+          <li><b>H</b> : Houe en diamant (×1, au centre)</li>
         </ul>
         <div class="callout tip">
           Garde la Faux <b>en main principale</b> quand tu tues un mort-vivant : c'est la seule façon de
@@ -125,7 +121,6 @@
         </div>
       </section>
 
-      <!-- ===== Essence ===== -->
       <section class="section" id="essence">
         <h3><img class="i" src="assets/essence.png" alt=""> Essence d'âme</h3>
         <p class="lead">La matière première du pouvoir des âmes. Elle ne tombe que d'une façon bien précise.</p>
@@ -144,11 +139,10 @@
           </div>
         </div>
         <div class="callout warn">
-          Sans la Faux en main, <b>aucune essence ne tombe</b> — même en tuant 100 zombies. C'est l'arme qui récolte, pas toi.
+          Sans la Faux en main, <b>aucune essence ne tombe</b>, même en tuant 100 zombies. C'est l'arme qui récolte, pas toi.
         </div>
       </section>
 
-      <!-- ===== Fiole ===== -->
       <section class="section" id="fiole">
         <h3><img class="i" src="assets/fiole.png" alt=""> Fiole d'âmes</h3>
         <p class="lead">Huit âmes condensées dans une fiole. C'est l'offrande qu'attend l'autel.</p>
@@ -170,16 +164,15 @@
           <div class="result"><img src="assets/fiole.png" alt="Fiole d'âmes"></div>
         </div>
         <ul class="legend">
-          <li><b>E</b> — Essence d'âme (×8, tout autour)</li>
-          <li><b>B</b> — Bouteille en verre (×1, au centre)</li>
+          <li><b>E</b> : Essence d'âme (×8, tout autour)</li>
+          <li><b>B</b> : Bouteille en verre (×1, au centre)</li>
         </ul>
         <div class="callout">
-          La Fiole se <b>boit</b> (clic droit maintenu) — c'est ainsi qu'on déclenche le rituel sur l'autel.
+          La Fiole se <b>boit</b> (clic droit maintenu), c'est ainsi qu'on déclenche le rituel sur l'autel.
           En dehors d'un autel valide, la boire ne fait rien (un message d'aide s'affiche).
         </div>
       </section>
 
-      <!-- ===== Autel ===== -->
       <section class="section" id="autel">
         <h3>🔮 Autel &amp; rituel des âmes</h3>
         <p class="lead">Le cœur du serveur : sacrifie une Fiole d'âmes sur un autel pour <b>gagner +1 vie</b>
@@ -188,9 +181,9 @@
         <h4>Construire l'autel (3×3×3)</h4>
         <p>L'autel se construit sur trois niveaux. Tu te tiens debout <b>sur la table d'enchantement</b>, au centre.</p>
         <ul class="legend">
-          <li><b>Couche du dessus</b> — 4 bougies aux angles (allumées)</li>
-          <li><b>Couche du milieu</b> — la table d'enchantement au centre, entourée de socle</li>
-          <li><b>Couche du bas</b> — un bloc d'<b>or</b> juste sous le centre</li>
+          <li><b>Couche du dessus</b> : 4 bougies aux angles (allumées)</li>
+          <li><b>Couche du milieu</b> : la table d'enchantement au centre, entourée de socle</li>
+          <li><b>Couche du bas</b> : un bloc d'<b>or</b> juste sous le centre</li>
         </ul>
 
         <h4>Faire le rituel</h4>
@@ -209,7 +202,6 @@
         </div>
       </section>
 
-      <!-- ===== Vies ===== -->
       <section class="section" id="vies">
         <h3><img class="i" src="assets/heart.png" alt=""> Vies &amp; cœurs</h3>
         <p class="lead">Tes vies sont précieuses (max <b>3</b>). Deux façons d'en regagner : le rituel de l'autel, ou un Cœur de vie.</p>
@@ -233,7 +225,6 @@
         </div>
       </section>
 
-      <!-- ===== Monnaie ===== -->
       <section class="section" id="monnaie">
         <h3>🪙 Monnaie</h3>
         <p class="lead">Quatre métaux servent de monnaie sur ZinzinLand, du plus commun au plus précieux.</p>
@@ -246,7 +237,6 @@
         <div class="callout">Consulte ton solde et gère tes pièces avec la commande <code>/coin</code>.</div>
       </section>
 
-      <!-- ===== Rangs ===== -->
       <section class="section" id="rangs">
         <h3>🎖️ Rangs</h3>
         <p class="lead">Progresse et débloque des <b>badges custom</b> affichés à côté de ton pseudo,
@@ -254,7 +244,6 @@
         <div class="callout">Tape <code>/grades</code> pour voir tous les rangs et ta progression.</div>
       </section>
 
-      <!-- ===== Commandes ===== -->
       <section class="section" id="commandes">
         <h3>⌨️ Commandes utiles</h3>
         <p class="lead">Les commandes principales pour les joueurs.</p>
