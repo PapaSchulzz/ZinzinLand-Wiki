@@ -18,6 +18,13 @@
 
 * { box-sizing: border-box; }
 
+/* Icônes pixel-art (textures du serveur) */
+img.px { image-rendering: pixelated; image-rendering: crisp-edges; }
+.i { width: 1.5em; height: 1.5em; vertical-align: -0.35em; image-rendering: pixelated; }
+.cell img { width: 40px; height: 40px; image-rendering: pixelated; }
+.result img { width: 52px; height: 52px; image-rendering: pixelated; filter: drop-shadow(0 0 6px rgba(182,87,255,.5)); }
+.card .title img.i { margin-right: 2px; }
+
 html { scroll-behavior: smooth; }
 
 body {
