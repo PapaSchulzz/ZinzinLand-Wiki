@@ -41,6 +41,7 @@
         <li><a href="#autel"><span class="ico">🔮</span> Autel &amp; rituel</a></li>
         <li class="group">Survie</li>
         <li><a href="#vies"><span class="ico">❤️</span> Vies &amp; cœurs</a></li>
+        <li><a href="#claims"><span class="ico">🛡️</span> Protéger son terrain</a></li>
         <li class="group">Se déplacer</li>
         <li><a href="#waystones"><span class="ico">🧭</span> Waystones</a></li>
         <li><a href="#tpa"><span class="ico">📍</span> Téléportation /tpa</a></li>
@@ -244,6 +245,46 @@
         <div class="callout">Consulte tes vies avec la commande <code>/vie</code>.</div>
       </section>
 
+      <section class="section" id="claims">
+        <h3>🛡️ Protéger son terrain (claims)</h3>
+        <p class="lead">Pose un <b>claim</b> pour protéger ta base : sur un terrain protégé, personne
+          d'autre ne peut casser, poser, ouvrir tes coffres ni interagir avec tes blocs. La protection
+          se fait <b>chunk par chunk</b> (des carrés de 16×16 blocs).</p>
+
+        <table class="cmds">
+          <thead><tr><th>Commande</th><th>Effet</th></tr></thead>
+          <tbody>
+            <tr><td><code>/claim</code></td><td>Protège le chunk sur lequel tu te trouves</td></tr>
+            <tr><td><code>/unclaim</code></td><td>Retire la protection du chunk où tu es</td></tr>
+            <tr><td><code>/claims</code></td><td>Ouvre le menu de gestion de tes claims (membres, réglages, téléportation…)</td></tr>
+            <tr><td><code>/claim map</code></td><td>Affiche une carte des chunks protégés autour de toi</td></tr>
+          </tbody>
+        </table>
+
+        <div class="cards">
+          <div class="card">
+            <div class="title">👥 Inviter des amis</div>
+            <div class="desc">Depuis le menu <code>/claims</code>, ajoute des <b>membres</b> à ton claim :
+              ils pourront construire et ouvrir les coffres, sans pouvoir supprimer la protection.</div>
+          </div>
+          <div class="card">
+            <div class="title">⚙️ Régler les autorisations</div>
+            <div class="desc">Le menu permet d'ajuster finement ce que les visiteurs et les membres ont le
+              droit de faire (portes, boutons, PvP, animaux…), claim par claim.</div>
+          </div>
+          <div class="card">
+            <div class="title">🗺️ Voir les zones prises</div>
+            <div class="desc">La carte des chunks (<code>/claim map</code>) t'aide à repérer les terrains déjà
+              protégés avant de t'installer.</div>
+          </div>
+        </div>
+
+        <div class="callout tip">
+          Protège au moins le chunk de tes coffres dès que tu poses ta base : c'est la meilleure
+          assurance anti-grief du serveur.
+        </div>
+      </section>
+
       <section class="section" id="waystones">
         <h3>🧭 Waystones</h3>
         <p class="lead">Un réseau de bornes de téléportation pour voyager vite entre tes lieux favoris,
@@ -426,6 +467,7 @@
             <tr><td><code>/tpaccept</code> · <code>/tpdeny</code></td><td>Accepter / refuser une demande de téléportation</td></tr>
             <tr><td><code>/hdv</code></td><td>Ouvrir l'hôtel des ventes</td></tr>
             <tr><td><code>/trade &lt;joueur&gt;</code></td><td>Proposer un échange sécurisé</td></tr>
+            <tr><td><code>/claim</code> · <code>/claims</code></td><td>Protéger un chunk / gérer ses claims</td></tr>
             <tr><td><code>/vie</code></td><td>Voir tes vies</td></tr>
           </tbody>
         </table>
