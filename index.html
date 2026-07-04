@@ -17,6 +17,7 @@
     .altar-legend { display: flex; flex-wrap: wrap; gap: 10px 18px; margin: 4px 4px 2px; font-size: 12.5px; color: var(--muted); }
     .altar-legend span { display: inline-flex; align-items: center; gap: 7px; }
     .altar-legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; border: 1px solid rgba(0,0,0,.35); }
+    .altar-legend img.tx { width: 15px; height: 15px; border-radius: 3px; image-rendering: pixelated; vertical-align: -3px; border: 1px solid rgba(0,0,0,.35); }
   </style>
 </head>
 <body>
@@ -210,10 +211,10 @@
           <svg id="altarSvg" viewBox="0 0 480 360" role="img"
                aria-label="Vue 3D des trois couches de l'autel"></svg>
           <div class="altar-legend">
-            <span><i style="background:#f1c512"></i> Bloc d'or</span>
-            <span><i style="background:#474d5a"></i> Briques de deepslate</span>
-            <span><i style="background:#a877ff"></i> Table d'enchantement</span>
-            <span><i style="background:#c7c2b8"></i> Bougie noire (allumée)</span>
+            <span><img class="tx" src="assets/gold_block.png" alt=""> Bloc d'or</span>
+            <span><img class="tx" src="assets/deepslate_bricks.png" alt=""> Briques de deepslate</span>
+            <span><img class="tx" src="assets/enchanting_table_top.png" alt=""> Table d'enchantement</span>
+            <span><img class="tx" src="assets/black_candle.png" alt=""> Bougie noire (allumée)</span>
           </div>
         </div>
 
@@ -490,11 +491,10 @@
       const TW = 30, TH = 15, CX = 235;
       const FULL = 26, SLAB = 13;
 
-      const COL = {
-        deepslate: { t: '#474d5a', l: '#343a46', r: '#272b34' },
-        gold:      { t: '#f1c512', l: '#c99a10', r: '#a2790c' },
-        table:     { t: '#2b2340', l: '#1d1830', r: '#151022' },
-        candle:    { t: '#c7c2b8', l: '#3a3a40', r: '#2c2c31' }
+      const TEX = {
+        deepslate: { top: 'assets/deepslate_bricks.png',     side: 'assets/deepslate_bricks.png' },
+        gold:      { top: 'assets/gold_block.png',           side: 'assets/gold_block.png' },
+        table:     { top: 'assets/enchanting_table_top.png', side: 'assets/enchanting_table_side.png' }
       };
 
       function poly(pts, fill, opt) {
@@ -510,28 +510,40 @@
         poly([[cx, cy - TH], [cx + TW, cy], [cx, cy + TH], [cx - TW, cy]],
              'rgba(255,255,255,.04)', { stroke: 'rgba(255,255,255,.10)' });
       }
-      // Bloc iso posé sur le sol : (cx, cyFloor) = centre de la face du sol.
-      function box(cx, cyFloor, tw, th, h, c) {
-        const top = cyFloor - h;
-        poly([[cx - tw, top], [cx, top + th], [cx, cyFloor + th], [cx - tw, cyFloor]], c.l);
-        poly([[cx, top + th], [cx + tw, top], [cx + tw, cyFloor], [cx, cyFloor + th]], c.r);
-        poly([[cx, top - th], [cx + tw, top], [cx, top + th], [cx - tw, top]], c.t);
+      // Face texturée : plaque une texture 16x16 sur un parallélogramme (matrice affine).
+      function face(href, m) {
+        const im = document.createElementNS(NS, 'image');
+        im.setAttribute('href', href);
+        im.setAttribute('x', '0'); im.setAttribute('y', '0');
+        im.setAttribute('width', '1'); im.setAttribute('height', '1');
+        im.setAttribute('preserveAspectRatio', 'none');
+        im.setAttribute('image-rendering', 'pixelated');
+        im.setAttribute('transform', 'matrix(' + m.join(',') + ')');
+        svg.appendChild(im);
       }
+      // Bloc texturé posé sur le sol : (cx, cyFloor) = centre de la face du sol.
+      // On plaque la texture puis un voile d'ombre pour distinguer les 3 faces.
+      function texBox(cx, cyFloor, tw, th, h, tex) {
+        const top = cyFloor - h;
+        face(tex.side, [tw, th, 0, h, cx - tw, top]);
+        poly([[cx - tw, top], [cx, top + th], [cx, cyFloor + th], [cx - tw, cyFloor]],
+             'rgba(0,0,0,.32)', { stroke: 'rgba(0,0,0,.4)' });
+        face(tex.side, [-tw, th, 0, h, cx + tw, top]);
+        poly([[cx, top + th], [cx + tw, top], [cx + tw, cyFloor], [cx, cyFloor + th]],
+             'rgba(0,0,0,.48)', { stroke: 'rgba(0,0,0,.4)' });
+        face(tex.top, [tw, th, -tw, th, cx, top - th]);
+        poly([[cx, top - th], [cx + tw, top], [cx, top + th], [cx - tw, top]],
+             'rgba(255,255,255,.05)', { stroke: 'rgba(0,0,0,.4)' });
+      }
+      // Bougie noire : fine colonne sombre + flamme (la texture bougie ne se plaque pas sur un bloc plein).
       function candle(cx, cyFloor) {
-        const tw = 8, th = 4, h = 20;
-        box(cx, cyFloor, tw, th, h, COL.candle);
-        const fy = cyFloor - h - 5;
+        const tw = 7, th = 3.5, h = 16, top = cyFloor - h;
+        poly([[cx - tw, top], [cx, top + th], [cx, cyFloor + th], [cx - tw, cyFloor]], '#242429', { stroke: 'rgba(0,0,0,.4)' });
+        poly([[cx, top + th], [cx + tw, top], [cx + tw, cyFloor], [cx, cyFloor + th]], '#17171b', { stroke: 'rgba(0,0,0,.4)' });
+        poly([[cx, top - th], [cx + tw, top], [cx, top + th], [cx - tw, top]], '#37373f', { stroke: 'rgba(0,0,0,.4)' });
+        const fy = top - 4;
         poly([[cx, fy - 7], [cx + 3, fy], [cx, fy + 4], [cx - 3, fy]], '#ffcf5a', { stroke: 'none' });
         poly([[cx, fy - 3], [cx + 1.6, fy + 1], [cx, fy + 3], [cx - 1.6, fy + 1]], '#fff4c2', { stroke: 'none' });
-      }
-      function table(cx, cyFloor) {
-        box(cx, cyFloor, TW, TH, FULL, COL.table);
-        const top = cyFloor - FULL;
-        // livre / lueur violette posé sur la table
-        poly([[cx, top - 10], [cx + 11, top - 3.5], [cx, top + 3], [cx - 11, top - 3.5]],
-             '#a877ff', { stroke: 'rgba(168,119,255,.7)' });
-        poly([[cx, top - 6], [cx + 4.5, top - 3], [cx, top], [cx - 4.5, top - 3]],
-             '#ff5e8a', { stroke: 'none' });
       }
 
       const layers = [
@@ -556,10 +568,10 @@
         items.forEach(it => {
           switch (it.type) {
             case 'candle': candle(it.cx, it.cy); break;
-            case 'wall':   box(it.cx, it.cy, TW, TH, FULL, COL.deepslate); break;
-            case 'slab':   box(it.cx, it.cy, TW, TH, SLAB, COL.deepslate); break;
-            case 'table':  table(it.cx, it.cy); break;
-            case 'gold':   box(it.cx, it.cy, TW, TH, FULL, COL.gold); break;
+            case 'wall':   texBox(it.cx, it.cy, TW, TH, FULL, TEX.deepslate); break;
+            case 'slab':   texBox(it.cx, it.cy, TW, TH, SLAB, TEX.deepslate); break;
+            case 'table':  texBox(it.cx, it.cy, TW, TH, FULL, TEX.table); break;
+            case 'gold':   texBox(it.cx, it.cy, TW, TH, FULL, TEX.gold); break;
           }
         });
         const t = document.createElementNS(NS, 'text');
