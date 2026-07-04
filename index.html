@@ -24,6 +24,7 @@
     .ws-build svg { display: block; margin: 0 auto; width: 100%; max-width: 300px; height: auto; }
     .ws-current { text-align: center; font-size: 13px; color: var(--muted); margin: 2px 0 10px; }
     .ws-current b { color: var(--text); }
+    .ws-current a { color: var(--accent); text-decoration: underline; }
     .ws-variants { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 0 8px; }
     .ws-variants button { display: inline-flex; align-items: center; gap: 7px; cursor: pointer; background: var(--bg); border: 1px solid var(--border); color: var(--muted); border-radius: 999px; padding: 5px 12px 5px 6px; font: inherit; font-size: 12.5px; line-height: 1; transition: border-color .15s, color .15s, background .15s; }
     .ws-variants button:hover { color: var(--text); border-color: var(--muted); }
@@ -288,26 +289,26 @@
           sans perles d'ender ni longues marches.</p>
 
         <h4>Construire sa waystone</h4>
-        <p>Une waystone n'a <b>pas de recette d'établi</b> : on la <b>bâtit en empilant 5 blocs</b>,
-          un peu comme l'autel. Le bloc du milieu (une version <b>ciselée</b>, ou une <b>pierre d'aimant</b>)
-          fait le cœur de la borne. Et tu peux la construire dans <b>une quinzaine de matériaux</b> :
-          le style change, la fonction reste identique.</p>
+        <p>Une waystone n'a <b>pas de recette d'établi</b> : on la <b>bâtit avec seulement 2 blocs</b>.
+          Il te faut une <a href="https://fr.minecraft.wiki/w/Magn%C3%A9tite" target="_blank" rel="noopener"
+          style="color:var(--accent);text-decoration:underline">Magnétite</a> (le <b>cœur</b> de la borne),
+          surmontée d'un <b>bloc décoratif</b> de ton choix : le style change, la fonction reste identique.</p>
 
         <div class="ws-build">
-          <svg id="waystoneSvg" viewBox="0 44 200 282" role="img"
-               aria-label="Structure d'une waystone : 5 blocs empilés"></svg>
+          <svg id="waystoneSvg" viewBox="0 96 200 150" role="img"
+               aria-label="Structure d'une waystone : 2 blocs (bloc décoratif + Magnétite)"></svg>
           <div class="ws-current" id="wsCurrent"></div>
           <div class="ws-variants" id="wsVariants"></div>
         </div>
         <p style="font-size:13px;color:var(--muted);margin:8px 2px 0">
-          Et ce n'est qu'un aperçu : deepslate, tuff, grès rouge, briques de résine, blackstone poli,
-          cuivre taillé (dans ses 4 teintes d'oxydation)… au total <b>16 skins</b> sont possibles.</p>
+          Le bloc décoratif accepte quantité de matériaux taillés : pierre, deepslate, tuff, grès,
+          quartz, cuivre taillé… à toi de choisir le rendu.</p>
 
         <div class="cards">
           <div class="card">
             <div class="title">1 · Trouve ou construis une waystone</div>
             <div class="desc">Les waystones se rencontrent dans le monde et peuvent aussi être bâties
-              par les joueurs (5 blocs empilés) pour créer leurs propres points de voyage.</div>
+              par les joueurs (une Magnétite + un bloc décoratif) pour créer leurs propres points de voyage.</div>
           </div>
           <div class="card">
             <div class="title">2 · Active-la</div>
@@ -630,16 +631,18 @@
       const NS = 'http://www.w3.org/2000/svg', A = 'assets/';
 
       const SKINS = [
-        { name: 'Pierre lisse',        base: 'smooth_stone.png',    core: 'lodestone.png',              coeur: "Pierre d'aimant" },
-        { name: 'Briques de pierre',   base: 'stone_bricks.png',    core: 'chiseled_stone_bricks.png',  coeur: 'Briques de pierre ciselées' },
-        { name: 'Tuiles de deepslate', base: 'deepslate_tiles.png', core: 'chiseled_deepslate.png',     coeur: 'Deepslate ciselé' },
-        { name: 'Briques de tuff',     base: 'tuff_bricks.png',     core: 'chiseled_tuff_bricks.png',   coeur: 'Tuff ciselé' },
-        { name: 'Briques du Nether',   base: 'nether_bricks.png',   core: 'chiseled_nether_bricks.png', coeur: 'Briques du Nether ciselées' },
-        { name: 'Grès taillé',         base: 'cut_sandstone.png',   core: 'chiseled_sandstone.png',     coeur: 'Grès ciselé' },
-        { name: 'Quartz',              base: 'quartz_block.png',    core: 'chiseled_quartz_block.png',  coeur: 'Quartz ciselé' }
+        { name: 'Pierre lisse',        tex: 'smooth_stone.png' },
+        { name: 'Briques de pierre',   tex: 'stone_bricks.png' },
+        { name: 'Tuiles de deepslate', tex: 'deepslate_tiles.png' },
+        { name: 'Briques de tuff',     tex: 'tuff_bricks.png' },
+        { name: 'Briques du Nether',   tex: 'nether_bricks.png' },
+        { name: 'Grès taillé',         tex: 'cut_sandstone.png' },
+        { name: 'Quartz',              tex: 'quartz_block.png' }
       ];
 
-      const TW = 42, TH = 21, CX = 100, Y0 = 286, FULL = 46, SLAB = 23;
+      const MAG = 'lodestone.png';
+      const LINK = '<a href="https://fr.minecraft.wiki/w/Magn%C3%A9tite" target="_blank" rel="noopener">Magnétite</a>';
+      const TW = 42, TH = 21, CX = 100, Y0 = 215, FULL = 46;
 
       function poly(pts, fill, stroke) {
         const p = document.createElementNS(NS, 'polygon');
@@ -675,24 +678,21 @@
         // ombre au sol
         poly([[CX, Y0 - TH + 4], [CX + TW, Y0 + 4], [CX, Y0 + TH + 4], [CX - TW, Y0 + 4]],
              'rgba(0,0,0,.25)', 'none');
-        // pile de bas en haut : socle (dalle), pilier, bas, cœur, sommet
+        // 2 blocs : bloc décoratif (en bas) surmonté de la Magnétite (le cœur)
         const stack = [
-          { h: SLAB, tex: skin.base },  // dalle
-          { h: FULL, tex: skin.base },  // pilier
-          { h: FULL, tex: skin.base },  // bas
-          { h: FULL, tex: skin.core },  // cœur (bloc central)
-          { h: FULL, tex: skin.base }   // sommet
+          { h: FULL, tex: skin.tex },  // bloc décoratif
+          { h: FULL, tex: MAG }        // Magnétite (cœur)
         ];
         let floorY = Y0;
         stack.forEach(b => { texBox(CX, floorY, b.h, b.tex); floorY -= b.h; });
-        label.innerHTML = 'Matériau : <b>' + skin.name + '</b> · cœur : ' + skin.coeur;
+        label.innerHTML = 'Bloc décoratif : <b>' + skin.name + '</b> · cœur : ' + LINK;
       }
 
       let idx = 0, timer = null;
       const btns = SKINS.map((skin, i) => {
         const b = document.createElement('button');
         b.type = 'button';
-        b.innerHTML = '<img src="' + A + skin.core + '" alt=""> ' + skin.name;
+        b.innerHTML = '<img src="' + A + skin.tex + '" alt=""> ' + skin.name;
         b.addEventListener('click', () => select(i, true));
         bar.appendChild(b);
         return b;
