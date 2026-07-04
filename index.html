@@ -4,12 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZinzinLand · Wiki du serveur</title>
-  <meta name="description" content="Wiki officiel du serveur Minecraft ZinzinLand : la Faux des Âmes, âmes, autel & rituel, monnaie, vies et rangs." />
+  <meta name="description" content="Wiki officiel du serveur Minecraft ZinzinLand : la Faux et les armes des Âmes, le rituel de l'autel pour regagner une vie, les waystones, /tpa, /spawn, l'hôtel des ventes, /trade, la cuisine Crop & Kettle, les coffres à butin et le chat vocal." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" />
   <link rel="stylesheet" href="style.css?v=7" />
   <link rel="icon" type="image/png" href="assets/logo.png?v=7" />
+  <style>
+    /* Visualisation 3D isometrique de l'autel */
+    .altar3d { background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 6px 6px; margin: 18px 0; overflow-x: auto; }
+    .altar3d svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+    .altar-legend { display: flex; flex-wrap: wrap; gap: 10px 18px; margin: 4px 4px 2px; font-size: 12.5px; color: var(--muted); }
+    .altar-legend span { display: inline-flex; align-items: center; gap: 7px; }
+    .altar-legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; border: 1px solid rgba(0,0,0,.35); }
+  </style>
 </head>
 <body>
   <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
@@ -29,11 +37,23 @@
         <li><a href="#faux"><span class="ico">🌾</span> La Faux des Âmes</a></li>
         <li><a href="#essence"><span class="ico">✨</span> Essence d'âme</a></li>
         <li><a href="#fiole"><span class="ico">🧪</span> Fiole d'âmes</a></li>
+        <li><a href="#armes"><span class="ico">⚔️</span> Armes des Âmes</a></li>
         <li><a href="#autel"><span class="ico">🔮</span> Autel &amp; rituel</a></li>
-        <li class="group">Survie</li>
+        <li class="group">Vies &amp; rangs</li>
         <li><a href="#vies"><span class="ico">❤️</span> Vies &amp; cœurs</a></li>
-        <li><a href="#monnaie"><span class="ico">🪙</span> Monnaie</a></li>
         <li><a href="#rangs"><span class="ico">🎖️</span> Rangs</a></li>
+        <li class="group">Se déplacer</li>
+        <li><a href="#waystones"><span class="ico">🧭</span> Waystones</a></li>
+        <li><a href="#tpa"><span class="ico">📍</span> Téléportation /tpa</a></li>
+        <li><a href="#spawn"><span class="ico">🏕️</span> Spawn</a></li>
+        <li class="group">Économie &amp; échanges</li>
+        <li><a href="#monnaie"><span class="ico">🪙</span> Monnaie</a></li>
+        <li><a href="#hdv"><span class="ico">🏷️</span> Hôtel des ventes</a></li>
+        <li><a href="#trade"><span class="ico">🔄</span> Échange /trade</a></li>
+        <li class="group">Contenu &amp; extras</li>
+        <li><a href="#cnk"><span class="ico">🍲</span> Cuisine (Crop &amp; Kettle)</a></li>
+        <li><a href="#loot"><span class="ico">🎁</span> Coffres à butin</a></li>
+        <li><a href="#voice"><span class="ico">🎙️</span> Chat vocal</a></li>
         <li class="group">Aide</li>
         <li><a href="#commandes"><span class="ico">⌨️</span> Commandes</a></li>
       </ul>
@@ -44,9 +64,10 @@
         <h2>Bienvenue sur ZinzinLand</h2>
         <p>Un serveur survie où les <b>âmes des morts-vivants</b> sont une ressource. Récolte-les
           avec la Faux, distille-les en fioles, et offre-les à l'autel pour <b>gagner des vies</b>.
-          Ce wiki rassemble tout ce qu'il faut savoir pour jouer.</p>
+          Ce wiki rassemble tout ce qu'il faut savoir pour jouer : les armes des Âmes, les
+          déplacements, l'économie, la cuisine et bien plus.</p>
         <div class="stats">
-          <div class="stat"><b>1</b><span>Faux des Âmes</span></div>
+          <div class="stat"><b>5</b><span>armes des Âmes</span></div>
           <div class="stat"><b>3</b><span>vies max</span></div>
           <div class="stat"><b>4</b><span>types de monnaie</span></div>
           <div class="stat"><b>1</b><span>autel des âmes</span></div>
@@ -61,13 +82,13 @@
         <div class="recipe">
           <div class="craft-grid">
             <div class="cell"><img src="assets/rotten_flesh.png" alt="Chair putréfiée" title="Chair putréfiée"></div>
-            <div class="cell"><img src="assets/fermented_spider_eye.png" alt="Œil d'araignée fermenté" title="Œil d'araignée fermenté"></div>
+            <div class="cell"><img src="assets/spider_eye.png" alt="Œil d'araignée" title="Œil d'araignée"></div>
             <div class="cell"><img src="assets/rotten_flesh.png" alt="Chair putréfiée" title="Chair putréfiée"></div>
-            <div class="cell"><img src="assets/fermented_spider_eye.png" alt="Œil d'araignée fermenté" title="Œil d'araignée fermenté"></div>
+            <div class="cell"><img src="assets/spider_eye.png" alt="Œil d'araignée" title="Œil d'araignée"></div>
             <div class="cell"><img src="assets/diamond_hoe.png" alt="Houe en diamant" title="Houe en diamant"></div>
-            <div class="cell"><img src="assets/fermented_spider_eye.png" alt="Œil d'araignée fermenté" title="Œil d'araignée fermenté"></div>
+            <div class="cell"><img src="assets/spider_eye.png" alt="Œil d'araignée" title="Œil d'araignée"></div>
             <div class="cell"><img src="assets/rotten_flesh.png" alt="Chair putréfiée" title="Chair putréfiée"></div>
-            <div class="cell"><img src="assets/fermented_spider_eye.png" alt="Œil d'araignée fermenté" title="Œil d'araignée fermenté"></div>
+            <div class="cell"><img src="assets/spider_eye.png" alt="Œil d'araignée" title="Œil d'araignée"></div>
             <div class="cell"><img src="assets/rotten_flesh.png" alt="Chair putréfiée" title="Chair putréfiée"></div>
           </div>
           <div class="arrow">➜</div>
@@ -86,7 +107,7 @@
           <div class="card">
             <div class="title">Comment l'obtenir ?</div>
             <div class="desc">Tue un <b>mort-vivant</b> (zombie, squelette, noyé, wither squelette…)
-              en tenant la <b>Faux des Âmes</b> en main principale.</div>
+              en tenant une <b>arme des Âmes</b> en main principale (Faux, Épée, Hache, Lance ou Arc).</div>
             <span class="tag soul">40 % de drop</span>
           </div>
           <div class="card">
@@ -97,7 +118,8 @@
           </div>
         </div>
         <div class="callout warn">
-          Sans la Faux en main, <b>aucune essence ne tombe</b>, même en tuant 100 zombies. C'est l'arme qui récolte, pas toi.
+          Sans une arme des Âmes en main, <b>aucune essence ne tombe</b>, même en tuant 100 zombies.
+          C'est l'arme qui récolte, pas toi.
         </div>
       </section>
 
@@ -126,22 +148,86 @@
         </div>
       </section>
 
+      <section class="section" id="armes">
+        <h3>⚔️ Les armes des Âmes</h3>
+        <p class="lead">La Faux n'est pas seule : <b>cinq armes des Âmes</b> existent. Toutes font
+          tomber des <a href="#essence">essences</a> quand tu tues un mort-vivant en les tenant, mais
+          elles sont <b>maudites</b> tant qu'elles restent en main.</p>
+
+        <h4>Même recette que la Faux, un seul changement</h4>
+        <p>Chaque arme se fabrique avec la <b>même grille que la <a href="#faux">Faux des Âmes</a></b>
+          (chair putréfiée aux angles, œil d'araignée sur les côtés). Seul <b>l'outil au centre</b>
+          change et détermine l'arme obtenue.</p>
+
+        <div class="cards">
+          <div class="card">
+            <div class="title"><img class="i" src="assets/faux.png" alt=""> Faux des Âmes</div>
+            <div class="desc">6 dégâts, 2.5 de vitesse. L'arme d'entrée pour récolter les âmes.</div>
+            <span class="tag">Centre : Houe en diamant</span>
+          </div>
+          <div class="card">
+            <div class="title"><img class="i" src="assets/cleaver.png" alt=""> Épée des Âmes</div>
+            <div class="desc">Une lame assoiffée de chair, taillée pour le corps à corps.</div>
+            <span class="tag">Centre : Épée en diamant</span>
+          </div>
+          <div class="card">
+            <div class="title"><img class="i" src="assets/axe.png" alt=""> Hache des Âmes</div>
+            <div class="desc">Une hache forgée dans les âmes perdues, lente mais dévastatrice.</div>
+            <span class="tag">Centre : Hache en diamant</span>
+          </div>
+          <div class="card">
+            <div class="title"><img class="i" src="assets/sword.png" alt=""> Lance des Âmes</div>
+            <div class="desc">Une lance qui se nourrit des âmes, idéale pour garder ses distances.</div>
+            <span class="tag">Centre : Lance en diamant</span>
+          </div>
+          <div class="card">
+            <div class="title"><img class="i" src="assets/bow.png" alt=""> Arc des Âmes</div>
+            <div class="desc">Un arc animé par les âmes damnées : il récolte aussi à distance.</div>
+            <span class="tag">Centre : Arc</span>
+          </div>
+        </div>
+
+        <div class="callout warn">
+          <b>Le prix du pouvoir.</b> Tant qu'une arme des Âmes est en main, tu subis la <b>Faim II</b>,
+          ta <b>régénération naturelle est coupée</b> et l'arme émet des particules et des murmures.
+          Range-la pour te soigner tranquillement.
+        </div>
+        <div class="callout tip">
+          Il existe aussi un <b>Arc infusé</b>, saturé d'énergie d'âmes : il ne fait pas partie des
+          cinq armes récolteuses et ne fait donc <b>pas</b> tomber d'essences.
+        </div>
+      </section>
+
       <section class="section" id="autel">
         <h3>🔮 Autel &amp; rituel des âmes</h3>
         <p class="lead">Le cœur du serveur : sacrifie une Fiole d'âmes sur un autel pour <b>gagner +1 vie</b>
           (jusqu'à un maximum de 3).</p>
 
         <h4>Construire l'autel (3×3×3)</h4>
-        <p>L'autel se construit sur trois niveaux. Tu te tiens debout <b>sur la table d'enchantement</b>, au centre.</p>
+        <p>L'autel se construit sur trois couches. Tu te tiens debout <b>sur la table d'enchantement</b>,
+          au centre. Voici la structure en 3D :</p>
+
+        <div class="altar3d">
+          <svg id="altarSvg" viewBox="0 0 480 360" role="img"
+               aria-label="Vue 3D des trois couches de l'autel"></svg>
+          <div class="altar-legend">
+            <span><i style="background:#f1c512"></i> Bloc d'or</span>
+            <span><i style="background:#474d5a"></i> Briques de deepslate</span>
+            <span><i style="background:#a877ff"></i> Table d'enchantement</span>
+            <span><i style="background:#c7c2b8"></i> Bougie noire (allumée)</span>
+          </div>
+        </div>
+
         <ul class="legend">
-          <li><b>Couche du dessus</b> : 4 bougies aux angles (allumées)</li>
-          <li><b>Couche du milieu</b> : la table d'enchantement au centre, entourée de socle</li>
-          <li><b>Couche du bas</b> : un bloc d'<b>or</b> juste sous le centre</li>
+          <li><b>Couche du dessus</b> : 4 bougies noires aux angles (allumées)</li>
+          <li><b>Couche du milieu</b> : la table d'enchantement au centre, entourée de dalles de briques
+            de deepslate (côtés) et de murs de briques de deepslate (angles)</li>
+          <li><b>Couche du bas</b> : un bloc d'<b>or</b> juste sous la table</li>
         </ul>
 
         <h4>Faire le rituel</h4>
         <ol class="steps">
-          <li>Construis l'autel et <b>allume les 4 bougies</b>.</li>
+          <li>Construis l'autel et <b>allume les 4 bougies</b> (briquet).</li>
           <li>Monte <b>sur la table d'enchantement</b>, au centre de l'autel.</li>
           <li><b>Bois la Fiole d'âmes</b> (maintiens le clic droit).</li>
           <li>Une séquence de sons et de particules violettes se déclenche pendant ~3 secondes.</li>
@@ -176,6 +262,76 @@
             <span class="tag soul">+1 vie</span>
           </div>
         </div>
+        <div class="callout">Consulte tes vies avec la commande <code>/vie</code>.</div>
+      </section>
+
+      <section class="section" id="rangs">
+        <h3>🎖️ Rangs</h3>
+        <p class="lead">Progresse et débloque des <b>badges custom</b> affichés à côté de ton pseudo,
+          gagnés selon tes hauts faits (advancements).</p>
+        <div class="callout">Tape <code>/grades</code> pour voir tous les rangs et ta progression.</div>
+      </section>
+
+      <section class="section" id="waystones">
+        <h3>🧭 Waystones</h3>
+        <p class="lead">Un réseau de bornes de téléportation pour voyager vite entre tes lieux favoris,
+          sans perles d'ender ni longues marches.</p>
+        <div class="cards">
+          <div class="card">
+            <div class="title">1 · Trouve ou pose une waystone</div>
+            <div class="desc">Les waystones se rencontrent dans le monde et peuvent aussi être posées
+              par les joueurs pour créer leurs propres points de voyage.</div>
+          </div>
+          <div class="card">
+            <div class="title">2 · Active-la</div>
+            <div class="desc">Fais un <b>clic droit</b> sur la borne pour la découvrir : elle rejoint alors
+              ton réseau personnel de destinations.</div>
+          </div>
+          <div class="card">
+            <div class="title">3 · Voyage</div>
+            <div class="desc">Reclique sur n'importe quelle waystone déjà découverte pour ouvrir le menu
+              et te téléporter vers une autre borne de ton réseau.</div>
+          </div>
+        </div>
+        <div class="callout tip">
+          Plus tu découvres de waystones, plus ton réseau de raccourcis s'agrandit. Pense à en poser
+          près de ta base, des fermes et des points d'intérêt.
+        </div>
+      </section>
+
+      <section class="section" id="tpa">
+        <h3>📍 Téléportation entre joueurs (/tpa)</h3>
+        <p class="lead">Rejoins un ami où qu'il soit, avec son accord. Chaque demande <b>expire</b> après
+          un court délai si personne ne répond.</p>
+        <table class="cmds">
+          <thead><tr><th>Commande</th><th>Effet</th></tr></thead>
+          <tbody>
+            <tr><td><code>/tpa &lt;joueur&gt;</code></td><td>Demande à te téléporter <b>vers</b> ce joueur</td></tr>
+            <tr><td><code>/tpahere &lt;joueur&gt;</code></td><td>Demande à ce joueur de venir <b>à toi</b></td></tr>
+            <tr><td><code>/tpaccept</code></td><td>Accepte la demande en attente <small>(alias /tpaccepter, /tpyes)</small></td></tr>
+            <tr><td><code>/tpdeny</code></td><td>Refuse la demande <small>(alias /tparefuser, /tpno)</small></td></tr>
+            <tr><td><code>/tpacancel</code></td><td>Annule la demande que tu as envoyée <small>(alias /tpannuler)</small></td></tr>
+          </tbody>
+        </table>
+        <div class="callout tip">
+          Quand tu reçois une demande, un message avec les boutons <b>[Accepter]</b> et <b>[Refuser]</b>
+          s'affiche dans le chat : un simple clic suffit.
+        </div>
+      </section>
+
+      <section class="section" id="spawn">
+        <h3>🏕️ Spawn</h3>
+        <p class="lead">Besoin de revenir au point de départ du serveur ? Une seule commande.</p>
+        <table class="cmds">
+          <thead><tr><th>Commande</th><th>Effet</th></tr></thead>
+          <tbody>
+            <tr><td><code>/spawn</code></td><td>Te téléporte au spawn du serveur</td></tr>
+          </tbody>
+        </table>
+        <div class="callout">
+          Le spawn est aussi l'endroit où tu réapparais après la mort (sauf si tu as défini un lit ou
+          une ancre de réapparition). <code>/setspawn</code> est réservé au staff.
+        </div>
       </section>
 
       <section class="section" id="monnaie">
@@ -190,11 +346,102 @@
         <div class="callout">Consulte ton solde et gère tes pièces avec la commande <code>/coin</code>.</div>
       </section>
 
-      <section class="section" id="rangs">
-        <h3>🎖️ Rangs</h3>
-        <p class="lead">Progresse et débloque des <b>badges custom</b> affichés à côté de ton pseudo,
-          gagnés selon tes hauts faits (advancements).</p>
-        <div class="callout">Tape <code>/grades</code> pour voir tous les rangs et ta progression.</div>
+      <section class="section" id="hdv">
+        <h3>🏷️ Hôtel des ventes</h3>
+        <p class="lead">Un marché global intégré : mets tes objets en vente et achète ceux des autres
+          joueurs, même hors ligne. Les prix sont en <a href="#monnaie">Cuivron</a>.</p>
+        <table class="cmds">
+          <thead><tr><th>Commande</th><th>Effet</th></tr></thead>
+          <tbody>
+            <tr><td><code>/hdv</code></td><td>Ouvre l'hôtel des ventes (parcourir &amp; acheter)</td></tr>
+            <tr><td><code>/hdv vendre &lt;prix&gt;</code></td><td>Met l'objet tenu en main en vente au prix indiqué (en Cuivron)</td></tr>
+            <tr><td><code>/hdv mesventes</code></td><td>Voir et gérer tes propres annonces</td></tr>
+            <tr><td><code>/hdv recuperer</code></td><td>Récupère tes objets vendus / invendus dans ta boîte de retrait</td></tr>
+          </tbody>
+        </table>
+        <div class="callout warn">
+          Le nombre d'<b>annonces actives</b> par joueur est limité. Les pièces ne se vendent pas ici :
+          pour l'argent, passe par la banque.
+        </div>
+      </section>
+
+      <section class="section" id="trade">
+        <h3>🔄 Échange direct (/trade)</h3>
+        <p class="lead">Un échange <b>sécurisé, en face à face</b> entre deux joueurs. Chacun voit ce que
+          l'autre propose et doit valider : fini les arnaques au jeté d'objets.</p>
+        <table class="cmds">
+          <thead><tr><th>Commande</th><th>Effet</th></tr></thead>
+          <tbody>
+            <tr><td><code>/trade &lt;joueur&gt;</code></td><td>Envoie une demande d'échange à un joueur proche</td></tr>
+          </tbody>
+        </table>
+        <div class="callout tip">
+          Une fenêtre s'ouvre pour les deux joueurs : déposez vos objets, vérifiez, puis
+          <b>confirmez chacun</b>. L'échange ne se conclut que si les deux valident.
+        </div>
+      </section>
+
+      <section class="section" id="cnk">
+        <h3>🍲 Cuisine — Crop &amp; Kettle</h3>
+        <p class="lead">Un datapack de cuisine complet (« CnK ») qui ajoute des dizaines de vrais plats
+          cuisinés, bien au-delà des recettes vanilla.</p>
+        <div class="cards">
+          <div class="card">
+            <div class="title">📖 Le livre de recettes</div>
+            <div class="desc">Le livre <b>« L'art de la cuisine »</b> recense tous les plats. Sur
+              ZinzinLand, il est <b>débloqué pour tout le monde</b> dès le départ.</div>
+          </div>
+          <div class="card">
+            <div class="title">🔪 Des stations de cuisine</div>
+            <div class="desc">On prépare les plats via des postes dédiés (planche à découper, marmite…)
+              en combinant des ingrédients, dont les <b>récoltes du serveur</b> comme le Maïs.</div>
+          </div>
+          <div class="card">
+            <div class="title">🧑‍🍳 Lié aux quêtes</div>
+            <div class="desc">Des PNJ s'appuient sur cette cuisine, comme <b>Ninjaxx</b> et son
+              « plat du jour » à lui rapporter chaque jour contre une récompense.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="loot">
+        <h3>🎁 Coffres à butin (loot par joueur)</h3>
+        <p class="lead">Les coffres de structures et de donjons utilisent un système de butin
+          <b>personnel</b> : chacun ouvre le sien.</p>
+        <div class="cards">
+          <div class="card">
+            <div class="title">Ton butin, rien qu'à toi</div>
+            <div class="desc">Quand tu ouvres un coffre à butin, tu vois <b>ton propre contenu</b>.
+              Un autre joueur qui ouvre le même coffre reçoit le sien : personne ne te vole ton loot.</div>
+          </div>
+          <div class="card">
+            <div class="title">Fini la course au coffre</div>
+            <div class="desc">Plus besoin de sprinter pour arriver le premier : chaque joueur a une
+              chance égale d'obtenir les récompenses d'une structure.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="voice">
+        <h3>🎙️ Chat vocal</h3>
+        <p class="lead">Un <b>chat vocal de proximité</b> : parle directement aux joueurs autour de toi,
+          le son baissant avec la distance. Idéal pour l'ambiance et le roleplay.</p>
+        <div class="cards">
+          <div class="card">
+            <div class="title">🔌 Installe le mod</div>
+            <div class="desc">Le chat vocal nécessite d'installer le mod client <b>Simple Voice Chat</b>.
+              Une fois en jeu, connecte ton micro et ouvre les réglages vocaux pour choisir ta touche
+              « parler ».</div>
+          </div>
+          <div class="card">
+            <div class="title">🗣️ Proximité &amp; groupes</div>
+            <div class="desc">Par défaut, seuls les joueurs proches t'entendent. Tu peux aussi créer des
+              <b>groupes vocaux</b> pour discuter avec tes amis, où qu'ils soient.</div>
+          </div>
+        </div>
+        <div class="callout tip">
+          Le chat vocal est optionnel mais vivement recommandé : le serveur est bien plus vivant à la voix.
+        </div>
       </section>
 
       <section class="section" id="commandes">
@@ -203,6 +450,11 @@
         <table class="cmds">
           <thead><tr><th>Commande</th><th>Effet</th></tr></thead>
           <tbody>
+            <tr><td><code>/spawn</code></td><td>Retour au spawn du serveur</td></tr>
+            <tr><td><code>/tpa &lt;joueur&gt;</code></td><td>Demander à se téléporter vers un joueur</td></tr>
+            <tr><td><code>/tpaccept</code> · <code>/tpdeny</code></td><td>Accepter / refuser une demande de téléportation</td></tr>
+            <tr><td><code>/hdv</code></td><td>Ouvrir l'hôtel des ventes</td></tr>
+            <tr><td><code>/trade &lt;joueur&gt;</code></td><td>Proposer un échange sécurisé</td></tr>
             <tr><td><code>/coin</code></td><td>Gérer et consulter ta monnaie</td></tr>
             <tr><td><code>/vie</code></td><td>Voir tes vies</td></tr>
             <tr><td><code>/grades</code></td><td>Voir les rangs et ta progression</td></tr>
@@ -240,6 +492,102 @@
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+
+    // ---------- Visualisation 3D isometrique de l'autel ----------
+    (function renderAltar() {
+      const svg = document.getElementById('altarSvg');
+      if (!svg) return;
+      const NS = 'http://www.w3.org/2000/svg';
+      const TW = 30, TH = 15, CX = 235;
+      const FULL = 26, SLAB = 13;
+
+      const COL = {
+        deepslate: { t: '#474d5a', l: '#343a46', r: '#272b34' },
+        gold:      { t: '#f1c512', l: '#c99a10', r: '#a2790c' },
+        table:     { t: '#2b2340', l: '#1d1830', r: '#151022' },
+        candle:    { t: '#c7c2b8', l: '#3a3a40', r: '#2c2c31' }
+      };
+
+      function poly(pts, fill, opt) {
+        const p = document.createElementNS(NS, 'polygon');
+        p.setAttribute('points', pts.map(a => a[0].toFixed(1) + ',' + a[1].toFixed(1)).join(' '));
+        p.setAttribute('fill', fill);
+        p.setAttribute('stroke', (opt && opt.stroke) || 'rgba(0,0,0,.35)');
+        p.setAttribute('stroke-width', (opt && opt.sw) || '1');
+        p.setAttribute('stroke-linejoin', 'round');
+        svg.appendChild(p);
+      }
+      function floor(cx, cy) {
+        poly([[cx, cy - TH], [cx + TW, cy], [cx, cy + TH], [cx - TW, cy]],
+             'rgba(255,255,255,.04)', { stroke: 'rgba(255,255,255,.10)' });
+      }
+      // Bloc iso posé sur le sol : (cx, cyFloor) = centre de la face du sol.
+      function box(cx, cyFloor, tw, th, h, c) {
+        const top = cyFloor - h;
+        poly([[cx - tw, top], [cx, top + th], [cx, cyFloor + th], [cx - tw, cyFloor]], c.l);
+        poly([[cx, top + th], [cx + tw, top], [cx + tw, cyFloor], [cx, cyFloor + th]], c.r);
+        poly([[cx, top - th], [cx + tw, top], [cx, top + th], [cx - tw, top]], c.t);
+      }
+      function candle(cx, cyFloor) {
+        const tw = 8, th = 4, h = 20;
+        box(cx, cyFloor, tw, th, h, COL.candle);
+        const fy = cyFloor - h - 5;
+        poly([[cx, fy - 7], [cx + 3, fy], [cx, fy + 4], [cx - 3, fy]], '#ffcf5a', { stroke: 'none' });
+        poly([[cx, fy - 3], [cx + 1.6, fy + 1], [cx, fy + 3], [cx - 1.6, fy + 1]], '#fff4c2', { stroke: 'none' });
+      }
+      function table(cx, cyFloor) {
+        box(cx, cyFloor, TW, TH, FULL, COL.table);
+        const top = cyFloor - FULL;
+        // livre / lueur violette posé sur la table
+        poly([[cx, top - 10], [cx + 11, top - 3.5], [cx, top + 3], [cx - 11, top - 3.5]],
+             '#a877ff', { stroke: 'rgba(168,119,255,.7)' });
+        poly([[cx, top - 6], [cx + 4.5, top - 3], [cx, top], [cx - 4.5, top - 3]],
+             '#ff5e8a', { stroke: 'none' });
+      }
+
+      const layers = [
+        { y: 70,  name: 'Dessus', sub: '4 bougies allumées',
+          cells: [['candle', null, 'candle'], [null, null, null], ['candle', null, 'candle']] },
+        { y: 175, name: 'Milieu', sub: 'table + briques deepslate',
+          cells: [['wall', 'slab', 'wall'], ['slab', 'table', 'slab'], ['wall', 'slab', 'wall']] },
+        { y: 280, name: 'Bas', sub: "bloc d'or",
+          cells: [[null, null, null], [null, 'gold', null], [null, null, null]] }
+      ];
+
+      layers.forEach(L => {
+        const items = [];
+        for (let r = 0; r < 3; r++) {
+          for (let c = 0; c < 3; c++) {
+            const u = c - 1, v = r - 1;
+            items.push({ u, v, type: L.cells[r][c], cx: CX + (u - v) * TW, cy: L.y + (u + v) * TH });
+          }
+        }
+        items.sort((a, b) => (a.u + a.v) - (b.u + b.v)); // arrière → avant
+        items.forEach(it => floor(it.cx, it.cy));
+        items.forEach(it => {
+          switch (it.type) {
+            case 'candle': candle(it.cx, it.cy); break;
+            case 'wall':   box(it.cx, it.cy, TW, TH, FULL, COL.deepslate); break;
+            case 'slab':   box(it.cx, it.cy, TW, TH, SLAB, COL.deepslate); break;
+            case 'table':  table(it.cx, it.cy); break;
+            case 'gold':   box(it.cx, it.cy, TW, TH, FULL, COL.gold); break;
+          }
+        });
+        const t = document.createElementNS(NS, 'text');
+        t.setAttribute('x', '10'); t.setAttribute('y', String(L.y + 2));
+        t.setAttribute('fill', '#eff1f5'); t.setAttribute('font-size', '13');
+        t.setAttribute('font-weight', '600');
+        t.setAttribute('font-family', 'Inter, sans-serif');
+        t.textContent = L.name;
+        svg.appendChild(t);
+        const s = document.createElementNS(NS, 'text');
+        s.setAttribute('x', '10'); s.setAttribute('y', String(L.y + 18));
+        s.setAttribute('fill', '#8a90a2'); s.setAttribute('font-size', '10');
+        s.setAttribute('font-family', 'Inter, sans-serif');
+        s.textContent = L.sub;
+        svg.appendChild(s);
+      });
+    })();
   </script>
 </body>
 </html>
