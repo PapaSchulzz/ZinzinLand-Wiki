@@ -667,7 +667,8 @@
         items.forEach(it => {
           switch (it.type) {
             case 'candle': candle(it.cx, it.cy); break;
-            case 'wall':   texBox(it.cx, it.cy, TW, TH, FULL, TEX.deepslate); break;
+            // Muret = pilier fin (moitie de l'emprise, pleine hauteur) et non un bloc plein.
+            case 'wall':   texBox(it.cx, it.cy, TW / 2, TH / 2, FULL + 6, TEX.deepslate); break;
             case 'slab':   texBox(it.cx, it.cy, TW, TH, SLAB, TEX.deepslate); break;
             case 'table':  texBox(it.cx, it.cy, TW, TH, FULL, TEX.table); break;
             case 'gold':   texBox(it.cx, it.cy, TW, TH, FULL, TEX.gold); break;
