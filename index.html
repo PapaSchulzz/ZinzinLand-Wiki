@@ -204,8 +204,8 @@
 
         <ul class="legend">
           <li><b>Couche du dessus</b> : 4 bougies noires aux angles (allumées)</li>
-          <li><b>Couche du milieu</b> : la table d'enchantement au centre, entourée de dalles de briques
-            de deepslate (côtés) et de murs de briques de deepslate (angles)</li>
+          <li><b>Couche du milieu</b> : la table d'enchantement au centre, entourée de
+            <b>murets de briques de deepslate</b> (les 8 blocs autour de la table)</li>
           <li><b>Couche du bas</b> : un bloc d'<b>or</b> juste sous la table</li>
         </ul>
 
@@ -638,8 +638,8 @@
       const layers = [
         { y: 70,  name: 'Dessus', sub: '4 bougies allumées',
           cells: [['candle', null, 'candle'], [null, null, null], ['candle', null, 'candle']] },
-        { y: 175, name: 'Milieu', sub: 'table + briques deepslate',
-          cells: [['wall', 'slab', 'wall'], ['slab', 'table', 'slab'], ['wall', 'slab', 'wall']] },
+        { y: 175, name: 'Milieu', sub: 'table + murets deepslate',
+          cells: [['wall', 'wall', 'wall'], ['wall', 'table', 'wall'], ['wall', 'wall', 'wall']] },
         { y: 280, name: 'Bas', sub: "bloc d'or",
           cells: [[null, null, null], [null, 'gold', null], [null, null, null]] }
       ];
