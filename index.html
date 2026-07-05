@@ -313,16 +313,24 @@
         </div>
 
         <h4>La recette (même schéma pour les trois)</h4>
-        <p>Le placement à l'établi est toujours le même, seul le métal change :</p>
-        <ul>
-          <li><b>Les 4 coins</b> : du <b>cuir</b>.</li>
-          <li><b>Le centre</b> : un <b>coffre</b>.</li>
-          <li><b>Le haut au milieu</b> : un <b>bloc</b> de métal (bloc de fer / d'or / de diamant).</li>
-          <li><b>Les côtés gauche, droite et bas</b> : le <b>lingot</b> correspondant
-            (lingot de fer / lingot d'or / diamant).</li>
-        </ul>
-        <p>Métal utilisé selon la taille : <b>fer</b> pour le Petit Sac,
-          <b>or</b> pour le Moyen Sac, <b>diamant</b> pour le Grand Sac.</p>
+        <p>Cuir aux quatre coins, coffre au centre : seul <b>le métal</b> change et détermine la
+          taille du sac. La grille ci-dessous fait défiler les trois recettes.</p>
+        <div class="recipe">
+          <div class="craft-grid">
+            <div class="cell"><img src="assets/leather.png" alt="Cuir" title="Cuir"></div>
+            <div class="cell"><img id="bpBlock" src="assets/iron_block.png" alt="Bloc de métal" title="Bloc de fer"></div>
+            <div class="cell"><img src="assets/leather.png" alt="Cuir" title="Cuir"></div>
+            <div class="cell"><img id="bpIngotL" src="assets/iron_ingot.png" alt="Lingot" title="Lingot de fer"></div>
+            <div class="cell"><img src="assets/chest.png" alt="Coffre" title="Coffre"></div>
+            <div class="cell"><img id="bpIngotR" src="assets/iron_ingot.png" alt="Lingot" title="Lingot de fer"></div>
+            <div class="cell"><img src="assets/leather.png" alt="Cuir" title="Cuir"></div>
+            <div class="cell"><img id="bpIngotB" src="assets/iron_ingot.png" alt="Lingot" title="Lingot de fer"></div>
+            <div class="cell"><img src="assets/leather.png" alt="Cuir" title="Cuir"></div>
+          </div>
+          <div class="arrow">➜</div>
+          <div class="result"><span id="bpResult" style="font-size:44px;line-height:1">🎒</span></div>
+        </div>
+        <p id="bpLabel" style="text-align:center;font-size:14px;color:var(--muted);margin:10px 2px 0"></p>
 
         <div class="callout warn">
           <b>Attention à la mort.</b> Un sac à dos n'est <b>pas conservé</b> quand tu meurs : il tombe
@@ -784,6 +792,31 @@
       }
       show(0);
       setInterval(() => { idx = (idx + 1) % RECIPES.length; show(idx); }, 2600);
+    })();
+
+    // ---------- Rotation des 3 recettes de sacs à dos ----------
+    (function cycleBackpacks() {
+      const block = document.getElementById('bpBlock');
+      const label = document.getElementById('bpLabel');
+      const ingots = ['bpIngotL', 'bpIngotR', 'bpIngotB'].map(id => document.getElementById(id));
+      if (!block || !label || ingots.some(i => !i)) return;
+      const A = 'assets/';
+      const TIERS = [
+        { name: 'Petit Sac',  color: '#E3680E', slots: 9,  block: 'iron_block.png',    blockName: 'Bloc de fer',     ingot: 'iron_ingot.png', ingotName: 'Lingot de fer' },
+        { name: 'Moyen Sac',  color: '#E0B715', slots: 27, block: 'gold_block.png',    blockName: "Bloc d'or",       ingot: 'gold_ingot.png', ingotName: "Lingot d'or" },
+        { name: 'Grand Sac',  color: '#00C2C6', slots: 54, block: 'diamond_block.png', blockName: 'Bloc de diamant', ingot: 'diamond.png',    ingotName: 'Diamant' }
+      ];
+      TIERS.forEach(t => { [t.block, t.ingot].forEach(f => { new Image().src = A + f; }); });
+
+      let idx = 0;
+      function show(i) {
+        const t = TIERS[i];
+        block.src = A + t.block; block.alt = t.blockName; block.title = t.blockName;
+        ingots.forEach(im => { im.src = A + t.ingot; im.alt = t.ingotName; im.title = t.ingotName; });
+        label.innerHTML = '<b style="color:' + t.color + '">' + t.name + '</b> · <b>' + t.slots + ' emplacements</b>';
+      }
+      show(0);
+      setInterval(() => { idx = (idx + 1) % TIERS.length; show(idx); }, 2600);
     })();
   </script>
 </body>
