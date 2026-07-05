@@ -135,15 +135,16 @@
             <div class="cell"><img src="assets/spider_eye.png" alt="Œil d'araignée" title="Œil d'araignée"></div>
             <div class="cell"><img src="assets/rotten_flesh.png" alt="Chair putréfiée" title="Chair putréfiée"></div>
             <div class="cell"><img src="assets/spider_eye.png" alt="Œil d'araignée" title="Œil d'araignée"></div>
-            <div class="cell"><img src="assets/diamond_hoe.png" alt="Outil au centre" title="Outil au centre (change selon l'arme)"></div>
+            <div class="cell"><img id="craftCenter" src="assets/diamond_hoe.png" alt="Outil au centre" title="Outil au centre (change selon l'arme)"></div>
             <div class="cell"><img src="assets/spider_eye.png" alt="Œil d'araignée" title="Œil d'araignée"></div>
             <div class="cell"><img src="assets/rotten_flesh.png" alt="Chair putréfiée" title="Chair putréfiée"></div>
             <div class="cell"><img src="assets/spider_eye.png" alt="Œil d'araignée" title="Œil d'araignée"></div>
             <div class="cell"><img src="assets/rotten_flesh.png" alt="Chair putréfiée" title="Chair putréfiée"></div>
           </div>
           <div class="arrow">➜</div>
-          <div class="result"><img src="assets/faux.gif" alt="Arme des Âmes" title="Arme des Âmes"></div>
+          <div class="result"><img id="craftResult" src="assets/faux.gif" alt="Arme des Âmes" title="Arme des Âmes"></div>
         </div>
+        <p id="craftLabel" style="text-align:center;font-size:14px;color:var(--muted);margin:10px 2px 0"></p>
 
         <div class="cards">
           <div class="card">
@@ -707,6 +708,36 @@
 
       select(0, false);
       restart();
+    })();
+
+    // ---------- Rotation des 5 recettes d'armes des Âmes ----------
+    (function cycleSoulRecipes() {
+      const center = document.getElementById('craftCenter');
+      const result = document.getElementById('craftResult');
+      const label  = document.getElementById('craftLabel');
+      if (!center || !result || !label) return;
+      const A = 'assets/';
+      const RECIPES = [
+        { name: 'Faux des Âmes',  center: 'diamond_hoe.png',   centerName: 'Houe en diamant',   result: 'faux.gif' },
+        { name: 'Épée des Âmes',  center: 'diamond_sword.png', centerName: 'Épée en diamant',   result: 'cleaver.png' },
+        { name: 'Hache des Âmes', center: 'diamond_axe.png',   centerName: 'Hache en diamant',  result: 'axe.png' },
+        { name: 'Lance des Âmes', center: 'diamond_spear.png', centerName: 'Lance en diamant',  result: 'sword.png' },
+        { name: 'Arc des Âmes',   center: 'bow.png',           centerName: 'Arc',               result: 'bow.png' }
+      ];
+      // précharge pour éviter le clignotement au switch
+      RECIPES.forEach(r => { [r.center, r.result].forEach(f => { new Image().src = A + f; }); });
+
+      let idx = 0;
+      function show(i) {
+        const r = RECIPES[i];
+        center.src = A + r.center;
+        center.alt = r.centerName; center.title = 'Centre : ' + r.centerName;
+        result.src = A + r.result;
+        result.alt = r.name; result.title = r.name;
+        label.innerHTML = '<b>' + r.name + '</b> · centre : ' + r.centerName;
+      }
+      show(0);
+      setInterval(() => { idx = (idx + 1) % RECIPES.length; show(idx); }, 2600);
     })();
   </script>
 </body>
