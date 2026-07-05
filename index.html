@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" />
-  <link rel="stylesheet" href="style.css?v=8" />
+  <link rel="stylesheet" href="style.css?v=9" />
   <link rel="icon" type="image/png" href="assets/logo.png?v=7" />
   <style>
     /* Visualisation 3D isometrique de l'autel */
@@ -39,10 +39,11 @@
     <aside class="sidebar" id="sidebar">
       <div class="brand">
         <div class="logo"><img src="assets/logo.png?v=7" alt="ZinzinLand"></div>
-        <div>
+        <div class="brand-text">
           <h1>ZinzinLand</h1>
           <small>Wiki du serveur</small>
         </div>
+        <button class="collapse-btn" id="collapseBtn" aria-label="Réduire le menu" title="Réduire / agrandir le menu"></button>
       </div>
       <ul class="nav">
         <li><a href="#accueil" class="active"><span class="ico"><img src="assets/nav_accueil.png" alt=""></span> Accueil</a></li>
@@ -560,6 +561,14 @@
     const sidebar = document.getElementById('sidebar');
     menuBtn.addEventListener('click', () => sidebar.classList.toggle('open'));
     sidebar.querySelectorAll('a').forEach(a => a.addEventListener('click', () => sidebar.classList.remove('open')));
+
+    // Reduction de la sidebar (icones seules), etat memorise
+    const collapseBtn = document.getElementById('collapseBtn');
+    if (localStorage.getItem('sidebarCollapsed') === '1') sidebar.classList.add('collapsed');
+    collapseBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('collapsed');
+      localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('collapsed') ? '1' : '0');
+    });
 
     // Highlight de la section active au scroll
     const links = [...document.querySelectorAll('.nav a')];
