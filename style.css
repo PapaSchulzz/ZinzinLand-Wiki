@@ -20,8 +20,8 @@
 
   --shadow: 0 1px 2px rgba(0,0,0,.4);
   --shadow-lg: 0 12px 40px rgba(0,0,0,.35);
-  --radius: 12px;
-  --radius-sm: 8px;
+  --radius: 9px;
+  --radius-sm: 6px;
 }
 
 * { box-sizing: border-box; }
@@ -29,7 +29,7 @@
 img.px { image-rendering: pixelated; image-rendering: crisp-edges; }
 .i { width: 1.4em; height: 1.4em; vertical-align: -0.3em; image-rendering: pixelated; }
 .cell img { width: 40px; height: 40px; image-rendering: pixelated; }
-.result img { width: 52px; height: 52px; image-rendering: pixelated; filter: drop-shadow(0 0 8px rgba(168,119,255,.45)); }
+.result img { width: 52px; height: 52px; image-rendering: pixelated; }
 .card .title img.i { margin-right: 2px; }
 
 html { scroll-behavior: smooth; }
@@ -37,13 +37,18 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-feature-settings: "cv02","cv03","cv04","cv11";
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
   letter-spacing: -0.011em;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* Police de titre distinctive (au lieu d'Inter partout) */
+h1, h2, h3, h4,
+.brand h1, .hero h2, .section h3, .section h4 {
+  font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
 }
 
 a { color: var(--text); text-decoration: none; }
@@ -198,6 +203,20 @@ a:hover { color: var(--accent); }
   background: var(--panel-2); border: 1px solid var(--border-strong);
   color: var(--accent); display: grid; place-items: center; font-weight: 600; font-size: 13px;
 }
+
+/* ---------- Regles (liste numerotee compacte) ---------- */
+.rules { counter-reset: rule; list-style: none; padding: 0; margin: 16px 0; }
+.rules li {
+  position: relative; padding: 10px 16px 10px 46px; margin: 6px 0;
+  background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius);
+  font-size: 14px; color: var(--muted); line-height: 1.5;
+}
+.rules li::before {
+  counter-increment: rule; content: counter(rule);
+  position: absolute; left: 16px; top: 10px;
+  color: var(--accent); font-weight: 700; font-size: 13px;
+}
+.rules b { color: var(--text); font-weight: 600; }
 
 /* ---------- Callouts ---------- */
 .callout {

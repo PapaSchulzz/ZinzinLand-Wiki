@@ -7,8 +7,8 @@
   <meta name="description" content="Wiki officiel du serveur Minecraft ZinzinLand : la Faux et les armes des Âmes, le rituel de l'autel pour regagner une vie, les waystones, /tpa, /spawn, l'hôtel des ventes, /trade, la cuisine Crop & Kettle, les coffres à butin et le chat vocal." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" />
-  <link rel="stylesheet" href="style.css?v=9" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Geist+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="style.css?v=10" />
   <link rel="icon" type="image/png" href="assets/logo.png?v=7" />
   <style>
     /* Visualisation 3D isometrique de l'autel */
@@ -79,57 +79,34 @@
     <main class="content">
       <header class="hero" id="accueil">
         <h2>Bienvenue sur ZinzinLand</h2>
+        <p>Serveur Minecraft Java en mode SMP. Ce wiki regroupe les systèmes maison du serveur :
+          armes des Âmes, rituel de l'autel, waystones, économie et cuisine Crop &amp; Kettle.</p>
       </header>
 
       <section class="section" id="reglement">
         <h3><img class="i" src="assets/nav_reglement.png" alt=""> Règlement</h3>
-        <p class="lead">ZinzinLand est un serveur <b>SMP</b> : on construit et on survit ensemble.
-          Pour que tout le monde s'amuse, quelques règles de base s'appliquent à tous.</p>
-        <div class="cards">
-          <div class="card">
-            <div class="title">🤝 Respecte les autres</div>
-            <div class="desc">Pas d'insultes, de harcèlement, de menaces ni de propos
-              discriminatoires (racisme, sexisme, homophobie…). On est là pour s'amuser ensemble.</div>
-          </div>
-          <div class="card">
-            <div class="title">🚫 Pas de triche</div>
-            <div class="desc">Clients moddés (kill aura, fly, radar), <b>x-ray</b>, duplication,
-              macros et abus de bugs sont interdits. Un bug se <b>signale au staff</b>, il ne s'exploite pas.</div>
-          </div>
-          <div class="card">
-            <div class="title">🏠 Respecte les constructions</div>
-            <div class="desc">Ni grief ni vol. Protège tes bases avec les <a href="#claims">claims</a>
-              (<code>/claim</code>). Ce qui ne t'appartient pas, tu n'y touches pas.</div>
-          </div>
-          <div class="card">
-            <div class="title">💬 Garde le chat propre</div>
-            <div class="desc">Pas de spam, de flood, de MAJUSCULES abusives, de publicité pour
-              d'autres serveurs ni de contenu choquant. Le <a href="#voice">chat vocal</a> suit les mêmes règles.</div>
-          </div>
-          <div class="card">
-            <div class="title">⚔️ PvP consenti</div>
-            <div class="desc">Le PvP est <b>désactivé par défaut</b>. On ne force pas le combat et on
-              évite les pièges mortels : on se bat uniquement entre joueurs d'accord.</div>
-          </div>
-          <div class="card">
-            <div class="title">🤞 Pas d'arnaque</div>
-            <div class="desc">Respecte tes <a href="#trade">échanges</a> et tes marchés. Ne te fais pas
-              passer pour un autre joueur ni pour un membre du staff.</div>
-          </div>
-          <div class="card">
-            <div class="title">🧱 Préserve le serveur</div>
-            <div class="desc">Évite les fermes à lag et la redstone abusive. Si le staff te demande de
-              démonter un dispositif qui fait ramer le serveur, coopère.</div>
-          </div>
-          <div class="card">
-            <div class="title">🛡️ Écoute le staff</div>
-            <div class="desc">Les décisions du staff s'appliquent. En cas de problème, contacte un
-              modérateur calmement plutôt que de te faire justice toi-même.</div>
-          </div>
-        </div>
+        <p class="lead">ZinzinLand est un serveur <b>SMP</b>. Ces règles s'appliquent à tous les joueurs.</p>
+        <ol class="rules">
+          <li><b>Respecte les autres.</b> Insultes, harcèlement, menaces et propos discriminatoires
+            (racisme, sexisme, homophobie) sont interdits.</li>
+          <li><b>Pas de triche.</b> Clients moddés (kill aura, fly, radar), x-ray, duplication,
+            macros et exploitation de bugs. Un bug se signale au staff.</li>
+          <li><b>Ni grief ni vol.</b> Protège tes constructions avec les <a href="#claims">claims</a>
+            (<code>/claim</code>). Ce qui n'est pas à toi ne se touche pas.</li>
+          <li><b>Chat propre.</b> Pas de spam, de flood, de MAJUSCULES abusives, de publicité pour
+            d'autres serveurs ni de contenu choquant. Le <a href="#voice">chat vocal</a> suit les mêmes règles.</li>
+          <li><b>PvP consenti.</b> Le PvP est désactivé par défaut. Ne le force pas et évite les pièges
+            mortels : on ne se bat qu'entre joueurs d'accord.</li>
+          <li><b>Pas d'arnaque ni d'usurpation.</b> Respecte tes <a href="#trade">échanges</a> et tes
+            marchés ; ne te fais pas passer pour un autre joueur ou pour un membre du staff.</li>
+          <li><b>Préserve le serveur.</b> Évite les fermes à lag et la redstone inutilement lourde ;
+            démonte un dispositif qui fait ramer le serveur si le staff le demande.</li>
+          <li><b>Écoute le staff.</b> Ses décisions s'appliquent. En cas de litige, contacte un
+            modérateur au calme.</li>
+        </ol>
         <div class="callout warn">
-          Le non-respect du règlement peut entraîner un <b>avertissement</b>, un <b>mute</b>,
-          un <b>kick</b> ou un <b>ban</b> selon la gravité. Jouer sur ZinzinLand vaut acceptation de ces règles.
+          Selon la gravité : <b>avertissement</b>, <b>mute</b>, <b>kick</b> ou <b>ban</b>.
+          Jouer sur ZinzinLand implique d'accepter ce règlement.
         </div>
       </section>
 
@@ -145,8 +122,7 @@
           </div>
         </div>
         <div class="callout warn">
-          Sans une arme des Âmes en main, <b>aucune essence ne tombe</b>, même en tuant 100 zombies.
-          C'est l'arme qui récolte, pas toi.
+          Sans une arme des Âmes en main principale, <b>aucune essence ne tombe</b> : c'est l'arme qui récolte.
         </div>
       </section>
 
@@ -284,12 +260,12 @@
         <p class="lead">Tes vies sont précieuses (max <b>3</b>). Pour en regagner une, passe par le rituel de l'autel.</p>
         <div class="cards">
           <div class="card">
-            <div class="title">🧙 Marchand des Âmes</div>
+            <div class="title">Marchand des Âmes</div>
             <div class="desc">Un PNJ qui veille sur le commerce des cœurs et des âmes. Va le voir pour échanger.</div>
             <span class="tag">PNJ</span>
           </div>
           <div class="card">
-            <div class="title">🔮 Rituel de l'autel</div>
+            <div class="title">Rituel de l'autel</div>
             <div class="desc">L'autre voie : sacrifie une <a href="#fiole">Fiole d'âmes</a> sur l'<a href="#autel">autel</a>.</div>
             <span class="tag soul">+1 vie</span>
           </div>
@@ -316,17 +292,17 @@
 
         <div class="cards">
           <div class="card">
-            <div class="title">👥 Inviter des amis</div>
+            <div class="title">Inviter des amis</div>
             <div class="desc">Depuis le menu <code>/claims</code>, ajoute des <b>membres</b> à ton claim :
               ils pourront construire et ouvrir les coffres, sans pouvoir supprimer la protection.</div>
           </div>
           <div class="card">
-            <div class="title">⚙️ Régler les autorisations</div>
+            <div class="title">Régler les autorisations</div>
             <div class="desc">Le menu permet d'ajuster finement ce que les visiteurs et les membres ont le
               droit de faire (portes, boutons, PvP, animaux…), claim par claim.</div>
           </div>
           <div class="card">
-            <div class="title">🗺️ Voir les zones prises</div>
+            <div class="title">Voir les zones prises</div>
             <div class="desc">La carte des chunks (<code>/claim map</code>) t'aide à repérer les terrains déjà
               protégés avant de t'installer.</div>
           </div>
@@ -350,21 +326,18 @@
 
         <div class="cards">
           <div class="card">
-            <div class="title"><span style="color:#E3680E">🎒</span> Petit Sac</div>
-            <div class="desc"><b>9 emplacements</b> (une rangée). Le sac d'appoint pour ne plus
-              revenir les poches pleines à craquer.</div>
+            <div class="title"><img class="i" src="assets/iron_ingot.png" alt=""> Petit Sac</div>
+            <div class="desc"><b>9 emplacements</b> (une rangée).</div>
             <span class="tag">Craft : cuir + fer (bloc &amp; lingots) + coffre</span>
           </div>
           <div class="card">
-            <div class="title"><span style="color:#E0B715">🎒</span> Moyen Sac</div>
-            <div class="desc"><b>27 emplacements</b> (l'équivalent d'un coffre). Le compagnon
-              idéal pour les grosses expéditions.</div>
+            <div class="title"><img class="i" src="assets/gold_ingot.png" alt=""> Moyen Sac</div>
+            <div class="desc"><b>27 emplacements</b> (l'équivalent d'un coffre).</div>
             <span class="tag">Craft : cuir + or (bloc &amp; lingots) + coffre</span>
           </div>
           <div class="card">
-            <div class="title"><span style="color:#00C2C6">🎒</span> Grand Sac</div>
-            <div class="desc"><b>54 emplacements</b> (un double coffre). Le maximum : de quoi
-              transporter une base entière.</div>
+            <div class="title"><img class="i" src="assets/diamond.png" alt=""> Grand Sac</div>
+            <div class="desc"><b>54 emplacements</b> (un double coffre).</div>
             <span class="tag">Craft : cuir + diamant (bloc &amp; diamants) + coffre</span>
           </div>
         </div>
@@ -455,7 +428,7 @@
 
       <section class="section" id="spawn">
         <h3><img class="i" src="assets/nav_spawn.png" alt=""> Spawn</h3>
-        <p class="lead">Besoin de revenir au point de départ du serveur ? Une seule commande.</p>
+        <p class="lead">Une commande pour revenir au point de départ du serveur.</p>
         <table class="cmds">
           <thead><tr><th>Commande</th><th>Effet</th></tr></thead>
           <tbody>
@@ -517,18 +490,18 @@
 
       <section class="section" id="cnk">
         <h3><img class="i" src="assets/nav_cnk.png" alt=""> Cuisine — Crop &amp; Kettle</h3>
-        <p class="lead">Un datapack de cuisine complet (« CnK ») qui ajoute des dizaines de vrais plats
-          cuisinés, bien au-delà des recettes vanilla.</p>
+        <p class="lead">Le datapack Crop &amp; Kettle (« CnK ») ajoute une vraie cuisine : un livre de
+          recettes et des postes de préparation pour transformer tes récoltes en plats.</p>
         <div class="cards">
           <div class="card">
-            <div class="title">📖 Le livre de recettes</div>
-            <div class="desc">Le livre <b>« L'art de la cuisine »</b> recense tous les plats. Sur
-              ZinzinLand, il est <b>débloqué pour tout le monde</b> dès le départ.</div>
+            <div class="title">Le livre de recettes</div>
+            <div class="desc">« L'art de la cuisine » liste toutes les recettes. Sur ZinzinLand, il est
+              débloqué pour tout le monde dès le départ, sans avoir à le fabriquer.</div>
           </div>
           <div class="card">
-            <div class="title">🔪 Des stations de cuisine</div>
-            <div class="desc">On prépare les plats via des postes dédiés (planche à découper, marmite…)
-              en combinant des ingrédients, dont les <b>récoltes du serveur</b> comme le Maïs.</div>
+            <div class="title"><img class="i" src="assets/nav_cnk.png" alt=""> Les postes de cuisine</div>
+            <div class="desc">Les plats se préparent à des postes dédiés (planche à découper, M.Bouilloire…)
+              en y combinant des ingrédients, dont les récoltes du serveur comme le maïs.</div>
           </div>
         </div>
       </section>
@@ -541,14 +514,14 @@
 
         <div class="cards">
           <div class="card">
-            <div class="title">🏰 Donjons &amp; Tavernes</div>
+            <div class="title">Donjons &amp; Tavernes</div>
             <div class="desc">Enchantements trouvés dans les structures du datapack <b>Dungeons and Taverns</b>.
               Certains redeviennent <b>renouvelables</b> via un bibliothécaire monté au niveau apprenti
               <b>à l'intérieur</b> d'une de ces structures.</div>
             <span class="tag">Butin de structure</span>
           </div>
           <div class="card">
-            <div class="title">⚔️ Katters Structures</div>
+            <div class="title">Katters Structures</div>
             <div class="desc">Enchantements du datapack <b>Katters Structures</b>, cachés dans ses donjons,
               armureries et villages. Les plus puissants tombent des <b>boss</b>.</div>
             <span class="tag">Butin de structure</span>
@@ -608,45 +581,36 @@
 
       <section class="section" id="loot">
         <h3><img class="i" src="assets/nav_loot.png" alt=""> Coffres à butin (loot par joueur)</h3>
-        <p class="lead">Les coffres de structures et de donjons utilisent un système de butin
-          <b>personnel</b> : chacun ouvre le sien.</p>
-        <div class="cards">
-          <div class="card">
-            <div class="title">Ton butin, rien qu'à toi</div>
-            <div class="desc">Quand tu ouvres un coffre à butin, tu vois <b>ton propre contenu</b>.
-              Un autre joueur qui ouvre le même coffre reçoit le sien : personne ne te vole ton loot.</div>
-          </div>
-          <div class="card">
-            <div class="title">Fini la course au coffre</div>
-            <div class="desc">Plus besoin de sprinter pour arriver le premier : chaque joueur a une
-              chance égale d'obtenir les récompenses d'une structure.</div>
-          </div>
+        <p class="lead">Les coffres des structures générées (donjons, manoirs, cités antiques, avant-postes
+          de pillards, bastions…) sont à butin <b>par joueur</b>.</p>
+        <p>Quand tu ouvres un de ces coffres, son contenu est tiré rien que pour toi. Deux joueurs peuvent
+          fouiller le même coffre chacun de leur côté sans se gêner, et un coffre déjà vidé par quelqu'un
+          d'autre ne sera pas vide pour toi. Le contenu de chaque joueur est indépendant.</p>
+        <div class="callout">
+          Ne s'applique qu'aux coffres <b>de structure</b>. Les coffres que tu poses toi-même restent des
+          coffres normaux, partagés, à protéger par un <a href="#claims">claim</a>.
         </div>
       </section>
 
       <section class="section" id="voice">
         <h3><img class="i" src="assets/nav_voice.png" alt=""> Chat vocal</h3>
-        <p class="lead">Un <b>chat vocal de proximité</b> : parle directement aux joueurs autour de toi,
-          le son baissant avec la distance. Idéal pour l'ambiance et le roleplay.</p>
+        <p class="lead">Un <b>chat vocal de proximité</b> : seuls les joueurs proches t'entendent, le volume
+          baisse avec la distance. Il faut le mod client <b>Simple Voice Chat</b> pour en profiter.</p>
         <div class="cards">
           <div class="card">
-            <div class="title">🔌 Installe le mod</div>
-            <div class="desc">Le chat vocal nécessite d'installer le mod client <b>Simple Voice Chat</b>.
-              Une fois en jeu, connecte ton micro et ouvre les réglages vocaux pour choisir ta touche
-              « parler ».</div>
+            <div class="title">Installer le mod</div>
+            <div class="desc">Installe <b>Simple Voice Chat</b> côté client. Une fois en jeu, branche ton
+              micro et ouvre les réglages vocaux pour choisir ta touche « parler ».</div>
           </div>
           <div class="card">
-            <div class="title">🗣️ Proximité &amp; groupes</div>
-            <div class="desc">Par défaut, seuls les joueurs proches t'entendent. Tu peux aussi créer des
-              <b>groupes vocaux</b> pour discuter avec tes amis, où qu'ils soient.</div>
+            <div class="title">Proximité &amp; groupes</div>
+            <div class="desc">Par défaut, seuls les joueurs proches t'entendent. Tu peux aussi créer un
+              groupe vocal pour parler avec tes amis quelle que soit la distance.</div>
           </div>
         </div>
         <div class="callout">
-          📘 Pas à pas pour l'installer :
-          <a href="https://modrepo.de/minecraft/voicechat/wiki/installation" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline">guide d'installation officiel de Simple Voice Chat</a>.
-        </div>
-        <div class="callout tip">
-          Le chat vocal est optionnel mais vivement recommandé.
+          Guide d'installation :
+          <a href="https://modrepo.de/minecraft/voicechat/wiki/installation" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline">documentation officielle de Simple Voice Chat</a>.
         </div>
       </section>
 
