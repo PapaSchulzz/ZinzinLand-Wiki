@@ -68,6 +68,7 @@
         <li><a href="#trade"><span class="ico"><img src="assets/nav_trade.png" alt=""></span> Échange /trade</a></li>
         <li class="group">Contenu &amp; extras</li>
         <li><a href="#cnk"><span class="ico"><img src="assets/nav_cnk.png" alt=""></span> Cuisine (Crop &amp; Kettle)</a></li>
+        <li><a href="#racks"><span class="ico"><img src="assets/nav_racks.png" alt=""></span> Racks</a></li>
         <li><a href="#enchants"><span class="ico"><img src="assets/enchanted_book.png" alt=""></span> Enchantements</a></li>
         <li><a href="#loot"><span class="ico"><img src="assets/nav_loot.png" alt=""></span> Coffres à butin</a></li>
         <li><a href="#voice"><span class="ico"><img src="assets/nav_voice.png" alt=""></span> Chat vocal</a></li>
@@ -503,6 +504,53 @@
             <div class="desc">Les plats se préparent à des postes dédiés (planche à découper, M.Bouilloire…)
               en y combinant des ingrédients, dont les récoltes du serveur comme le maïs.</div>
           </div>
+        </div>
+      </section>
+
+      <section class="section" id="racks">
+        <h3><img class="i" src="assets/nav_racks.png" alt=""> Racks</h3>
+        <p class="lead">Le datapack <b>KawaMood's Racks</b> ajoute un <b>rack</b> décoratif : un support
+          en bois où tu <b>exposes tes outils et tes armes</b> au mur ou posé au sol.</p>
+
+        <h4>Comment ça marche</h4>
+        <p>Fabrique un rack, puis pose-le sur un <b>mur</b> ou au <b>sol</b>. Fais un <b>clic droit</b>
+          avec un outil ou une arme en main pour l'accrocher, et un clic droit à mains vides pour le
+          reprendre. Chaque rack peut afficher jusqu'à <b>2 objets</b> côte à côte.</p>
+        <div class="cards">
+          <div class="card">
+            <div class="title"><img class="i" src="assets/nav_racks.png" alt=""> 12 essences de bois</div>
+            <div class="desc">Un rack par type de planches (chêne, sapin, bouleau, acacia, bambou,
+              écarlate, tordu…) : choisis celui qui colle à ta déco.</div>
+          </div>
+          <div class="card">
+            <div class="title"><img class="i" src="assets/sword.png" alt=""> Outils &amp; armes</div>
+            <div class="desc">Épées, haches, pioches, pelles, houes, masses, lances, arcs, arbalètes,
+              boucliers, cannes à pêche, longues-vues, tridents… s'exposent dessus.</div>
+          </div>
+        </div>
+
+        <h4>La recette (même schéma pour les 12 bois)</h4>
+        <p>Trois <b>planches</b> sur la rangée du haut, deux <b>bâtons</b> aux coins juste en dessous :
+          seul <b>le bois</b> change et donne l'essence du rack. La grille ci-dessous fait défiler
+          les recettes.</p>
+        <div class="recipe">
+          <div class="craft-grid">
+            <div class="cell"><img id="rkPlankL" src="assets/oak_planks.png" alt="Planches" title="Planches de chêne"></div>
+            <div class="cell"><img id="rkPlankC" src="assets/oak_planks.png" alt="Planches" title="Planches de chêne"></div>
+            <div class="cell"><img id="rkPlankR" src="assets/oak_planks.png" alt="Planches" title="Planches de chêne"></div>
+            <div class="cell"><img src="assets/stick.png" alt="Bâton" title="Bâton"></div>
+            <div class="cell empty"></div>
+            <div class="cell"><img src="assets/stick.png" alt="Bâton" title="Bâton"></div>
+            <div class="cell empty"></div>
+            <div class="cell empty"></div>
+            <div class="cell empty"></div>
+          </div>
+        </div>
+        <p id="rkLabel" style="text-align:center;font-size:14px;color:var(--muted);margin:10px 2px 0"></p>
+
+        <div class="callout tip">
+          Le rack est purement <b>décoratif</b> : parfait pour exposer ton meilleur stuff à la base.
+          Comme tout bloc que tu poses, protège-le avec un <a href="#claims">claim</a>.
         </div>
       </section>
 
@@ -947,6 +995,39 @@
       }
       show(0);
       setInterval(() => { idx = (idx + 1) % TIERS.length; show(idx); }, 2600);
+    })();
+
+    // ---------- Rotation des 12 recettes de racks ----------
+    (function cycleRacks() {
+      const planks = ['rkPlankL', 'rkPlankC', 'rkPlankR'].map(id => document.getElementById(id));
+      const label = document.getElementById('rkLabel');
+      if (!label || planks.some(p => !p)) return;
+      const A = 'assets/';
+      const WOODS = [
+        { file: 'oak_planks.png',      name: 'Chêne',        color: '#B8945F' },
+        { file: 'spruce_planks.png',   name: 'Sapin',        color: '#7A5A34' },
+        { file: 'birch_planks.png',    name: 'Bouleau',      color: '#D7CB94' },
+        { file: 'jungle_planks.png',   name: 'Acajou',       color: '#B88763' },
+        { file: 'acacia_planks.png',   name: 'Acacia',       color: '#C0642C' },
+        { file: 'dark_oak_planks.png', name: 'Chêne noir',   color: '#43301A' },
+        { file: 'mangrove_planks.png', name: 'Palétuvier',   color: '#8E3A34' },
+        { file: 'cherry_planks.png',   name: 'Cerisier',     color: '#E3B7B4' },
+        { file: 'pale_oak_planks.png', name: 'Chêne pâle',   color: '#D7CFC2' },
+        { file: 'bamboo_planks.png',   name: 'Bambou',       color: '#C7B04B' },
+        { file: 'crimson_planks.png',  name: 'Écarlate',     color: '#8A3A5B' },
+        { file: 'warped_planks.png',   name: 'Tordu',        color: '#2E7A72' }
+      ];
+      WOODS.forEach(w => { new Image().src = A + w.file; });
+
+      let idx = 0;
+      function show(i) {
+        const w = WOODS[i];
+        const title = 'Planches de ' + w.name.toLowerCase();
+        planks.forEach(im => { im.src = A + w.file; im.alt = 'Planches'; im.title = title; });
+        label.innerHTML = 'Rack en <b style="color:' + w.color + '">' + w.name + '</b>';
+      }
+      show(0);
+      setInterval(() => { idx = (idx + 1) % WOODS.length; show(idx); }, 1600);
     })();
   </script>
 </body>
