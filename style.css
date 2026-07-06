@@ -95,11 +95,33 @@ a:hover { color: var(--accent); }
 
 .brand { display: flex; align-items: center; gap: 22px; margin-bottom: 36px; padding: 0 12px; flex: 0 0 auto; }
 .brand .logo {
+  position: relative;
   width: 76px; height: 76px; flex: 0 0 76px; border-radius: 18px;
   display: grid; place-items: center;
   background: var(--panel); border: 1px solid var(--border);
 }
 .brand .logo img { width: 74%; height: 74%; object-fit: contain; image-rendering: pixelated; }
+
+/* Reflet d'enchantement permanent sur le logo, masque par sa silhouette. */
+.brand .logo::after {
+  content: "";
+  position: absolute; left: 13%; top: 13%; width: 74%; height: 74%;
+  pointer-events: none;
+  background: linear-gradient(115deg,
+    transparent 38%,
+    rgba(168,119,255,.55) 46%,
+    rgba(233,214,255,.95) 50%,
+    rgba(168,119,255,.55) 54%,
+    transparent 62%);
+  background-size: 260% 260%;
+  -webkit-mask: url("assets/logo.png") center / contain no-repeat;
+  mask: url("assets/logo.png") center / contain no-repeat;
+  mix-blend-mode: screen;
+  animation: icoGlint 15s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand .logo::after { animation: none; opacity: .4; }
+}
 .brand h1 { font-size: 21px; margin: 0; font-weight: 600; letter-spacing: -0.02em; }
 .brand small { color: var(--muted); font-size: 17px; }
 
