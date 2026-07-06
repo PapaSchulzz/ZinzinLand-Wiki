@@ -58,8 +58,8 @@ a:hover { color: var(--accent); }
 
 /* ---------- Sidebar ---------- */
 .sidebar {
-  width: 520px;
-  flex: 0 0 520px;
+  width: 380px;
+  flex: 0 0 380px;
   background: var(--bg-soft);
   border-right: 1px solid var(--border);
   padding: 44px 32px;
