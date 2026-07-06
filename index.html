@@ -663,6 +663,11 @@
       localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('collapsed') ? '1' : '0');
     });
 
+    // Reflet d'enchantement : chaque .ico expose son PNG comme masque CSS (--ico-url)
+    document.querySelectorAll('.nav .ico img').forEach(img => {
+      img.parentElement.style.setProperty('--ico-url', 'url("' + img.getAttribute('src') + '")');
+    });
+
     // Highlight de la section active au scroll
     const links = [...document.querySelectorAll('.nav a')];
     const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);

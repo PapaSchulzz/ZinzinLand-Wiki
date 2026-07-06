@@ -114,8 +114,37 @@ a:hover { color: var(--accent); }
 .nav a:hover { background: var(--panel); color: var(--text); }
 .nav a.active { background: var(--panel-2); color: var(--text); box-shadow: inset 0 0 0 1px var(--border); }
 .nav a.active .ico { opacity: 1; }
-.nav .ico { width: 36px; display: inline-flex; justify-content: center; align-items: center; opacity: .8; font-size: 26px; }
+.nav .ico { position: relative; width: 36px; display: inline-flex; justify-content: center; align-items: center; opacity: .8; font-size: 26px; }
 .nav .ico img { width: 32px; height: 32px; image-rendering: pixelated; }
+
+/* Reflet d'enchantement sur l'icone du lien selectionne.
+   La bande violette animee est masquee par le PNG (--ico-url, pose en JS)
+   pour n'apparaitre que sur les pixels opaques de l'icone. */
+.nav a.active .ico::after {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg,
+    transparent 38%,
+    rgba(168,119,255,.55) 46%,
+    rgba(233,214,255,.95) 50%,
+    rgba(168,119,255,.55) 54%,
+    transparent 62%);
+  background-size: 260% 260%;
+  -webkit-mask-image: var(--ico-url); mask-image: var(--ico-url);
+  -webkit-mask-size: 32px 32px; mask-size: 32px 32px;
+  -webkit-mask-position: center; mask-position: center;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  mix-blend-mode: screen;
+  animation: icoGlint 2.4s linear infinite;
+}
+@keyframes icoGlint {
+  0%   { background-position: 165% 0; }
+  100% { background-position: -65% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav a.active .ico::after { animation: none; opacity: .45; }
+}
 .nav .group {
   color: var(--muted-2); font-size: 15px; font-weight: 600;
   text-transform: uppercase; letter-spacing: .08em; padding: 22px 18px 9px;
