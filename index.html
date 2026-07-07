@@ -523,7 +523,7 @@
               écarlate, tordu…) : choisis celui qui colle à ta déco.</div>
           </div>
           <div class="card">
-            <div class="title"><img class="i" src="assets/sword.png" alt=""> Outils &amp; armes</div>
+            <div class="title"><img class="i" id="rkToolIcon" src="assets/diamond_sword.png" alt=""> Outils &amp; armes</div>
             <div class="desc">Épées, haches, pioches, pelles, houes, masses, lances, arcs, arbalètes,
               boucliers, cannes à pêche, longues-vues, tridents… s'exposent dessus.</div>
           </div>
@@ -1028,6 +1028,17 @@
       }
       show(0);
       setInterval(() => { idx = (idx + 1) % WOODS.length; show(idx); }, 1600);
+    })();
+
+    (function cycleRackTools() {
+      const icon = document.getElementById('rkToolIcon');
+      if (!icon) return;
+      const A = 'assets/';
+      const TOOLS = ['diamond_sword.png', 'diamond_axe.png', 'diamond_hoe.png', 'diamond_spear.png'];
+      TOOLS.forEach(f => { new Image().src = A + f; });
+
+      let idx = 0;
+      setInterval(() => { idx = (idx + 1) % TOOLS.length; icon.src = A + TOOLS[idx]; }, 1600);
     })();
   </script>
 </body>
