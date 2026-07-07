@@ -117,7 +117,7 @@ a:hover { color: var(--accent); }
   -webkit-mask: url("assets/logo.png") center / contain no-repeat;
   mask: url("assets/logo.png") center / contain no-repeat;
   mix-blend-mode: screen;
-  animation: icoGlint 6s linear infinite;
+  animation: icoGlint 8s linear infinite;
 }
 @media (prefers-reduced-motion: reduce) {
   .brand .logo::after { animation: none; opacity: .4; }
@@ -158,10 +158,11 @@ a:hover { color: var(--accent); }
   -webkit-mask-position: center; mask-position: center;
   -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
   mix-blend-mode: screen;
-  animation: icoGlint 6s linear infinite;
+  animation: icoGlint 8s linear infinite;
 }
 @keyframes icoGlint {
   0%   { background-position: 165% 0; }
+  50%  { background-position: -65% 0; }
   100% { background-position: -65% 0; }
 }
 @media (prefers-reduced-motion: reduce) {
