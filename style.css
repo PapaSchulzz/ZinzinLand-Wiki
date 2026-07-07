@@ -30,7 +30,7 @@ img.px { image-rendering: pixelated; image-rendering: crisp-edges; }
 .i { width: 1.4em; height: 1.4em; vertical-align: -0.3em; image-rendering: pixelated; }
 .cell img { width: 40px; height: 40px; image-rendering: pixelated; }
 .result img { width: 52px; height: 52px; image-rendering: pixelated; }
-.card .title img.i { margin-right: 2px; }
+.card .title img.i { width: 32px; height: 32px; margin-right: 2px; }
 
 html { scroll-behavior: smooth; }
 
