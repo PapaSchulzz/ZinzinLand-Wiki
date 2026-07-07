@@ -272,13 +272,14 @@ a:hover { color: var(--accent); }
 .rules b { color: var(--text); font-weight: 600; }
 
 /* ---------- Callouts ---------- */
+/* Sens porte par un fond teinte + bordure complete (pas de lisere lateral). */
 .callout {
-  border: 1px solid var(--border); border-left: 2px solid var(--accent);
+  border: 1px solid var(--border-strong);
   background: var(--panel); padding: 13px 18px; border-radius: var(--radius);
   margin: 18px 0; color: var(--muted); font-size: 14px;
 }
-.callout.tip { border-left-color: var(--green); }
-.callout.warn { border-left-color: var(--gold); }
+.callout.tip  { border-color: rgba(33,171,107,.32);  background: rgba(33,171,107,.07); }
+.callout.warn { border-color: rgba(241,197,18,.32);  background: rgba(241,197,18,.07); }
 .callout b { color: var(--text); font-weight: 600; }
 
 /* ---------- Table commandes ---------- */

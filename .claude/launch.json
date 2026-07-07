@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "wiki",
+      "runtimeExecutable": "py",
+      "runtimeArgs": ["-m", "http.server", "4599", "--directory", "C:/Users/Utilisateur/Desktop/Code/ZinzinLand-Wiki"],
+      "port": 4599
+    }
+  ]
+}
