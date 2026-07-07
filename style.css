@@ -161,9 +161,8 @@ a:hover { color: var(--accent); }
   animation: icoGlint 8s linear infinite;
 }
 @keyframes icoGlint {
-  0%   { background-position: 165% 0; }
-  50%  { background-position: -65% 0; }
-  100% { background-position: -65% 0; }
+  0%   { background-position: 280% 0; }
+  100% { background-position: -180% 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .nav a.active .ico::after { animation: none; opacity: .45; }
