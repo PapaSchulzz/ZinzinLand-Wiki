@@ -725,6 +725,18 @@
       img.parentElement.style.setProperty('--ico-url', 'url("' + img.getAttribute('src') + '")');
     });
 
+    // Meme reflet sur les icones du contenu : on enveloppe chaque img.i dans
+    // un .iglint qui porte la bande violette masquee par le PNG de l'icone.
+    document.querySelectorAll('img.i').forEach(img => {
+      const src = img.getAttribute('src');
+      if (!src) return;
+      const span = document.createElement('span');
+      span.className = 'iglint';
+      span.style.setProperty('--ico-url', 'url("' + src + '")');
+      img.parentNode.insertBefore(span, img);
+      span.appendChild(img);
+    });
+
     // Highlight de la section active au scroll
     const links = [...document.querySelectorAll('.nav a')];
     const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);

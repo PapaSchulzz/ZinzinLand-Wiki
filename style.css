@@ -167,6 +167,34 @@ a:hover { color: var(--accent); }
 @media (prefers-reduced-motion: reduce) {
   .nav a.active .ico::after { animation: none; opacity: .45; }
 }
+
+/* Reflet d'enchantement sur les icones du contenu (memes que la nav).
+   Chaque img.i est enveloppee en JS dans un .iglint qui expose son PNG
+   comme masque (--ico-url) pour que la bande violette n'apparaisse que
+   sur les pixels opaques de l'icone. */
+.iglint { position: relative; display: inline-block; line-height: 0; vertical-align: -0.3em; }
+.iglint > .i { vertical-align: top; }
+.iglint::after {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg,
+    transparent 38%,
+    rgba(168,119,255,.55) 46%,
+    rgba(233,214,255,.95) 50%,
+    rgba(168,119,255,.55) 54%,
+    transparent 62%);
+  background-size: 260% 260%;
+  -webkit-mask-image: var(--ico-url); mask-image: var(--ico-url);
+  -webkit-mask-size: contain; mask-size: contain;
+  -webkit-mask-position: center; mask-position: center;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  mix-blend-mode: screen;
+  animation: icoGlint 8s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .iglint::after { animation: none; opacity: .45; }
+}
 .nav .group {
   color: var(--muted-2); font-size: 15px; font-weight: 600;
   text-transform: uppercase; letter-spacing: .08em; padding: 22px 18px 9px;
