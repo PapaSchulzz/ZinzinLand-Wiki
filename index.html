@@ -76,6 +76,7 @@
         <li><a href="#nether"><span class="ico"><img src="assets/fire_charge.png" alt=""></span> Nether</a></li>
         <li class="group">Aide</li>
         <li><a href="#commandes"><span class="ico"><img src="assets/nav_commandes.png" alt=""></span> Commandes</a></li>
+        <li><a href="#patchnotes"><span class="ico"><img src="assets/nav_patchnotes.png" alt=""></span> Notes de mise à jour</a></li>
       </ul>
     </aside>
 
@@ -813,6 +814,88 @@
             <tr><td><code>/vie</code></td><td>Voir tes vies</td></tr>
           </tbody>
         </table>
+      </section>
+
+      <section class="section" id="patchnotes">
+        <h3><img class="i" src="assets/nav_patchnotes.png" alt=""> Notes de mise à jour</h3>
+        <p class="lead">Tout ce qui a été ajouté, modifié, ajusté ou corrigé depuis l'ouverture du serveur.</p>
+
+        <article class="patch">
+          <div class="patch-head">
+            <span class="patch-date">3 → 13 juillet 2026</span>
+            <span class="patch-sub">Récapitulatif depuis l'ouverture</span>
+          </div>
+
+          <div class="patch-group">
+            <h4>Marché dynamique</h4>
+            <ul class="patch-list">
+              <li><span class="pn add">Nouveau</span> Un marchand qui achète et revend, avec des prix pilotés par l'offre et la demande.</li>
+              <li><span class="pn add">Nouveau</span> Achat et vente par lots (8 / 16 / 32 / 64), payés en pièces du sac, prix en Cuivron.</li>
+              <li><span class="pn add">Nouveau</span> Sélecteur de quantité avec prix réel, grille des prix et panneau « Comment ça marche ? ».</li>
+              <li><span class="pn tweak">Ajusté</span> Plancher de vente, prix moins volatils, retour à l'équilibre plus rapide, achat calé à 1,5x la vente.</li>
+              <li><span class="pn remove">Retiré</span> Bloc glowstone et vente troncable (exploits d'argent). Lingots de fer et d'or retirés du marché.</li>
+            </ul>
+          </div>
+
+          <div class="patch-group">
+            <h4>Hôtel des ventes</h4>
+            <ul class="patch-list">
+              <li><span class="pn add">Nouveau</span> Taxe de 5 pour cent payée par l'acheteur (le vendeur touche le prix entier).</li>
+              <li><span class="pn add">Nouveau</span> Affichage clair « Tu paies : 110 (10 de taxe) » et total dans « Mes ventes ».</li>
+            </ul>
+          </div>
+
+          <div class="patch-group">
+            <h4>Protection du terrain</h4>
+            <ul class="patch-list">
+              <li><span class="pn add">Nouveau</span> Les zones contenant une structure générée (temple, donjon, bastion...) sont protégées et ne peuvent pas être claim.</li>
+              <li><span class="pn fix">Correctif</span> Anti-duplication sur la pose de têtes (Robinet, Rack) hors de ton droit de construire.</li>
+              <li><span class="pn info">Info</span> Si une structure gêne une construction, contacte <b>Papa Schulz</b> en MP sur Discord avec les coordonnées du chunk concerné.</li>
+            </ul>
+          </div>
+
+          <div class="patch-group">
+            <h4>Discord</h4>
+            <ul class="patch-list">
+              <li><span class="pn add">Nouveau</span> Salon screenshots (image obligatoire, fil automatique, rappel qui mentionne le membre).</li>
+              <li><span class="pn add">Nouveau</span> <code>/profil</code> gère les joueurs qui ont changé de pseudo et affiche le temps de jeu.</li>
+              <li><span class="pn tweak">Ajusté</span> Les fils de screenshots et de suggestions apparaissent directement sous le message concerné.</li>
+            </ul>
+          </div>
+
+          <div class="patch-group">
+            <h4>Commandes</h4>
+            <ul class="patch-list">
+              <li><span class="pn add">Nouveau</span> <code>/tpa</code> pour se téléporter vers un joueur.</li>
+              <li><span class="pn add">Nouveau</span> <code>/groupe</code> avec persistance au redémarrage et à la reconnexion.</li>
+            </ul>
+          </div>
+
+          <div class="patch-group">
+            <h4>Chapeaux</h4>
+            <ul class="patch-list">
+              <li><span class="pn add">Nouveau</span> +138 chapeaux, 208 au total.</li>
+            </ul>
+          </div>
+
+          <div class="patch-group">
+            <h4>Nether</h4>
+            <ul class="patch-list">
+              <li><span class="pn add">Nouveau</span> Le toit du Nether est devenu hostile (Wither III + message d'avertissement).</li>
+              <li><span class="pn add">Nouveau</span> Génération des structures du Nether garantie (Incendium, D&amp;T, Trek...).</li>
+            </ul>
+          </div>
+
+          <div class="patch-group">
+            <h4>Corrections diverses</h4>
+            <ul class="patch-list">
+              <li><span class="pn fix">Correctif</span> La banque est sauvegardée à l'extinction : plus de perte de dépôt si elle était ouverte pendant un redémarrage.</li>
+              <li><span class="pn fix">Correctif</span> Recettes des Âmes (Bouteille d'âme, Arc infusé) qui ne disparaissent plus après un rechargement.</li>
+              <li><span class="pn fix">Correctif</span> Le hopper « fantôme » de l'alambic ne traîne plus au sol ni dans les coffres.</li>
+              <li><span class="pn fix">Correctif</span> Pack de ressources qui apparaissait en rouge, particules de l'autel, anti-duplication de monnaie sur l'allay porteur.</li>
+            </ul>
+          </div>
+        </article>
       </section>
 
       <footer class="footer">
