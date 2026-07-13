@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Geist+Mono:wght@400;500&display=swap" />
-  <link rel="stylesheet" href="style.css?v=11" />
+  <link rel="stylesheet" href="style.css?v=12" />
   <link rel="icon" type="image/png" href="assets/logo.png?v=7" />
   <style>
     /* Visualisation 3D isometrique de l'autel */
@@ -45,9 +45,16 @@
         </div>
         <button class="collapse-btn" id="collapseBtn" aria-label="Réduire le menu" title="Réduire / agrandir le menu"></button>
       </div>
+
+      <div class="search">
+        <input id="searchInput" type="search" placeholder="Rechercher…" autocomplete="off" spellcheck="false" aria-label="Rechercher dans le wiki">
+        <button id="searchClear" class="search-clear" type="button" aria-label="Effacer la recherche" hidden>×</button>
+      </div>
+
       <ul class="nav">
         <li><a href="#accueil" class="active"><span class="ico"><img src="assets/nav_accueil.png" alt=""></span> Accueil</a></li>
         <li class="group">À lire en premier</li>
+        <li><a href="#premierspas"><span class="ico"><img src="assets/nav_reglement.png" alt=""></span> Premiers pas</a></li>
         <li><a href="#reglement"><span class="ico"><img src="assets/silence_trim.png" alt=""></span> Règlement</a></li>
         <li class="group">Le pouvoir des âmes</li>
         <li><a href="#essence"><span class="ico"><img src="assets/essence.png" alt=""></span> Essence d'âme</a></li>
@@ -57,6 +64,7 @@
         <li class="group">Survie</li>
         <li><a href="#vies"><span class="ico"><img src="assets/regeneration.png" alt=""></span> Vies &amp; cœurs</a></li>
         <li><a href="#claims"><span class="ico"><img src="assets/fire_resistance.png" alt=""></span> Protéger son terrain</a></li>
+        <li><a href="#cadastre"><span class="ico"><img src="assets/lodestone.png" alt=""></span> Cadastre</a></li>
         <li><a href="#sacados"><span class="ico"><img src="assets/nav_sacados.png" alt=""></span> Sac à dos</a></li>
         <li class="group">Se déplacer</li>
         <li><a href="#waystones"><span class="ico"><img src="assets/nav_waystones.png" alt=""></span> Waystones</a></li>
@@ -64,6 +72,7 @@
         <li><a href="#spawn"><span class="ico"><img src="assets/nav_spawn.png" alt=""></span> Spawn</a></li>
         <li class="group">Économie &amp; échanges</li>
         <li><a href="#monnaie"><span class="ico"><img src="assets/nav_monnaie.png" alt=""></span> Monnaie</a></li>
+        <li><a href="#marche"><span class="ico"><img src="assets/cuivron.png" alt=""></span> Marché dynamique</a></li>
         <li><a href="#hdv"><span class="ico"><img src="assets/nav_hdv.png" alt=""></span> Hôtel des ventes</a></li>
         <li><a href="#trade"><span class="ico"><img src="assets/nav_trade.png" alt=""></span> Échange /trade</a></li>
         <li class="group">Contenu &amp; extras</li>
@@ -75,9 +84,11 @@
         <li class="group">Le Nether</li>
         <li><a href="#nether"><span class="ico"><img src="assets/fire_charge.png" alt=""></span> Nether</a></li>
         <li class="group">Aide</li>
+        <li><a href="#faq"><span class="ico"><img src="assets/nav_reglement.png" alt=""></span> FAQ</a></li>
         <li><a href="#commandes"><span class="ico"><img src="assets/nav_commandes.png" alt=""></span> Commandes</a></li>
         <li><a href="#patchnotes"><span class="ico"><img src="assets/nav_patchnotes.png" alt=""></span> Notes de mise à jour</a></li>
       </ul>
+      <div class="search-results" id="searchResults" hidden></div>
     </aside>
 
     <main class="content">
@@ -86,6 +97,23 @@
         <p>Serveur Minecraft Java en mode SMP. Ce wiki regroupe les systèmes maison du serveur :
           armes des Âmes, rituel de l'autel, waystones, économie et cuisine Crop &amp; Kettle.</p>
       </header>
+
+      <section class="section" id="premierspas">
+        <h3><img class="i" src="assets/nav_reglement.png" alt=""> Premiers pas</h3>
+        <p class="lead">Nouveau sur ZinzinLand&nbsp;? Voici l'essentiel pour bien démarrer, dans l'ordre.</p>
+        <ol class="steps">
+          <li><b>Rejoins le serveur.</b> ZinzinLand tourne sur <b>Minecraft Java 26.1.2</b>. L'adresse de connexion est indiquée sur le Discord du serveur.</li>
+          <li><b>Accepte le pack de ressources.</b> Il est nécessaire pour afficher correctement les objets, icônes et polices maison. Clique sur «&nbsp;Oui&nbsp;» quand le jeu te le propose à la connexion.</li>
+          <li><b>Installe le chat vocal (recommandé).</b> Le mod <b>Simple Voice Chat</b> active la voix de proximité. Voir la section <a href="#voice">Chat vocal</a>.</li>
+          <li><b>Explore un peu et pose ta base.</b> Éloigne-toi du spawn pour t'installer tranquillement.</li>
+          <li><b>Protège tes coffres.</b> Dès que tu poses ta base, fais <code>/claim</code> pour protéger le chunk&nbsp;: c'est la meilleure assurance anti-grief. Voir <a href="#claims">Protéger son terrain</a>.</li>
+          <li><b>Découvre l'économie.</b> Va voir <b>Viktor le Numismate</b> sur le dirigeable au spawn pour ta <a href="#monnaie">monnaie</a>, puis explore le <a href="#marche">marché</a> et l'<a href="#hdv">hôtel des ventes</a>.</li>
+          <li><b>Lance-toi dans le contenu maison.</b> Les <a href="#armes">armes des Âmes</a> et le <a href="#autel">rituel de l'autel</a> sont le cœur du serveur&nbsp;: récolte des âmes pour gagner des vies.</li>
+        </ol>
+        <div class="callout tip">
+          Perdu&nbsp;? La <b>barre de recherche</b> en haut à gauche t'amène directement à la bonne section&nbsp;; et en cas de doute, la <a href="#faq">FAQ</a> répond aux questions les plus fréquentes.
+        </div>
+      </section>
 
       <section class="section" id="reglement">
         <h3><img class="i" src="assets/silence_trim.png" alt=""> Règlement</h3>
@@ -330,6 +358,36 @@
         </div>
       </section>
 
+      <section class="section" id="cadastre">
+        <h3><img class="i" src="assets/lodestone.png" alt=""> Cadastre (capacité de claim)</h3>
+        <p class="lead">Par défaut, chaque joueur peut protéger un nombre limité de chunks. Pour
+          <b>agrandir ta capacité</b>, va voir le <b>Cadastre</b> et achète des chunks supplémentaires.</p>
+
+        <div class="cards">
+          <div class="card">
+            <div class="title">Par tranches de 5 chunks</div>
+            <div class="desc">Le Cadastre vend de la capacité de <a href="#claims">claim</a> par
+              <b>paliers de 5 chunks</b>. Chaque palier acheté augmente définitivement le nombre de chunks
+              que tu peux protéger.</div>
+          </div>
+          <div class="card">
+            <div class="title">Prix croissant</div>
+            <div class="desc">Le prix <b>double à chaque palier</b>&nbsp;: les premiers chunks sont bon marché,
+              les suivants de plus en plus chers.</div>
+          </div>
+          <div class="card">
+            <div class="title">Payé en pièces</div>
+            <div class="desc">L'achat se règle avec les <a href="#monnaie">pièces</a> de ton sac. Prépare ta
+              monnaie chez <b>Viktor</b> avant de venir.</div>
+          </div>
+        </div>
+
+        <div class="callout tip">
+          Achète de la capacité au fur et à mesure de tes besoins&nbsp;: inutile de payer cher pour des
+          chunks que tu ne protégeras pas tout de suite.
+        </div>
+      </section>
+
       <section class="section" id="sacados">
         <h3><img class="i" src="assets/nav_sacados.png" alt=""> Sac à dos</h3>
         <p class="lead">Un espace de rangement portable que tu gardes dans ton inventaire.
@@ -469,6 +527,40 @@
         <div class="callout">Pour consulter ton solde et gérer tes pièces, va voir <b>Viktor le Numismate</b>, sur le dirigeable au spawn.</div>
       </section>
 
+      <section class="section" id="marche">
+        <h3><img class="i" src="assets/cuivron.png" alt=""> Marché dynamique</h3>
+        <p class="lead">Un marchand du serveur qui <b>achète et revend</b> les ressources, avec des prix
+          <b>pilotés par l'offre et la demande</b>. Tout se règle en <a href="#monnaie">pièces</a> (Cuivron).</p>
+
+        <h4>Comment les prix bougent</h4>
+        <p>Chaque objet possède un <b>stock virtuel</b> qui fait varier son cours&nbsp;: plus un objet est
+          <b>vendu</b> au marchand, plus son prix <b>baisse</b>&nbsp;; plus il est <b>acheté</b>, plus il
+          <b>remonte</b>. Les prix reviennent doucement vers leur équilibre au fil du temps.</p>
+
+        <div class="cards">
+          <div class="card">
+            <div class="title">Vendre par lots</div>
+            <div class="desc">Écoule tes ressources par paquets de <b>8, 16, 32 ou 64</b>. Le prix affiché
+              est le montant réel que tu vas toucher, en Cuivron.</div>
+          </div>
+          <div class="card">
+            <div class="title">Acheter au marchand</div>
+            <div class="desc">Le marchand revend aussi ce qu'il collecte. L'<b>achat coûte environ 1,5×</b> le
+              prix de vente du moment&nbsp;: revendre aussitôt ce qu'on vient d'acheter ne rapporte rien.</div>
+          </div>
+          <div class="card">
+            <div class="title">Payé depuis ton sac</div>
+            <div class="desc">Les transactions utilisent les <b>pièces que tu as sur toi</b>. Pense à retirer de
+              la monnaie chez <b>Viktor</b> avant de faire tes courses.</div>
+          </div>
+        </div>
+
+        <div class="callout tip">
+          Le marchand affiche un <b>sélecteur de quantité</b> avec le prix réel, une <b>grille des prix</b>
+          et un panneau «&nbsp;Comment ça marche&nbsp;?&nbsp;» directement dans son menu.
+        </div>
+      </section>
+
       <section class="section" id="hdv">
         <h3><img class="i" src="assets/nav_hdv.png" alt=""> Hôtel des ventes</h3>
         <p class="lead">Un marché global intégré : mets tes objets en vente et achète ceux des autres
@@ -482,6 +574,11 @@
             <tr><td><code>/hdv recuperer</code></td><td>Récupère tes objets vendus / invendus dans ta boîte de retrait</td></tr>
           </tbody>
         </table>
+        <div class="callout tip">
+          <b>Taxe de vente.</b> L'<b>acheteur</b> paie <b>5 pour cent</b> en plus du prix affiché&nbsp;; le
+          <b>vendeur touche le prix entier</b>. Le menu d'achat le montre clairement, par exemple
+          «&nbsp;Tu paies&nbsp;: 105 (5 de taxe)&nbsp;» pour une annonce à 100 Cuivron.
+        </div>
         <div class="callout warn">
           Le nombre d'<b>annonces actives</b> par joueur est limité. Les pièces ne se vendent pas ici :
           pour l'argent, passe par la banque.
@@ -796,6 +893,63 @@
           Incendium n'ajoute <b>aucun enchantement</b> : sa puissance vient de cet arsenal d'objets
           uniques, pas de nouveaux enchantements. Pour les enchantements exclusifs, voir la section
           <a href="#enchants">Enchantements de structures</a>.
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <h3><img class="i" src="assets/nav_reglement.png" alt=""> FAQ</h3>
+        <p class="lead">Les questions les plus fréquentes des joueurs.</p>
+        <div class="faq">
+          <details>
+            <summary>Le pack de ressources s'affiche en rouge ou ne se charge pas</summary>
+            <div class="faq-body">Assure-toi d'avoir <b>accepté</b> le pack quand le jeu le propose à la
+              connexion. Si le souci persiste, quitte le serveur, <b>redémarre complètement Minecraft</b>,
+              puis reconnecte-toi pour relancer le téléchargement du pack.</div>
+          </details>
+          <details>
+            <summary>Je n'entends personne dans le chat vocal</summary>
+            <div class="faq-body">Le chat vocal demande le mod client <b>Simple Voice Chat</b>. Installe-le,
+              branche ton micro et ouvre ses réglages en jeu pour choisir ta touche «&nbsp;parler&nbsp;».
+              Détails dans la section <a href="#voice">Chat vocal</a>.</div>
+          </details>
+          <details>
+            <summary>Comment protéger ma base contre le vol et le grief&nbsp;?</summary>
+            <div class="faq-body">Pose un <code>/claim</code> sur les chunks de ta base, en commençant par
+              celui de tes coffres&nbsp;: personne d'autre ne pourra alors casser, poser ou ouvrir tes
+              coffres. Voir <a href="#claims">Protéger son terrain</a>, et le <a href="#cadastre">Cadastre</a>
+              pour agrandir ta capacité.</div>
+          </details>
+          <details>
+            <summary>Comment gagner une vie (un cœur)&nbsp;?</summary>
+            <div class="faq-body">Récolte des <a href="#essence">essences d'âme</a> avec une
+              <a href="#armes">arme des Âmes</a>, assemble une <a href="#fiole">Fiole d'âmes</a>, puis
+              sacrifie-la sur un <a href="#autel">autel</a> pour gagner <b>+1 vie</b> (jusqu'à 3). Consulte
+              tes vies avec <code>/vie</code>.</div>
+          </details>
+          <details>
+            <summary>J'ai perdu mon sac à dos en mourant, c'est normal&nbsp;?</summary>
+            <div class="faq-body">Oui&nbsp;: un <a href="#sacados">sac à dos</a> <b>n'est pas conservé</b> à la
+              mort, il tombe au sol avec le reste de ton stuff. Retourne vite sur le lieu de ta mort pour
+              tout récupérer avant que les objets ne disparaissent.</div>
+          </details>
+          <details>
+            <summary>Comment consulter mon argent et gérer mes pièces&nbsp;?</summary>
+            <div class="faq-body">Va voir <b>Viktor le Numismate</b> sur le dirigeable au spawn&nbsp;: il gère
+              ton solde et l'échange entre les quatre <a href="#monnaie">monnaies</a> (Cuivron, Ferron,
+              Aurin, Diamantin).</div>
+          </details>
+          <details>
+            <summary>Le PvP est-il activé&nbsp;?</summary>
+            <div class="faq-body">Non, le PvP est <b>désactivé par défaut</b>&nbsp;: on ne se bat qu'entre
+              joueurs consentants. Ne force pas le combat et évite les pièges mortels (voir le
+              <a href="#reglement">règlement</a>).</div>
+          </details>
+          <details>
+            <summary>Comment me téléporter chez un ami&nbsp;?</summary>
+            <div class="faq-body">Utilise <code>/tpa &lt;joueur&gt;</code>&nbsp;: ton ami reçoit une demande à
+              accepter. Tu peux aussi utiliser les <a href="#waystones">waystones</a> pour voyager entre les
+              bornes que tu as découvertes.</div>
+          </details>
         </div>
       </section>
 
@@ -1270,6 +1424,119 @@
 
       let idx = 0;
       setInterval(() => { idx = (idx + 1) % TOOLS.length; icon.src = A + TOOLS[idx]; }, 1600);
+    })();
+
+    // ---------- Recherche dans le wiki (index construit depuis les sections) ----------
+    (function wikiSearch() {
+      const input = document.getElementById('searchInput');
+      const results = document.getElementById('searchResults');
+      const clearBtn = document.getElementById('searchClear');
+      const navEl = document.querySelector('.nav');
+      if (!input || !results || !navEl) return;
+
+      // Normalise (minuscules + sans accents) pour une recherche tolerante.
+      const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+
+      const items = [...document.querySelectorAll('main .section[id]')].map(sec => {
+        const h = sec.querySelector('h3');
+        const lead = sec.querySelector('.lead');
+        return {
+          id: sec.id,
+          title: (h ? h.textContent : sec.id).trim(),
+          desc: lead ? lead.textContent.trim() : '',
+          hay: norm(sec.textContent)
+        };
+      });
+
+      const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+      function render(q) {
+        const nq = norm(q).trim();
+        if (!nq) {
+          results.hidden = true;
+          results.innerHTML = '';
+          navEl.style.display = '';
+          if (clearBtn) clearBtn.hidden = true;
+          return;
+        }
+        if (clearBtn) clearBtn.hidden = false;
+        const terms = nq.split(/\s+/);
+        const hits = items.filter(it => terms.every(t => it.hay.includes(t)));
+        navEl.style.display = 'none';
+        results.hidden = false;
+        if (!hits.length) {
+          results.innerHTML = '<div class="search-empty">Aucun résultat pour «&nbsp;' + esc(q.trim()) + '&nbsp;»</div>';
+          return;
+        }
+        results.innerHTML = hits.map(it =>
+          '<a href="#' + it.id + '" class="search-hit"><span class="sh-title">' + esc(it.title) + '</span>' +
+          (it.desc ? '<span class="sh-desc">' + esc(it.desc) + '</span>' : '') + '</a>'
+        ).join('');
+      }
+
+      function reset() { input.value = ''; render(''); }
+
+      input.addEventListener('input', () => render(input.value));
+      input.addEventListener('keydown', e => {
+        if (e.key === 'Escape') { reset(); input.blur(); }
+        else if (e.key === 'Enter') {
+          const first = results.querySelector('a');
+          if (first) { location.hash = first.getAttribute('href'); reset(); input.blur(); }
+        }
+      });
+      if (clearBtn) clearBtn.addEventListener('click', () => { reset(); input.focus(); });
+      results.addEventListener('click', e => {
+        if (e.target.closest('a')) {
+          reset();
+          if (window.innerWidth <= 860) sidebar.classList.remove('open');
+        }
+      });
+      // Raccourci "/" pour sauter dans la recherche.
+      document.addEventListener('keydown', e => {
+        if (e.key === '/' && e.target !== input && !/^(input|textarea|select)$/i.test(e.target.tagName)) {
+          e.preventDefault();
+          input.focus();
+        }
+      });
+    })();
+
+    // ---------- Clic-pour-copier sur les commandes ----------
+    (function copyCommands() {
+      const codes = [...document.querySelectorAll('code')].filter(c => c.textContent.trim().startsWith('/'));
+      codes.forEach(c => {
+        c.classList.add('copyable');
+        c.setAttribute('role', 'button');
+        c.setAttribute('tabindex', '0');
+        c.setAttribute('title', 'Cliquer pour copier');
+        const doCopy = () => {
+          const txt = c.textContent.trim();
+          const done = () => { c.classList.add('copied'); setTimeout(() => c.classList.remove('copied'), 1100); };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(txt).then(done).catch(() => fallback(txt, done));
+          } else { fallback(txt, done); }
+        };
+        c.addEventListener('click', doCopy);
+        c.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); doCopy(); } });
+      });
+      function fallback(txt, done) {
+        const ta = document.createElement('textarea');
+        ta.value = txt; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        ta.remove();
+      }
+    })();
+
+    // ---------- Ancres cliquables sur les titres de section ----------
+    (function headingAnchors() {
+      document.querySelectorAll('main .section[id] > h3').forEach(h => {
+        const a = document.createElement('a');
+        a.className = 'anchor';
+        a.href = '#' + h.parentElement.id;
+        a.setAttribute('aria-label', 'Lien direct vers cette section');
+        a.textContent = '#';
+        h.appendChild(a);
+      });
     })();
   </script>
 </body>
