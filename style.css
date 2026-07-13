@@ -340,17 +340,17 @@ code, table.cmds code {
 .patch-group h4 { font-size: 15px; margin: 0 0 8px; color: var(--text); font-weight: 600; letter-spacing: -0.015em; }
 .patch-list { list-style: none; padding: 0; margin: 0; }
 .patch-list li {
-  position: relative; display: flex; align-items: baseline; gap: 10px;
-  padding: 7px 2px; font-size: 14px; color: var(--muted); line-height: 1.5;
+  position: relative; padding: 8px 2px 8px 98px;
+  font-size: 14px; color: var(--muted); line-height: 1.5;
   border-bottom: 1px solid rgba(255,255,255,.04);
 }
 .patch-list li:last-child { border-bottom: 0; }
 .patch-list b { color: var(--text); font-weight: 600; }
 .pn {
-  flex: 0 0 auto; min-width: 74px; text-align: center;
+  position: absolute; left: 2px; top: 9px;
+  min-width: 74px; text-align: center; box-sizing: border-box;
   font-size: 10.5px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em;
   padding: 3px 8px; border-radius: 6px; border: 1px solid var(--border-strong);
-  position: relative; top: 1px;
 }
 .pn.add    { color: var(--green); background: rgba(33,171,107,.10);  border-color: rgba(33,171,107,.28); }
 .pn.fix    { color: var(--gold);  background: rgba(241,197,18,.10);  border-color: rgba(241,197,18,.28); }
