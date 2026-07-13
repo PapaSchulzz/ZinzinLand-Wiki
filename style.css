@@ -316,6 +316,9 @@ table.cmds th, table.cmds td { text-align: left; padding: 11px 14px; border-bott
 table.cmds tbody tr:last-child td { border-bottom: 0; }
 table.cmds th { color: var(--muted); font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: .06em; background: var(--bg-soft); }
 table.cmds tbody tr:hover { background: var(--panel); }
+/* Icones d'objets (arsenal) : mise a l'echelle entiere pour rester nettes */
+table.cmds td .ii { width: 32px; height: 32px; image-rendering: pixelated; vertical-align: middle; margin: -2px 11px -2px 0; }
+table.cmds td .ii.sh { width: 24px; height: 24px; margin: -2px 15px -2px 4px; }
 
 code, table.cmds code {
   font-family: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
