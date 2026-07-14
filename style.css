@@ -328,6 +328,8 @@ code, table.cmds code {
 
 /* ---------- Notes de mise a jour ---------- */
 .patch { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; }
+/* Une note par jour : sans marge, les panneaux se toucheraient. */
+.patch + .patch { margin-top: 14px; }
 .patch-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; padding-bottom: 16px; margin-bottom: 6px; border-bottom: 1px solid var(--border); }
 .patch-date {
   font-family: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
