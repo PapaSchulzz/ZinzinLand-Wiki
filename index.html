@@ -79,6 +79,7 @@
         <li><a href="#cnk"><span class="ico"><img src="assets/nav_cnk.png" alt=""></span> Cuisine</a></li>
         <li><a href="#racks"><span class="ico"><img src="assets/nav_racks.png" alt=""></span> Racks</a></li>
         <li><a href="#enchants"><span class="ico"><img src="assets/enchanted_book.png" alt=""></span> Enchantements</a></li>
+        <li><a href="#cles"><span class="ico"><img src="assets/key_shrine.png" alt=""></span> Clés de donjons</a></li>
         <li><a href="#loot"><span class="ico"><img src="assets/nav_loot.png" alt=""></span> Coffres à butin</a></li>
         <li><a href="#voice"><span class="ico"><img src="assets/nav_voice.png" alt=""></span> Chat vocal</a></li>
         <li class="group">Le Nether</li>
@@ -732,6 +733,72 @@
         <div class="callout tip">
           Une <b>malédiction</b> ne peut pas se retirer à la meule et ne disparaît pas à la mort de l'objet :
           réfléchis avant d'en appliquer une sur ton meilleur stuff.
+        </div>
+      </section>
+
+      <section class="section" id="cles">
+        <h3><img class="i" src="assets/key_shrine.png" alt=""> Clés de donjons (Donjons &amp; Tavernes)</h3>
+        <p class="lead">Le datapack <b>Dungeons and Taverns</b> ajoute <b>21 clés</b> uniques. Chaque structure a
+          la sienne : elle sert à ouvrir les <b>coffres-forts</b> (vaults) cachés à l'intérieur, exactement comme
+          la clé d'épreuve vanilla dans les chambres d'épreuves.</p>
+
+        <div class="cards">
+          <div class="card">
+            <div class="title"><img class="i" src="assets/key_shrine.png" alt=""> Comment les obtenir</div>
+            <div class="desc">Presque toutes tombent des <b>générateurs d'épreuves</b> (trial spawners) de la
+              structure : tu vides les vagues, le générateur crache la clé. Certaines se trouvent aussi dans les
+              <b>pots</b>, les <b>coffres</b>, les <b>fouilles archéologiques</b> ou sur les <b>mobs</b>.</div>
+          </div>
+          <div class="card">
+            <div class="title"><img class="i" src="assets/key_ominous_shrine.png" alt=""> Clés funestes</div>
+            <div class="desc">Sous <b>présage funeste</b>, les générateurs deviennent funestes et donnent la
+              <b>version funeste</b> de la clé. Elle ouvre les coffres-forts funestes, bien mieux garnis.</div>
+            <span class="tag soul">Présage funeste</span>
+          </div>
+          <div class="card">
+            <div class="title"><img class="i" src="assets/key_citadel_boss.png" alt=""> Clés de boss</div>
+            <div class="desc">Les clés de <b>boss</b> ne tombent que du générateur du boss de la structure.
+              Elles ouvrent son coffre-fort personnel, le meilleur butin du donjon.</div>
+            <span class="tag gold">Boss</span>
+          </div>
+        </div>
+
+        <p>Une clé ne fonctionne que dans <b>sa</b> structure : la clé de Sanctuaire n'ouvrira rien dans le
+          Repaire toxique. Elles ne s'empilent pas entre elles et sont <b>consommées</b> à l'ouverture.</p>
+
+        <table class="cmds">
+          <thead><tr><th>Clé</th><th>Structure</th><th>Où l'obtenir</th></tr></thead>
+          <tbody>
+            <tr><td><img class="ii" src="assets/key_shrine.png" alt="">Clé de Sanctuaire</td><td>Sanctuaire</td><td>Générateurs d'épreuves du Sanctuaire, pots du dernier palier</td></tr>
+            <tr><td><img class="ii" src="assets/key_ominous_shrine.png" alt="">Clé de Sanctuaire funeste <span class="tag soul">Funeste</span></td><td>Sanctuaire</td><td>Générateurs d'épreuves funestes</td></tr>
+            <tr><td><img class="ii" src="assets/key_creeper.png" alt="">Clé sifflante</td><td>Crypte rampante</td><td>Générateurs d'épreuves (creepers, squelettes, araignées, zombies)</td></tr>
+            <tr><td><img class="ii" src="assets/key_citadel.png" alt="">Clé de la Citadelle</td><td>Citadelle solitaire</td><td>Générateurs d'épreuves, coffre de tombe</td></tr>
+            <tr><td><img class="ii" src="assets/key_citadel_boss.png" alt="">Clé du Boss de la Citadelle <span class="tag gold">Boss</span></td><td>Citadelle solitaire</td><td>Générateur du boss</td></tr>
+            <tr><td><img class="ii" src="assets/key_trident_trial.png" alt="">Clé des épreuves du Trident</td><td>Monument des épreuves du Trident</td><td>Générateurs d'épreuves, générateurs de noyés</td></tr>
+            <tr><td><img class="ii" src="assets/key_trident_trial_boss.png" alt="">Clé de Boss des épreuves du Trident <span class="tag gold">Boss</span></td><td>Monument des épreuves du Trident</td><td>Générateur du Gardien ancien</td></tr>
+            <tr><td><img class="ii" src="assets/key_piglin_donjon.png" alt="">Clé de donjon de Piglins</td><td>Donjon de Piglins</td><td>Piglins et brutes du donjon, coffres, générateurs d'épreuves</td></tr>
+            <tr><td><img class="ii" src="assets/key_piglin_outstation.png" alt="">Clé d'avant-poste de Piglins</td><td>Avant-poste de Piglins</td><td>Piglins et brutes de l'avant-poste, générateurs d'épreuves</td></tr>
+            <tr><td><img class="ii" src="assets/key_hamlet.png" alt="">Clé du Hameau</td><td>Hameau de Piglins</td><td>Piglins et brutes du hameau, générateurs d'épreuves</td></tr>
+            <tr><td><img class="ii" src="assets/key_nether_keep.png" alt="">Clé de donjon du Nether</td><td>Donjon du Nether</td><td>Générateurs d'épreuves (blazes, cubes de magma, squelettes, wither squelettes)</td></tr>
+            <tr><td><img class="ii" src="assets/key_nether_port.png" alt="">Clé du Port du Nether</td><td>Port du Nether</td><td>Générateurs d'épreuves (blazes, squelettes, wither squelettes)</td></tr>
+            <tr><td><img class="ii" src="assets/key_end_castle.png" alt="">Clé du Château de l'End</td><td>Château de l'End</td><td>Générateurs d'épreuves, coffres, pots, générateurs de phantoms</td></tr>
+            <tr><td><img class="ii" src="assets/key_end_ship.png" alt="">Clé du navire de l'End</td><td>Château de l'End, Phare de l'End</td><td>Boss du château, phantoms funestes</td></tr>
+            <tr><td><img class="ii" src="assets/key_toxic.png" alt="">Clé toxique</td><td>Repaire toxique</td><td>Générateurs d'épreuves, fouilles archéologiques, coffres</td></tr>
+            <tr><td><img class="ii" src="assets/key_ominous_toxic.png" alt="">Clé toxique funeste <span class="tag soul">Funeste</span></td><td>Repaire toxique</td><td>Générateurs d'épreuves funestes, fouilles archéologiques</td></tr>
+            <tr><td><img class="ii" src="assets/key_toxic_boss.png" alt="">Clé du Boss toxique <span class="tag gold">Boss</span></td><td>Repaire toxique</td><td>Générateur de l'araignée boss</td></tr>
+            <tr><td><img class="ii" src="assets/key_cave_chamber.png" alt="">Clé de la Chambre souterraine</td><td>Chambre souterraine</td><td>Générateurs d'épreuves, pots</td></tr>
+            <tr><td><img class="ii" src="assets/key_sealing.png" alt="">Clé des Salles du Sceau</td><td>Salles du Sceau</td><td>Générateurs d'épreuves, pots</td></tr>
+            <tr><td><img class="ii" src="assets/key_ominous_sealing.png" alt="">Clé funeste des Salles du Sceau <span class="tag soul">Funeste</span></td><td>Salles du Sceau</td><td>Générateurs d'épreuves funestes</td></tr>
+            <tr><td><img class="ii" src="assets/key_boss_sealing.png" alt="">Clé du Boss des Salles du Sceau <span class="tag gold">Boss</span></td><td>Salles du Sceau</td><td>Générateur du boss</td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout tip">
+          <b>Ouvrir le coffre-fort du boss des Salles du Sceau</b> débloque le succès <b>Ghastbuster !</b>.
+        </div>
+        <div class="callout">
+          Quelques clés portent encore leur <b>nom anglais</b> en jeu : le datapack n'a pas traduit toutes les
+          lignes. L'icône, elle, reste la bonne.
         </div>
       </section>
 
