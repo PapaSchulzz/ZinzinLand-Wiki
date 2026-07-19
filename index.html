@@ -66,6 +66,7 @@
         <li><a href="#claims"><span class="ico"><img src="assets/fire_resistance.png" alt=""></span> Protéger son terrain</a></li>
         <li><a href="#cadastre"><span class="ico"><img src="assets/nav_achatclaim.png" alt=""></span> Achat Claim</a></li>
         <li><a href="#sacados"><span class="ico"><img src="assets/item_picked_up.png" alt=""></span> Sac à dos</a></li>
+        <li><a href="#metiers"><span class="ico"><img src="assets/nav_metiers.png" alt=""></span> Métiers</a></li>
         <li class="group">Se déplacer</li>
         <li><a href="#waystones"><span class="ico"><img src="assets/nav_waystones.png" alt=""></span> Waystones</a></li>
         <li><a href="#tpa"><span class="ico"><img src="assets/ender_eye.png" alt=""></span> Téléportation /tpa</a></li>
@@ -434,6 +435,60 @@
         <div class="callout warn">
           <b>Attention à la mort.</b> Un sac à dos n'est <b>pas conservé</b> quand tu meurs : il tombe
           au sol avec le reste de ton stuff. Va vite récupérer ton butin (ou garde tes sacs à la base).
+        </div>
+      </section>
+
+      <section class="section" id="metiers">
+        <h3><img class="i" src="assets/nav_metiers.png" alt=""> Métiers</h3>
+        <p class="lead">Un système de <b>progression à paliers</b> : plus tu pratiques une activité, plus
+          tu montes en niveau dans le métier correspondant et plus tu débloques de <b>capacités</b>.
+          Les métiers ne versent <b>aucune pièce</b> : ils te rendent plus efficace, jamais plus riche.</p>
+
+        <h4>Où gérer ses métiers</h4>
+        <p>Va voir le PNJ <b>Maître Boulot</b> au spawn et fais un <b>clic droit</b> pour ouvrir ton
+          tableau de bord. La commande <code>/metiers</code> ouvre le même menu de n'importe où.</p>
+
+        <h4>Les quatre métiers</h4>
+        <p>Chaque métier compte <b>10 niveaux</b>. On progresse dans tous en même temps, il n'y a pas à
+          choisir. Compte environ <b>10 heures de jeu actif</b> dans une activité pour atteindre le
+          niveau 10 de son métier.</p>
+        <div class="cards">
+          <div class="card">
+            <div class="title"><img class="i" src="assets/iron_pickaxe.png" alt=""> Mineur</div>
+            <div class="desc">XP en cassant des <b>minerais naturels</b>. Débloque célérité, vision en
+              grotte, Fortune maison, fonte auto et la capacité <b>Filon</b> (surligne les minerais autour de toi).</div>
+          </div>
+          <div class="card">
+            <div class="title"><img class="i" src="assets/iron_axe.png" alt=""> Bûcheron</div>
+            <div class="desc">XP en coupant des <b>bûches naturelles</b>. Débloque célérité à la hache,
+              meilleurs drops, replantation auto et la capacité <b>Abattage</b> (abat tout l'arbre d'un coup).</div>
+          </div>
+          <div class="card">
+            <div class="title"><img class="i" src="assets/iron_hoe.png" alt=""> Fermier</div>
+            <div class="desc">XP en <b>récoltant des cultures mûres</b> et en reproduisant des animaux.
+              Débloque replantation auto, récolte double et la capacité <b>Récolte 3x3</b>.</div>
+          </div>
+          <div class="card">
+            <div class="title"><img class="i" src="assets/iron_sword.png" alt=""> Chasseur</div>
+            <div class="desc">XP en <b>tuant des monstres hostiles</b>. Débloque force et régénération après
+              un kill, butin amélioré, drops d'Essence d'âme et une résistance contre la <b>famille de mobs</b> de ton choix.</div>
+          </div>
+        </div>
+
+        <div class="callout tip">
+          <b>Capacités activables.</b> Certaines capacités (fonte auto et Télékinésie chez le Mineur,
+          Abattage chez le Bûcheron) se coupent ou se rallument d'un clic dans le menu du métier, selon
+          l'envie du moment.
+        </div>
+
+        <div class="callout">
+          <b>Anti-ferme.</b> Seules les ressources <b>naturelles</b> comptent : un bloc que tu as posé
+          toi-même ou un monstre issu d'un générateur ne donne pas d'XP.
+        </div>
+
+        <div class="callout tip">
+          Chaque métier a son petit arbre de <b>succès</b> (Apprenti, Compagnon, Maître) dans l'onglet
+          <b>Progrès ZinzinLand</b>, et un <b>chapeau</b> t'attend au niveau 10.
         </div>
       </section>
 
@@ -979,6 +1034,34 @@
       <section class="section" id="patchnotes">
         <h3><img class="i" src="assets/nav_patchnotes.png" alt=""> Notes de mise à jour</h3>
         <p class="lead">Tout ce qui a été ajouté, modifié, ajusté ou corrigé depuis l'ouverture du serveur.</p>
+
+        <article class="patch">
+          <div class="patch-head">
+            <span class="patch-date">19 juillet 2026</span>
+          </div>
+
+          <div class="patch-group">
+            <h4>Métiers</h4>
+            <ul class="patch-list">
+              <li><span class="pn add">Nouveau</span> Un système de métiers à paliers : Mineur, Bûcheron, Fermier et Chasseur, chacun sur 10 niveaux. On gagne de l'XP en pratiquant l'activité et chaque palier débloque une capacité (célérité, Fortune maison, fonte auto, Abattage, Récolte 3x3, butin amélioré...). Les métiers ne versent aucune pièce.</li>
+              <li><span class="pn add">Nouveau</span> Le PNJ Maître Boulot au spawn (ou la commande <code>/metiers</code>) ouvre ton tableau de bord des métiers.</li>
+            </ul>
+          </div>
+
+          <div class="patch-group">
+            <h4>Succès</h4>
+            <ul class="patch-list">
+              <li><span class="pn add">Nouveau</span> 19 succès ZinzinLand liés aux métiers (Apprenti, Compagnon et Maître de chaque métier, succès signatures, plus Premier boulot, Touche-à-tout et Grand Maître des Métiers).</li>
+            </ul>
+          </div>
+
+          <div class="patch-group">
+            <h4>Wiki</h4>
+            <ul class="patch-list">
+              <li><span class="pn add">Nouveau</span> Une page Métiers détaille les quatre métiers, leurs capacités et comment y accéder.</li>
+            </ul>
+          </div>
+        </article>
 
         <article class="patch">
           <div class="patch-head">
