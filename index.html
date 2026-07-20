@@ -1057,7 +1057,7 @@
         </div>
 
         <h4>Ce que la communauté a accompli</h4>
-        <p class="sv-note" style="margin:-2px 0 0">Chaque exploit avec son Top 15 des joueurs. Utilise les flèches pour passer d'un classement à l'autre.</p>
+        <p class="sv-note" style="margin:-2px 0 0">Temps de jeu et chaque exploit, avec le Top 15 des joueurs. Utilise les flèches pour passer d'un classement à l'autre.</p>
         <div class="sv-lbcar" id="svLbCar">
           <div class="sv-lbhead">
             <button type="button" class="sv-lbnav" id="svLbPrev" aria-label="Classement précédent">&#8249;</button>
@@ -1077,15 +1077,17 @@
           (function () {
             var ADM = { 'Papa_Schulz': 1, 'OnTreck': 1, 'GhostRider584': 1 };
             var METRICS = [
+              { name: 'Temps de jeu', icon: 'assets/totem_of_undying.png', total: 2320, unit: ' h', dec: 1, label: 'de jeu cumulées',
+                rows: [['Papa_Schulz',230.8],['SatoTenkai',155.0],['AstrowFR',107.5],['AstraWolf_',106.4],['sixela654',102.8],['ryulix14',79.1],['OnTreck',71.6],['Alfadr',71.1],['PYCOTO',69.1],['Mcross_bow',63.5],['Acacia24',57.5],['GhostRider584',53.7],['_gingerbread___',52.0],['navarath1764',49.7],['OB_Stanius',49.3]] },
               { name: 'Mobs abattus', icon: 'assets/netherite_sword.png', total: 161113, unit: '', dec: 0, label: 'mobs abattus au total',
                 rows: [['SatoTenkai',10532],['GhostRider584',9432],['PYCOTO',9204],['AstrowFR',7696],['meurdererkarnage',7538],['Alfadr',7277],['ITACHI0110',7080],['ryulix14',6780],['lepoussindu93',6637],['Mcross_bow',6160],['Isma_X',5986],['Chaty_Fishy',5872],['val92',5185],['OnTreck',5136],['Logdur38',4226]] },
               { name: 'Blocs minés', icon: 'assets/netherite_pickaxe.png', total: 1556169, unit: '', dec: 0, label: 'blocs minés au total',
                 rows: [['SatoTenkai',208577],['Panstic',142231],['AstrowFR',99683],['AstraWolf_',99432],['OB_Stanius',71457],['ryulix14',58872],['Acacia24',58511],['OnTreck',50820],['erty1720',49494],['val92',48357],['Alfadr',41902],['Mcross_bow',38907],['GhostRider584',38896],['Logdur38',37339],['PYCOTO',36495]] },
-              { name: 'Distance à pied', icon: 'assets/iron_boots.png', total: 3471, unit: ' km', dec: 1, label: 'km parcourus au total',
+              { name: 'Distance à pied', icon: 'assets/iron_boots.png', total: 3471, unit: ' km', dec: 1, label: 'parcourus à pied au total',
                 rows: [['SatoTenkai',330.6],['Mcross_bow',173.4],['AstraWolf_',169.9],['Alfadr',139.4],['OB_Stanius',137.4],['OnTreck',128.0],['ryulix14',127.6],['meurdererkarnage',110.1],['GhostRider584',100.8],['PYCOTO',94.2],['lepoussindu93',92.8],['Ryuwenx2011',86.8],['val92',85.1],['Rav_IOLI',77.5],['AstrowFR',70.9]] },
               { name: 'Morts', icon: 'assets/bone.png', total: 786, unit: '', dec: 0, label: 'morts au total',
                 rows: [['Papa_Schulz',56],['navarath1764',39],['ryulix14',34],['_gingerbread___',33],['C2Ash6',27],['AstraWolf_',27],['AstrowFR',25],['Alfadr',23],['Chaty_Fishy',22],['Ryuwenx2011',22],['Logdur38',21],['SpiderEthan',20],['OnTreck',16],['val92',16],['lepoussindu93',16]] },
-              { name: 'Duels PvP gagnés', icon: 'assets/diamond_sword.png', total: 48, unit: '', dec: 0, label: 'joueurs vaincus au total',
+              { name: 'Duels PvP gagnés', icon: 'assets/golden_sword_whim.png', total: 48, unit: '', dec: 0, label: 'joueurs vaincus au total',
                 rows: [['val92',7],['SatoTenkai',6],['justn2oo',4],['Vesmina',4],['PYCOTO',3],['Mcross_bow',3],['AstraWolf_',3],['OB_Stanius',3],['erty1720',2],['Akerck',2],['GamerZoZo72',2],['Papa_Schulz',2],['OnTreck',1],['C2Ash6',1],['Yuanli2000',1]] },
               { name: 'Poissons pêchés', icon: 'assets/cod.png', total: 580, unit: '', dec: 0, label: 'poissons pêchés au total',
                 rows: [['Panstic',384],['erty1720',66],['XmasArnaud',31],['_gingerbread___',14],['zodopipo',13],['manil13',13],['TheSurvivor3333',11],['AstrowFR',11],['Rav_IOLI',8],['OnTreck',7],['lepoussindu93',6],['SatoTenkai',6],['Acacia24',5],['AstraWolf_',3],['ITACHI0110',1]] },
@@ -1121,7 +1123,7 @@
               elIcon.src = m.icon;
               elIcon.alt = m.name;
               elName.textContent = m.name;
-              elTot.textContent = nf(m.total, m.dec) + (m.unit || '') + ' ' + m.label;
+              elTot.textContent = nf(Math.round(m.total), 0) + (m.unit || '') + ' ' + m.label;
               var max = m.rows[0][1] || 1;
               var html = '';
               for (var i = 0; i < m.rows.length; i++) {
@@ -1165,25 +1167,6 @@
               correspond aux joueurs venus au lancement sans revenir.</p>
             <svg id="svRecency" viewBox="0 0 520 230" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Dernière connexion par jour"></svg>
           </div>
-        </div>
-
-        <h4><img class="i" src="assets/totem_of_undying.png" alt=""> Top 15 · temps de jeu</h4>
-        <div class="sv-top">
-          <div class="sv-prow"><div class="sv-rank">1</div><div class="sv-pname">Papa_Schulz<span class="tag">admin</span></div><div class="sv-ptrack"><div class="sv-pfill adm" style="width:100%"></div></div><div class="sv-phrs"><b>229,9</b> h</div></div>
-          <div class="sv-prow"><div class="sv-rank">2</div><div class="sv-pname">SatoTenkai</div><div class="sv-ptrack"><div class="sv-pfill" style="width:67%"></div></div><div class="sv-phrs"><b>154,9</b> h</div></div>
-          <div class="sv-prow"><div class="sv-rank">3</div><div class="sv-pname">AstraWolf_</div><div class="sv-ptrack"><div class="sv-pfill" style="width:46%"></div></div><div class="sv-phrs"><b>106,4</b> h</div></div>
-          <div class="sv-prow"><div class="sv-rank">4</div><div class="sv-pname">AstrowFR</div><div class="sv-ptrack"><div class="sv-pfill" style="width:46%"></div></div><div class="sv-phrs"><b>104,8</b> h</div></div>
-          <div class="sv-prow"><div class="sv-rank">5</div><div class="sv-pname">sixela654</div><div class="sv-ptrack"><div class="sv-pfill" style="width:43%"></div></div><div class="sv-phrs"><b>99,7</b> h</div></div>
-          <div class="sv-prow"><div class="sv-rank">6</div><div class="sv-pname">ryulix14</div><div class="sv-ptrack"><div class="sv-pfill" style="width:34%"></div></div><div class="sv-phrs"><b>79,1</b> h</div></div>
-          <div class="sv-prow"><div class="sv-rank">7</div><div class="sv-pname">OnTreck<span class="tag">admin</span></div><div class="sv-ptrack"><div class="sv-pfill adm" style="width:31%"></div></div><div class="sv-phrs"><b>71,6</b> h</div></div>
-          <div class="sv-prow"><div class="sv-rank">8</div><div class="sv-pname">Alfadr</div><div class="sv-ptrack"><div class="sv-pfill" style="width:31%"></div></div><div class="sv-phrs"><b>71,1</b> h</div></div>
-          <div class="sv-prow"><div class="sv-rank">9</div><div class="sv-pname">PYCOTO</div><div class="sv-ptrack"><div class="sv-pfill" style="width:30%"></div></div><div class="sv-phrs"><b>69,1</b> h</div></div>
-          <div class="sv-prow"><div class="sv-rank">10</div><div class="sv-pname">Mcross_bow</div><div class="sv-ptrack"><div class="sv-pfill" style="width:27%"></div></div><div class="sv-phrs"><b>63,0</b> h</div></div>
-          <div class="sv-prow"><div class="sv-rank">11</div><div class="sv-pname">Acacia24</div><div class="sv-ptrack"><div class="sv-pfill" style="width:25%"></div></div><div class="sv-phrs"><b>57,0</b> h</div></div>
-          <div class="sv-prow"><div class="sv-rank">12</div><div class="sv-pname">GhostRider584<span class="tag">admin</span></div><div class="sv-ptrack"><div class="sv-pfill adm" style="width:23%"></div></div><div class="sv-phrs"><b>53,3</b> h</div></div>
-          <div class="sv-prow"><div class="sv-rank">13</div><div class="sv-pname">_gingerbread___</div><div class="sv-ptrack"><div class="sv-pfill" style="width:23%"></div></div><div class="sv-phrs"><b>52,0</b> h</div></div>
-          <div class="sv-prow"><div class="sv-rank">14</div><div class="sv-pname">navarath1764</div><div class="sv-ptrack"><div class="sv-pfill" style="width:22%"></div></div><div class="sv-phrs"><b>49,7</b> h</div></div>
-          <div class="sv-prow"><div class="sv-rank">15</div><div class="sv-pname">OB_Stanius</div><div class="sv-ptrack"><div class="sv-pfill" style="width:21%"></div></div><div class="sv-phrs"><b>49,3</b> h</div></div>
         </div>
 
         <div class="sv-duo">
