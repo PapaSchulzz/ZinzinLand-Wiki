@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Geist+Mono:wght@400;500&display=swap" />
-  <link rel="stylesheet" href="style.css?v=12" />
+  <link rel="stylesheet" href="style.css?v=13" />
   <link rel="icon" type="image/png" href="assets/logo.png?v=7" />
   <style>
     /* Visualisation 3D isometrique de l'autel */
@@ -71,6 +71,7 @@
         <li><a href="#waystones"><span class="ico"><img src="assets/nav_waystones.png" alt=""></span> Waystones</a></li>
         <li><a href="#tpa"><span class="ico"><img src="assets/ender_eye.png" alt=""></span> Téléportation /tpa</a></li>
         <li><a href="#spawn"><span class="ico"><img src="assets/spawn_compass.gif" alt=""></span> Spawn</a></li>
+        <li><a href="#carte"><span class="ico"><img src="assets/spawn_compass.gif" alt=""></span> Carte du serveur</a></li>
         <li class="group">Économie &amp; échanges</li>
         <li><a href="#monnaie"><span class="ico"><img src="assets/nav_monnaie.png" alt=""></span> Monnaie</a></li>
         <li><a href="#marche"><span class="ico"><img src="assets/cuivron.png" alt=""></span> Marché dynamique</a></li>
@@ -85,6 +86,8 @@
         <li><a href="#voice"><span class="ico"><img src="assets/nav_voice.png" alt=""></span> Chat vocal</a></li>
         <li class="group">Le Nether</li>
         <li><a href="#nether"><span class="ico"><img src="assets/fire_charge.png" alt=""></span> Nether</a></li>
+        <li class="group">Communauté</li>
+        <li><a href="#stats"><span class="ico"><img src="assets/clock.png" alt=""></span> Stats du serveur</a></li>
         <li class="group">Aide</li>
         <li><a href="#commandes"><span class="ico"><img src="assets/nav_commandes.png" alt=""></span> Commandes</a></li>
         <li><a href="#patchnotes"><span class="ico"><img src="assets/nav_patchnotes.png" alt=""></span> Notes de mise à jour</a></li>
@@ -567,6 +570,24 @@
         </div>
       </section>
 
+      <section class="section" id="carte">
+        <h3><img class="i" src="assets/spawn_compass.gif" alt=""> Carte du serveur</h3>
+        <p class="lead">La carte interactive de ZinzinLand, en direct. Déplace-toi à la souris, zoome à la
+          molette, et retrouve les joueurs connectés et les claims en temps réel.</p>
+        <div class="map-embed">
+          <iframe src="https://badlands.mystrator.com/s/fbfb9931-15a2-4f4a-9c43-dc7403c28dcb/#overworld:0:0:0:1500:0:0:0:0:flat"
+            title="Carte interactive de ZinzinLand" loading="lazy" allowfullscreen></iframe>
+        </div>
+        <div class="map-actions">
+          <a class="map-btn" href="https://badlands.mystrator.com/s/fbfb9931-15a2-4f4a-9c43-dc7403c28dcb/#overworld:0:0:0:1500:0:0:0:0:flat"
+            target="_blank" rel="noopener">Ouvrir en plein écran</a>
+        </div>
+        <div class="callout">
+          La vue s'ouvre en 2D sur l'Overworld. Le menu de la carte (en haut à droite) permet de passer en
+          vue 3D ou de changer de dimension (Nether, End). Elle se met à jour toute seule au fil de l'exploration.
+        </div>
+      </section>
+
       <section class="section" id="monnaie">
         <h3><img class="i" src="assets/nav_monnaie.png" alt=""> Monnaie</h3>
         <p class="lead">Quatre métaux servent de monnaie sur ZinzinLand, du plus commun au plus précieux.</p>
@@ -1011,6 +1032,111 @@
           Incendium n'ajoute <b>aucun enchantement</b> : sa puissance vient de cet arsenal d'objets
           uniques, pas de nouveaux enchantements. Pour les enchantements exclusifs, voir la section
           <a href="#enchants">Enchantements de structures</a>.
+        </div>
+      </section>
+
+      <section class="section" id="stats">
+        <h3><img class="i" src="assets/clock.png" alt=""> Stats du serveur</h3>
+        <p class="lead">L'activité de ZinzinLand depuis l'ouverture publique du <b>4 juillet 2026</b>,
+          mesurée sur les statistiques réelles du serveur : temps de jeu, exploits cumulés et
+          classement des joueurs les plus actifs.</p>
+
+        <div class="stats">
+          <div class="stat"><b>166</b><span>joueurs ont joué</span></div>
+          <div class="stat"><b>2&nbsp;299&nbsp;h</b><span>de jeu cumulées</span></div>
+          <div class="stat"><b>73</b><span>actifs sur 7 jours</span></div>
+          <div class="stat"><b>202</b><span>comptes whitelistés</span></div>
+        </div>
+
+        <h4>De l'inscription au joueur régulier</h4>
+        <div class="sv-funnel">
+          <div class="sv-frow"><div class="sv-flab">Comptes liés (Discord)</div><div class="sv-fbar" style="width:100%">202 <span class="pct">100&nbsp;%</span></div></div>
+          <div class="sv-frow"><div class="sv-flab">Ont réellement joué</div><div class="sv-fbar" style="width:82%">166 <span class="pct">82&nbsp;%</span></div></div>
+          <div class="sv-frow"><div class="sv-flab">Actifs sur 7 jours</div><div class="sv-fbar" style="width:36%">73 <span class="pct">36&nbsp;%</span></div></div>
+          <div class="sv-frow"><div class="sv-flab">Actifs sur 48 h</div><div class="sv-fbar" style="width:22%">44 <span class="pct">22&nbsp;%</span></div></div>
+        </div>
+
+        <h4>Ce que la communauté a accompli</h4>
+        <div class="sv-tiles">
+          <div class="sv-tile"><img src="assets/netherite_sword.png" alt=""><div><b>160&nbsp;413</b><span>mobs abattus</span></div></div>
+          <div class="sv-tile"><img src="assets/netherite_pickaxe.png" alt=""><div><b>1&nbsp;530&nbsp;280</b><span>blocs minés</span></div></div>
+          <div class="sv-tile"><img src="assets/iron_boots.png" alt=""><div><b>7&nbsp;320&nbsp;km</b><span>parcourus à pied</span></div></div>
+          <div class="sv-tile soul"><img src="assets/bone.png" alt=""><div><b>777</b><span>morts</span></div></div>
+          <div class="sv-tile soul"><img src="assets/diamond_sword.png" alt=""><div><b>47</b><span>duels PvP gagnés</span></div></div>
+          <div class="sv-tile"><img src="assets/cod.png" alt=""><div><b>580</b><span>poissons pêchés</span></div></div>
+          <div class="sv-tile"><img src="assets/wheat.png" alt=""><div><b>971</b><span>animaux élevés</span></div></div>
+          <div class="sv-tile"><img src="assets/emerald.png" alt=""><div><b>7&nbsp;541</b><span>échanges villageois</span></div></div>
+        </div>
+
+        <div class="sv-duo">
+          <div class="sv-panel">
+            <h4 style="margin-top:0"><img class="i" src="assets/clock.png" alt=""> Répartition du temps de jeu</h4>
+            <p class="sv-note">Combien de temps chaque joueur a passé, par tranche.</p>
+            <div class="sv-bars">
+              <div class="sv-brow"><div class="sv-blab">&lt; 1 h</div><div class="sv-btrack"><div class="sv-bfill" style="width:100%"></div></div><div class="sv-bval">71</div></div>
+              <div class="sv-brow"><div class="sv-blab">1 à 5 h</div><div class="sv-btrack"><div class="sv-bfill" style="width:49%"></div></div><div class="sv-bval">35</div></div>
+              <div class="sv-brow"><div class="sv-blab">5 à 10 h</div><div class="sv-btrack"><div class="sv-bfill" style="width:21%"></div></div><div class="sv-bval">15</div></div>
+              <div class="sv-brow"><div class="sv-blab">10 à 25 h</div><div class="sv-btrack"><div class="sv-bfill" style="width:23%"></div></div><div class="sv-bval">16</div></div>
+              <div class="sv-brow"><div class="sv-blab">25 à 50 h</div><div class="sv-btrack"><div class="sv-bfill" style="width:23%"></div></div><div class="sv-bval">16</div></div>
+              <div class="sv-brow"><div class="sv-blab">50 h et +</div><div class="sv-btrack"><div class="sv-bfill" style="width:18%"></div></div><div class="sv-bval">13</div></div>
+            </div>
+          </div>
+          <div class="sv-panel">
+            <h4 style="margin-top:0"><img class="i" src="assets/recovery_compass.png" alt=""> Récence des joueurs</h4>
+            <p class="sv-note">Dernière connexion enregistrée, par jour. Le pic du 3 juillet
+              correspond aux joueurs venus au lancement sans revenir.</p>
+            <svg id="svRecency" viewBox="0 0 520 230" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Dernière connexion par jour"></svg>
+          </div>
+        </div>
+
+        <h4><img class="i" src="assets/totem_of_undying.png" alt=""> Top 15 · temps de jeu</h4>
+        <div class="sv-top">
+          <div class="sv-prow"><div class="sv-rank">1</div><div class="sv-pname">Papa_Schulz<span class="tag">admin</span></div><div class="sv-ptrack"><div class="sv-pfill adm" style="width:100%"></div></div><div class="sv-phrs"><b>229,9</b> h</div></div>
+          <div class="sv-prow"><div class="sv-rank">2</div><div class="sv-pname">SatoTenkai</div><div class="sv-ptrack"><div class="sv-pfill" style="width:67%"></div></div><div class="sv-phrs"><b>154,9</b> h</div></div>
+          <div class="sv-prow"><div class="sv-rank">3</div><div class="sv-pname">AstraWolf_</div><div class="sv-ptrack"><div class="sv-pfill" style="width:46%"></div></div><div class="sv-phrs"><b>106,4</b> h</div></div>
+          <div class="sv-prow"><div class="sv-rank">4</div><div class="sv-pname">AstrowFR</div><div class="sv-ptrack"><div class="sv-pfill" style="width:46%"></div></div><div class="sv-phrs"><b>104,8</b> h</div></div>
+          <div class="sv-prow"><div class="sv-rank">5</div><div class="sv-pname">sixela654</div><div class="sv-ptrack"><div class="sv-pfill" style="width:43%"></div></div><div class="sv-phrs"><b>99,7</b> h</div></div>
+          <div class="sv-prow"><div class="sv-rank">6</div><div class="sv-pname">ryulix14</div><div class="sv-ptrack"><div class="sv-pfill" style="width:34%"></div></div><div class="sv-phrs"><b>79,1</b> h</div></div>
+          <div class="sv-prow"><div class="sv-rank">7</div><div class="sv-pname">OnTreck</div><div class="sv-ptrack"><div class="sv-pfill" style="width:31%"></div></div><div class="sv-phrs"><b>71,6</b> h</div></div>
+          <div class="sv-prow"><div class="sv-rank">8</div><div class="sv-pname">Alfadr</div><div class="sv-ptrack"><div class="sv-pfill" style="width:31%"></div></div><div class="sv-phrs"><b>71,1</b> h</div></div>
+          <div class="sv-prow"><div class="sv-rank">9</div><div class="sv-pname">PYCOTO</div><div class="sv-ptrack"><div class="sv-pfill" style="width:30%"></div></div><div class="sv-phrs"><b>69,1</b> h</div></div>
+          <div class="sv-prow"><div class="sv-rank">10</div><div class="sv-pname">Mcross_bow</div><div class="sv-ptrack"><div class="sv-pfill" style="width:27%"></div></div><div class="sv-phrs"><b>63,0</b> h</div></div>
+          <div class="sv-prow"><div class="sv-rank">11</div><div class="sv-pname">Acacia24</div><div class="sv-ptrack"><div class="sv-pfill" style="width:25%"></div></div><div class="sv-phrs"><b>57,0</b> h</div></div>
+          <div class="sv-prow"><div class="sv-rank">12</div><div class="sv-pname">GhostRider584</div><div class="sv-ptrack"><div class="sv-pfill" style="width:23%"></div></div><div class="sv-phrs"><b>53,3</b> h</div></div>
+          <div class="sv-prow"><div class="sv-rank">13</div><div class="sv-pname">_gingerbread___</div><div class="sv-ptrack"><div class="sv-pfill" style="width:23%"></div></div><div class="sv-phrs"><b>52,0</b> h</div></div>
+          <div class="sv-prow"><div class="sv-rank">14</div><div class="sv-pname">navarath1764</div><div class="sv-ptrack"><div class="sv-pfill" style="width:22%"></div></div><div class="sv-phrs"><b>49,7</b> h</div></div>
+          <div class="sv-prow"><div class="sv-rank">15</div><div class="sv-pname">OB_Stanius</div><div class="sv-ptrack"><div class="sv-pfill" style="width:21%"></div></div><div class="sv-phrs"><b>49,3</b> h</div></div>
+        </div>
+
+        <div class="sv-duo">
+          <div class="sv-panel">
+            <h4 style="margin-top:0"><img class="i" src="assets/diamond_pickaxe.png" alt=""> Plus gros mineurs</h4>
+            <p class="sv-note">Blocs cassés au total.</p>
+            <ol class="sv-mini">
+              <li><span class="n">1</span> SatoTenkai <span class="v">208&nbsp;577</span></li>
+              <li><span class="n">2</span> Panstic <span class="v">135&nbsp;844</span></li>
+              <li><span class="n">3</span> AstraWolf_ <span class="v">99&nbsp;432</span></li>
+              <li><span class="n">4</span> AstrowFR <span class="v">93&nbsp;518</span></li>
+              <li><span class="n">5</span> OB_Stanius <span class="v">71&nbsp;457</span></li>
+            </ol>
+          </div>
+          <div class="sv-panel">
+            <h4 style="margin-top:0"><img class="i" src="assets/diamond_sword.png" alt=""> Plus gros chasseurs</h4>
+            <p class="sv-note">Créatures abattues au total.</p>
+            <ol class="sv-mini">
+              <li><span class="n">1</span> SatoTenkai <span class="v">10&nbsp;532</span></li>
+              <li><span class="n">2</span> GhostRider584 <span class="v">9&nbsp;432</span></li>
+              <li><span class="n">3</span> PYCOTO <span class="v">9&nbsp;204</span></li>
+              <li><span class="n">4</span> meurdererkarnage <span class="v">7&nbsp;538</span></li>
+              <li><span class="n">5</span> AstrowFR <span class="v">7&nbsp;493</span></li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="callout tip">
+          <b>Source :</b> statistiques officielles du serveur (166 fichiers joueurs) et whitelist Discord,
+          relevées le <b>20 juillet 2026</b>. Temps moyen par joueur&nbsp;: 13&nbsp;h&nbsp;51, médiane&nbsp;:
+          1&nbsp;h&nbsp;32. Ces chiffres seront mis à jour de temps en temps.
         </div>
       </section>
 
@@ -1852,6 +1978,48 @@
         a.textContent = '#';
         h.appendChild(a);
       });
+    })();
+
+    // ---------- Stats du serveur : courbe de récence ----------
+    (function statsRecency() {
+      const svg = document.getElementById('svRecency');
+      if (!svg) return;
+      // [jour, joueurs vus pour la dernière fois ce jour-là]
+      const DAYS = [
+        ['03/07', 24], ['04/07', 12], ['05/07', 9], ['06/07', 10], ['07/07', 10],
+        ['08/07', 9], ['09/07', 3], ['10/07', 10], ['11/07', 1], ['12/07', 5],
+        ['13/07', 5], ['14/07', 7], ['15/07', 3], ['16/07', 8], ['17/07', 6],
+        ['18/07', 7], ['19/07', 25], ['20/07', 12]
+      ];
+      const W = 520, H = 230, ml = 28, mr = 10, mt = 12, mb = 28;
+      const iw = W - ml - mr, ih = H - mt - mb;
+      const max = Math.max(...DAYS.map(d => d[1]));
+      const x = i => ml + i / (DAYS.length - 1) * iw;
+      const y = v => mt + ih - (v / max) * ih;
+      const css = getComputedStyle(document.documentElement);
+      const gold = (css.getPropertyValue('--gold') || '#f1c512').trim();
+      const border = 'rgba(255,255,255,.09)';
+      let g = '<defs><linearGradient id="svrg" x1="0" y1="0" x2="0" y2="1">' +
+        '<stop offset="0" stop-color="' + gold + '" stop-opacity=".30"/>' +
+        '<stop offset="1" stop-color="' + gold + '" stop-opacity="0"/></linearGradient></defs>';
+      for (let v = 0; v <= max; v += Math.ceil(max / 4)) {
+        g += '<line x1="' + ml + '" y1="' + y(v) + '" x2="' + (W - mr) + '" y2="' + y(v) + '" stroke="' + border + '"/>';
+        g += '<text class="sv-axis" x="' + (ml - 6) + '" y="' + (y(v) + 3) + '" text-anchor="end">' + v + '</text>';
+      }
+      const pts = DAYS.map((d, i) => [x(i), y(d[1])]);
+      const line = pts.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ');
+      const area = 'M' + x(0) + ' ' + (mt + ih) + ' ' +
+        pts.map(p => 'L' + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ') +
+        ' L' + x(DAYS.length - 1) + ' ' + (mt + ih) + ' Z';
+      g += '<path d="' + area + '" fill="url(#svrg)"/>';
+      g += '<path d="' + line + '" fill="none" stroke="' + gold + '" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>';
+      DAYS.forEach((d, i) => {
+        g += '<rect x="' + (x(i) - 2.2).toFixed(1) + '" y="' + (y(d[1]) - 2.2).toFixed(1) + '" width="4.4" height="4.4" fill="' + gold + '"/>';
+        if (i % 3 === 0 || i === DAYS.length - 1) {
+          g += '<text class="sv-axis" x="' + x(i).toFixed(1) + '" y="' + (H - 9) + '" text-anchor="middle">' + d[0] + '</text>';
+        }
+      });
+      svg.innerHTML = g;
     })();
   </script>
 </body>
