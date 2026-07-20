@@ -1057,16 +1057,94 @@
         </div>
 
         <h4>Ce que la communauté a accompli</h4>
-        <div class="sv-tiles">
-          <div class="sv-tile"><img src="assets/netherite_sword.png" alt=""><div><b>160&nbsp;413</b><span>mobs abattus</span></div></div>
-          <div class="sv-tile"><img src="assets/netherite_pickaxe.png" alt=""><div><b>1&nbsp;530&nbsp;280</b><span>blocs minés</span></div></div>
-          <div class="sv-tile"><img src="assets/iron_boots.png" alt=""><div><b>7&nbsp;320&nbsp;km</b><span>parcourus à pied</span></div></div>
-          <div class="sv-tile soul"><img src="assets/bone.png" alt=""><div><b>777</b><span>morts</span></div></div>
-          <div class="sv-tile soul"><img src="assets/diamond_sword.png" alt=""><div><b>47</b><span>duels PvP gagnés</span></div></div>
-          <div class="sv-tile"><img src="assets/cod.png" alt=""><div><b>580</b><span>poissons pêchés</span></div></div>
-          <div class="sv-tile"><img src="assets/wheat.png" alt=""><div><b>971</b><span>animaux élevés</span></div></div>
-          <div class="sv-tile"><img src="assets/emerald.png" alt=""><div><b>7&nbsp;541</b><span>échanges villageois</span></div></div>
+        <p class="sv-note" style="margin:-2px 0 0">Chaque exploit avec son Top 15 des joueurs. Utilise les flèches pour passer d'un classement à l'autre.</p>
+        <div class="sv-lbcar" id="svLbCar">
+          <div class="sv-lbhead">
+            <button type="button" class="sv-lbnav" id="svLbPrev" aria-label="Classement précédent">&#8249;</button>
+            <div class="sv-lbtitle">
+              <img class="i" id="svLbIcon" src="" alt="">
+              <div class="sv-lbmeta">
+                <span class="sv-lbname" id="svLbName"></span>
+                <span class="sv-lbtot" id="svLbTot"></span>
+              </div>
+            </div>
+            <button type="button" class="sv-lbnav" id="svLbNext" aria-label="Classement suivant">&#8250;</button>
+          </div>
+          <div class="sv-top" id="svLbList"></div>
+          <div class="sv-lbdots" id="svLbDots"></div>
         </div>
+        <script>
+          (function () {
+            var ADM = { 'Papa_Schulz': 1, 'OnTreck': 1, 'GhostRider584': 1 };
+            var METRICS = [
+              { name: 'Mobs abattus', icon: 'assets/netherite_sword.png', total: 161113, unit: '', dec: 0, label: 'mobs abattus au total',
+                rows: [['SatoTenkai',10532],['GhostRider584',9432],['PYCOTO',9204],['AstrowFR',7696],['meurdererkarnage',7538],['Alfadr',7277],['ITACHI0110',7080],['ryulix14',6780],['lepoussindu93',6637],['Mcross_bow',6160],['Isma_X',5986],['Chaty_Fishy',5872],['val92',5185],['OnTreck',5136],['Logdur38',4226]] },
+              { name: 'Blocs minés', icon: 'assets/netherite_pickaxe.png', total: 1556169, unit: '', dec: 0, label: 'blocs minés au total',
+                rows: [['SatoTenkai',208577],['Panstic',142231],['AstrowFR',99683],['AstraWolf_',99432],['OB_Stanius',71457],['ryulix14',58872],['Acacia24',58511],['OnTreck',50820],['erty1720',49494],['val92',48357],['Alfadr',41902],['Mcross_bow',38907],['GhostRider584',38896],['Logdur38',37339],['PYCOTO',36495]] },
+              { name: 'Distance à pied', icon: 'assets/iron_boots.png', total: 3471, unit: ' km', dec: 1, label: 'km parcourus au total',
+                rows: [['SatoTenkai',330.6],['Mcross_bow',173.4],['AstraWolf_',169.9],['Alfadr',139.4],['OB_Stanius',137.4],['OnTreck',128.0],['ryulix14',127.6],['meurdererkarnage',110.1],['GhostRider584',100.8],['PYCOTO',94.2],['lepoussindu93',92.8],['Ryuwenx2011',86.8],['val92',85.1],['Rav_IOLI',77.5],['AstrowFR',70.9]] },
+              { name: 'Morts', icon: 'assets/bone.png', total: 786, unit: '', dec: 0, label: 'morts au total',
+                rows: [['Papa_Schulz',56],['navarath1764',39],['ryulix14',34],['_gingerbread___',33],['C2Ash6',27],['AstraWolf_',27],['AstrowFR',25],['Alfadr',23],['Chaty_Fishy',22],['Ryuwenx2011',22],['Logdur38',21],['SpiderEthan',20],['OnTreck',16],['val92',16],['lepoussindu93',16]] },
+              { name: 'Duels PvP gagnés', icon: 'assets/diamond_sword.png', total: 48, unit: '', dec: 0, label: 'joueurs vaincus au total',
+                rows: [['val92',7],['SatoTenkai',6],['justn2oo',4],['Vesmina',4],['PYCOTO',3],['Mcross_bow',3],['AstraWolf_',3],['OB_Stanius',3],['erty1720',2],['Akerck',2],['GamerZoZo72',2],['Papa_Schulz',2],['OnTreck',1],['C2Ash6',1],['Yuanli2000',1]] },
+              { name: 'Poissons pêchés', icon: 'assets/cod.png', total: 580, unit: '', dec: 0, label: 'poissons pêchés au total',
+                rows: [['Panstic',384],['erty1720',66],['XmasArnaud',31],['_gingerbread___',14],['zodopipo',13],['manil13',13],['TheSurvivor3333',11],['AstrowFR',11],['Rav_IOLI',8],['OnTreck',7],['lepoussindu93',6],['SatoTenkai',6],['Acacia24',5],['AstraWolf_',3],['ITACHI0110',1]] },
+              { name: 'Animaux élevés', icon: 'assets/wheat.png', total: 973, unit: '', dec: 0, label: 'animaux élevés au total',
+                rows: [['GhostRider584',402],['SatoTenkai',225],['TheSurvivor3333',121],['val92',70],['Acacia24',36],['AstrowFR',21],['OnTreck',15],['Equalysum',14],['AstraWolf_',13],['OB_Stanius',12],['OhMatronux',6],['Aqualoutine',6],['Choopachupss',6],['LunaX45',5],['navarath1764',4]] },
+              { name: 'Échanges villageois', icon: 'assets/emerald.png', total: 7541, unit: '', dec: 0, label: 'échanges au total',
+                rows: [['SatoTenkai',1662],['erty1720',1090],['ImainCypher_',901],['meurdererkarnage',809],['Mcross_bow',748],['AstrowFR',479],['OhMatronux',262],['Sparkvoid233',248],['AstraWolf_',147],['navarath1764',145],['OB_Stanius',125],['TheSurvivor3333',102],['Evan5896',89],['Papa_Schulz',89],['Alfadr',80]] }
+            ];
+
+            function nf(v, dec) { return v.toLocaleString('fr-FR', { minimumFractionDigits: dec, maximumFractionDigits: dec }); }
+
+            var elIcon = document.getElementById('svLbIcon');
+            var elName = document.getElementById('svLbName');
+            var elTot = document.getElementById('svLbTot');
+            var elList = document.getElementById('svLbList');
+            var elDots = document.getElementById('svLbDots');
+            var cur = 0;
+
+            for (var d = 0; d < METRICS.length; d++) {
+              var dot = document.createElement('button');
+              dot.type = 'button';
+              dot.className = 'sv-lbdot';
+              dot.setAttribute('aria-label', METRICS[d].name);
+              dot.dataset.idx = d;
+              dot.addEventListener('click', function () { render(+this.dataset.idx); });
+              elDots.appendChild(dot);
+            }
+            var dots = elDots.querySelectorAll('.sv-lbdot');
+
+            function render(idx) {
+              cur = (idx + METRICS.length) % METRICS.length;
+              var m = METRICS[cur];
+              elIcon.src = m.icon;
+              elIcon.alt = m.name;
+              elName.textContent = m.name;
+              elTot.textContent = nf(m.total, m.dec) + (m.unit || '') + ' ' + m.label;
+              var max = m.rows[0][1] || 1;
+              var html = '';
+              for (var i = 0; i < m.rows.length; i++) {
+                var nm = m.rows[i][0], v = m.rows[i][1];
+                var adm = ADM[nm] ? ' adm' : '';
+                var tag = ADM[nm] ? '<span class="tag">admin</span>' : '';
+                var w = Math.max(2, Math.round(v / max * 100));
+                html += '<div class="sv-prow">'
+                  + '<div class="sv-rank">' + (i + 1) + '</div>'
+                  + '<div class="sv-pname">' + nm + tag + '</div>'
+                  + '<div class="sv-ptrack"><div class="sv-pfill' + adm + '" style="width:' + w + '%"></div></div>'
+                  + '<div class="sv-phrs"><b>' + nf(v, m.dec) + '</b>' + (m.unit || '') + '</div>'
+                  + '</div>';
+              }
+              elList.innerHTML = html;
+              for (var j = 0; j < dots.length; j++) dots[j].classList.toggle('on', j === cur);
+            }
+
+            document.getElementById('svLbPrev').addEventListener('click', function () { render(cur - 1); });
+            document.getElementById('svLbNext').addEventListener('click', function () { render(cur + 1); });
+            render(0);
+          })();
+        </script>
 
         <div class="sv-duo">
           <div class="sv-panel">
@@ -1121,7 +1199,7 @@
             </ol>
           </div>
           <div class="sv-panel">
-            <h4 style="margin-top:0"><img class="i" src="assets/diamond_sword.png" alt=""> Plus gros chasseurs</h4>
+            <h4 style="margin-top:0"><img class="i" src="assets/diamond_sword_whim.png" alt=""> Plus gros chasseurs</h4>
             <p class="sv-note">Créatures abattues au total.</p>
             <ol class="sv-mini">
               <li><span class="n">1</span> SatoTenkai <span class="v">10&nbsp;532</span></li>
