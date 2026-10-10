@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Geist+Mono:wght@400;500&display=swap" />
-  <link rel="stylesheet" href="style.css?v=14" />
+  <link rel="stylesheet" href="style.css?v=15" />
   <link rel="icon" type="image/png" href="assets/logo.png?v=7" />
   <style>
     /* Visualisation 3D isometrique de l'autel */
@@ -53,6 +53,7 @@
 
       <ul class="nav">
         <li><a href="#accueil" class="active"><span class="ico"><img src="assets/nav_accueil.png" alt=""></span> Accueil</a></li>
+        <li><a href="#telecharger"><span class="ico"><img src="assets/chest.png" alt=""></span> Télécharger la map</a></li>
         <li class="group">À lire en premier</li>
         <li><a href="#premierspas"><span class="ico"><img src="assets/nav_premierspas.png" alt=""></span> Premiers pas</a></li>
         <li><a href="#reglement"><span class="ico"><img src="assets/silence_trim.png" alt=""></span> Règlement</a></li>
@@ -100,9 +101,67 @@
     <main class="content">
       <header class="hero" id="accueil">
         <h2>Bienvenue sur ZinzinLand</h2>
-        <p>Serveur Minecraft Java en mode SMP. Ce wiki regroupe les systèmes maison du serveur :
-          armes des Âmes, rituel de l'autel, waystones, économie et cuisine Crop &amp; Kettle.</p>
+        <p>Serveur Minecraft Java en mode SMP. Le serveur a fermé&nbsp;: la map complète est désormais
+          <a href="#telecharger">à télécharger</a>, à jouer en solo. Ce wiki reste en ligne, en souvenir,
+          et regroupe les systèmes maison du serveur&nbsp;: armes des Âmes, rituel de l'autel, waystones,
+          économie et cuisine Crop &amp; Kettle.</p>
       </header>
+
+      <section class="section" id="telecharger">
+        <h3><img class="i" src="assets/chest.png" alt=""> Télécharger la map</h3>
+        <p class="lead">Le monde complet, exactement tel qu'il était au dernier jour&nbsp;: tout le terrain,
+          toutes les constructions et le contenu de tous les coffres, dans les trois dimensions. Et si tu as
+          joué sur le serveur, tu retrouveras ton inventaire et ta position.</p>
+
+        <div class="map-actions">
+          <a class="map-btn" href="https://github.com/PapaSchulzz/ZinzinLand-Wiki/releases/download/map-2026-10-10/ZinzinLand-map-2026-10-10.zip">
+            <img class="i" src="assets/chest.png" alt=""> Télécharger la map &middot; 1,6 Go
+          </a>
+        </div>
+
+        <ol class="steps">
+          <li><b>Ouvre ton dossier <code>.minecraft</code>.</b> Sur Windows, <code>Windows + R</code>, puis
+            tape <code>%appdata%\.minecraft</code> et Entrée. Sur Mac,
+            <code>~/Library/Application Support/minecraft</code>. Sur Linux, <code>~/.minecraft</code>.</li>
+          <li><b>Décompresse le zip dedans.</b> Il contient deux dossiers, <code>saves</code> et
+            <code>resourcepacks</code>, qui vont se fondre dans les tiens. Accepte la fusion si Windows la
+            propose&nbsp;: aucun de tes mondes ni de tes packs existants n'est touché.</li>
+          <li><b>Lance Minecraft en 26.1.2.</b> Recrée le profil dans le launcher si tu ne l'as plus.</li>
+          <li><b>Active le pack de ressources.</b> Options, puis Packs de ressources, puis
+            <b>ZinzinLand-pack</b>. Sans lui, les objets maison s'affichent en carrés blancs.</li>
+          <li><b>Ouvre le monde <code>ZinzinLand</code></b> dans ta liste de mondes solo. Le premier
+            chargement est long, il y a 29 datapacks à lire.</li>
+        </ol>
+
+        <div class="callout warn">
+          <b>Surtout pas une version plus récente.</b> Ouverte en 26.2 ou au delà, la map est convertie sans
+          retour possible et les datapacks sont refusés. Il faut <b>26.1.2</b>, exactement cette version.
+        </div>
+
+        <div class="callout tip">
+          <b>Tu retrouves tes affaires tout seul.</b> Le jeu te reconnaît à ton compte Minecraft&nbsp;: tu
+          réapparais là où tu t'étais déconnecté, avec ton inventaire, ta vie, ton expérience, tes
+          statistiques et tes succès. Si tu n'as jamais joué, tu arrives au <a href="#spawn">spawn</a>, sur
+          le ponton du dirigeable.
+        </div>
+
+        <p>Les 29 datapacks du serveur voyagent avec le monde, Terralith, Incendium, Nullscape, Dungeons and
+          Taverns, Katters, <a href="#cnk">Crop &amp; Kettle</a> et les autres compris. Le terrain et les
+          structures sont donc intacts, et explorer de nouvelles zones génère la même chose qu'avant.</p>
+
+        <p>En revanche tout ce qui vivait dans les plugins est resté sur le serveur. Les
+          <a href="#claims">claims</a> ne protègent plus rien, les PNJ ont disparu puisqu'ils n'étaient pas
+          des entités du monde, les boutiques et le <a href="#marche">marché</a> ne fonctionnent plus, pas
+          plus que les <a href="#metiers">métiers</a>, les <a href="#waystones">waystones</a>, les quêtes et
+          les recettes maison. Les <a href="#monnaie">Cuivrons et Ferrons</a> restent dans les coffres, comme
+          objets. C'est un musée, plus un serveur&nbsp;: les commandes sont déjà autorisées, alors
+          <code>/gamemode spectator</code> pour te promener sans rien casser.</p>
+
+        <div class="callout">
+          Le détail complet de ce qui marche et de ce qui ne marche plus est dans le fichier
+          <code>LIRE-MOI.txt</code>, à la racine du zip.
+        </div>
+      </section>
 
       <section class="section" id="premierspas">
         <h3><img class="i" src="assets/nav_premierspas.png" alt=""> Premiers pas</h3>
