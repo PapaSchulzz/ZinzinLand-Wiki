@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Geist+Mono:wght@400;500&display=swap" />
-  <link rel="stylesheet" href="style.css?v=16" />
+  <link rel="stylesheet" href="style.css?v=17" />
   <link rel="icon" type="image/png" href="assets/logo.png?v=7" />
   <style>
     /* Visualisation 3D isometrique de l'autel */
@@ -90,6 +90,7 @@
         <li class="group">L'End</li>
         <li><a href="#end"><span class="ico"><img src="assets/nav_autel.png" alt=""></span> End</a></li>
         <li class="group">Communauté</li>
+        <li><a href="#galerie"><span class="ico"><img src="assets/wind_charge.png" alt=""></span> Galerie</a></li>
         <li><a href="#stats"><span class="ico"><img src="assets/clock.png" alt=""></span> Stats du serveur</a></li>
         <li class="group">Aide</li>
         <li><a href="#commandes"><span class="ico"><img src="assets/nav_commandes.png" alt=""></span> Commandes</a></li>
@@ -1133,6 +1134,229 @@
           La <b>zone de l'arène est protégée</b> : impossible d'y casser ou d'y poser des blocs. On
           s'y bat, on n'y construit pas.
         </div>
+      </section>
+
+      <section class="section" id="galerie">
+        <h3><img class="i" src="assets/wind_charge.png" alt=""> Galerie de la communauté</h3>
+        <p class="lead">Trente-huit captures prises par les joueurs, de l'ouverture publique du
+          4 juillet 2026 jusqu'aux derniers jours du serveur&nbsp;: des levers de soleil, des chantiers,
+          des soirées à plusieurs et quelques frayeurs dans le noir. Clique sur une image pour l'agrandir,
+          puis navigue avec les flèches du clavier.</p>
+
+        <div class="gl-stage" id="glStage" role="button" tabindex="0" aria-label="Diaporama, cliquer pour agrandir l'image">
+          <div class="gl-slides" id="glSlides"></div>
+          <div class="gl-wind" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="gl-bar" aria-hidden="true"><i></i></div>
+          <div class="gl-dots" id="glDots"></div>
+          <div class="gl-cap">
+            <div class="gl-ctext" id="glCap"></div>
+            <span class="gl-hint"><img src="assets/wind_charge.png" alt=""> Cliquer pour agrandir</span>
+          </div>
+        </div>
+
+        <h4>Les 38 captures</h4>
+        <div class="gl-grid" id="glGrid"></div>
+
+        <div class="gl-lb" id="glLb" hidden role="dialog" aria-modal="true" aria-label="Capture en grand">
+          <button class="gl-lbbtn gl-close" id="glClose" type="button" aria-label="Fermer">&#10005;</button>
+          <button class="gl-lbbtn gl-prev" id="glPrev" type="button" aria-label="Capture précédente">&#8249;</button>
+          <img class="gl-lbimg" id="glLbImg" src="" alt="">
+          <button class="gl-lbbtn gl-next" id="glNext" type="button" aria-label="Capture suivante">&#8250;</button>
+          <div class="gl-lbcap"><b id="glLbTitle"></b><span id="glLbMeta"></span></div>
+        </div>
+
+        <script>
+          (function gallery() {
+            var A = 'assets/screens/';
+            // [fichier, legende, date] ; les 8 premieres alimentent le diaporama.
+            var SHOTS = [
+              ['s01', 'Lever de soleil sur la baie', '10 juillet 2026'],
+              ['s02', 'Aurores boréales au-dessus du village', '9 juillet 2026'],
+              ['s03', 'Le torii et les cerisiers', '15 juillet 2026'],
+              ['s04', 'Le village éclairé à la lanterne', '15 juillet 2026'],
+              ['s05', 'Le hameau au bord de l’eau', '15 juillet 2026'],
+              ['s06', 'mr_ch0c0late et _Shikinatsu_ sous les aurores', '13 juillet 2026'],
+              ['s07', 'Descente dans le Nether', ''],
+              ['s08', 'Dans la Cité antique, avec NolanMS', '10 septembre 2026'],
+              ['s09', 'Choopachupss sous les cerisiers', '9 juillet 2026'],
+              ['s10', 'Crépuscule sur les champs de SatoTenkai', '11 juillet 2026'],
+              ['s11', 'Une pancarte au milieu des fleurs', '12 juillet 2026'],
+              ['s12', 'L’intérieur de la boutique en bois', '12 juillet 2026'],
+              ['s13', 'La boîte aux lettres d’OnTreck', '13 juillet 2026'],
+              ['s14', 'Au fond de la mine', '13 juillet 2026'],
+              ['s15', 'Coucher de soleil sur la bambouseraie', '15 juillet 2026'],
+              ['s16', 'Croissant de lune sur le hameau', '16 juillet 2026'],
+              ['s17', 'Le portail du Nether dans la falaise', '16 juillet 2026'],
+              ['s18', 'Le chieng, gardien de la maison', '19 juillet 2026'],
+              ['s19', 'Nuage de particules en pleine grotte', '21 juillet 2026'],
+              ['s20', 'La bande en armure, place du village', '25 août 2026'],
+              ['s21', 'Vue du ciel sur la base en mer', '5 octobre 2026'],
+              ['s22', 'Le Grand Livre des Fortunes', '5 octobre 2026'],
+              ['s23', 'Le grand chantier de Sen0Fen', '10 septembre 2026'],
+              ['s24', 'Une pancarte&nbsp;: la fin approche', ''],
+              ['s25', 'Promenade avec la meute', ''],
+              ['s26', 'Veillée dans la cabane', ''],
+              ['s27', 'Partie à deux dans la plaine', ''],
+              ['s28', 'Étranges piques bleues en pleine mer', ''],
+              ['s29', 'La ferme à poules de SatoTenkai', ''],
+              ['s30', 'Le Warden juste à côté', ''],
+              ['s31', 'Acacia24 et son épée de diamant', ''],
+              ['s32', 'Exploration souterraine, écran F3 ouvert', ''],
+              ['s33', 'Ciel rouge sur le territoire de PYCOTO', ''],
+              ['s34', 'Ruines au bord de l’eau, de nuit', ''],
+              ['s35', 'Le casino La Dernière Mise', ''],
+              ['s36', 'Un spawner d’épreuve au fond du donjon', ''],
+              ['s37', 'Le jardin aux lanternes', ''],
+              ['s38', 'Promenade en forêt', '12 juillet 2026']
+            ];
+            var HERO = 8, DELAY = 7600;
+
+            var stage = document.getElementById('glStage');
+            var slidesEl = document.getElementById('glSlides');
+            var dotsEl = document.getElementById('glDots');
+            var capEl = document.getElementById('glCap');
+            var gridEl = document.getElementById('glGrid');
+            if (!stage || !gridEl) return;
+
+            var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var plain = function (s) { return s.replace(/&nbsp;/g, ' '); };
+
+            // ---------- Diaporama ----------
+            var slides = SHOTS.slice(0, HERO).map(function (s, i) {
+              var d = document.createElement('div');
+              d.className = 'gl-slide';
+              var img = document.createElement('img');
+              img.src = A + s[0] + '.jpg';
+              img.alt = plain(s[1]);
+              if (i) img.loading = 'lazy';
+              d.appendChild(img);
+              slidesEl.appendChild(d);
+              var b = document.createElement('button');
+              b.type = 'button';
+              b.setAttribute('aria-label', 'Capture ' + (i + 1));
+              b.addEventListener('click', function (e) { e.stopPropagation(); show(i); restart(); });
+              dotsEl.appendChild(b);
+              return d;
+            });
+            var dots = [].slice.call(dotsEl.children);
+            var cur = 0, timer = null, visible = true, hover = false;
+
+            function show(i) {
+              cur = (i + slides.length) % slides.length;
+              slides.forEach(function (d, k) { d.classList.toggle('on', k === cur); });
+              dots.forEach(function (d, k) { d.classList.toggle('on', k === cur); });
+              var s = SHOTS[cur];
+              capEl.innerHTML = '<b>' + s[1] + '</b>' + (s[2] ? '<span>' + s[2] + '</span>' : '');
+              // relance l'animation de la legende puis celle de la barre de progression
+              capEl.style.animation = 'none'; void capEl.offsetWidth; capEl.style.animation = '';
+              stage.classList.remove('run'); void stage.offsetWidth;
+              if (!reduce && !hover) stage.classList.add('run');
+            }
+            function restart() {
+              clearInterval(timer);
+              if (!reduce && visible && !hover) timer = setInterval(function () { show(cur + 1); }, DELAY);
+            }
+            function stop() { clearInterval(timer); timer = null; }
+
+            stage.addEventListener('mouseenter', function () { hover = true; stage.classList.remove('run'); stop(); });
+            stage.addEventListener('mouseleave', function () { hover = false; stage.classList.add('run'); restart(); });
+            stage.addEventListener('click', function () { open(cur); });
+            stage.addEventListener('keydown', function (e) {
+              if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(cur); }
+            });
+
+            // Le diaporama ne tourne que lorsqu'il est a l'ecran.
+            if ('IntersectionObserver' in window) {
+              new IntersectionObserver(function (es) {
+                visible = es[0].isIntersecting;
+                if (visible) restart(); else stop();
+              }, { threshold: .25 }).observe(stage);
+            }
+
+            // ---------- Grille ----------
+            var tiles = SHOTS.map(function (s, i) {
+              var b = document.createElement('button');
+              b.type = 'button';
+              b.className = 'gl-tile';
+              b.innerHTML = '<img src="' + A + s[0] + 't.jpg" alt="' + plain(s[1]) + '" loading="lazy" decoding="async">' +
+                '<span class="gl-tcap">' + s[1] + '</span>';
+              b.addEventListener('click', function () { open(i); });
+              gridEl.appendChild(b);
+              return b;
+            });
+
+            if (reduce || !('IntersectionObserver' in window)) {
+              tiles.forEach(function (t) { t.classList.add('in'); });
+            } else {
+              var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (en) {
+                  if (!en.isIntersecting) return;
+                  var t = en.target;
+                  t.style.transitionDelay = ((+t.dataset.k % 4) * 70) + 'ms';
+                  t.classList.add('in');
+                  io.unobserve(t);
+                });
+              }, { rootMargin: '0px 0px -8% 0px' });
+              tiles.forEach(function (t, i) { t.dataset.k = i; io.observe(t); });
+            }
+
+            // ---------- Visionneuse ----------
+            var lb = document.getElementById('glLb');
+            var lbImg = document.getElementById('glLbImg');
+            var lbTitle = document.getElementById('glLbTitle');
+            var lbMeta = document.getElementById('glLbMeta');
+            var at = 0, lastFocus = null;
+
+            function paint(i) {
+              at = (i + SHOTS.length) % SHOTS.length;
+              var s = SHOTS[at];
+              lbImg.style.animation = 'none'; void lbImg.offsetWidth; lbImg.style.animation = '';
+              lbImg.src = A + s[0] + '.jpg';
+              lbImg.alt = plain(s[1]);
+              lbTitle.innerHTML = s[1];
+              lbMeta.textContent = (s[2] ? s[2] + ' · ' : '') + (at + 1) + ' / ' + SHOTS.length;
+              new Image().src = A + SHOTS[(at + 1) % SHOTS.length][0] + '.jpg';
+            }
+            function open(i) {
+              lastFocus = document.activeElement;
+              lb.hidden = false;
+              paint(i);
+              document.body.style.overflow = 'hidden';
+              requestAnimationFrame(function () { lb.classList.add('open'); });
+              document.getElementById('glNext').focus();
+              stop();
+            }
+            function close() {
+              lb.classList.remove('open');
+              document.body.style.overflow = '';
+              setTimeout(function () { lb.hidden = true; lbImg.removeAttribute('src'); }, 220);
+              if (lastFocus && lastFocus.focus) lastFocus.focus();
+              restart();
+            }
+            document.getElementById('glClose').addEventListener('click', close);
+            document.getElementById('glPrev').addEventListener('click', function (e) { e.stopPropagation(); paint(at - 1); });
+            document.getElementById('glNext').addEventListener('click', function (e) { e.stopPropagation(); paint(at + 1); });
+            lb.addEventListener('click', function (e) { if (e.target === lb || e.target === lbImg) close(); });
+            document.addEventListener('keydown', function (e) {
+              if (lb.hidden) return;
+              if (e.key === 'Escape') close();
+              else if (e.key === 'ArrowLeft') paint(at - 1);
+              else if (e.key === 'ArrowRight') paint(at + 1);
+            });
+            // Balayage tactile
+            var x0 = null;
+            lb.addEventListener('touchstart', function (e) { x0 = e.changedTouches[0].clientX; }, { passive: true });
+            lb.addEventListener('touchend', function (e) {
+              if (x0 === null) return;
+              var dx = e.changedTouches[0].clientX - x0;
+              if (Math.abs(dx) > 48) paint(at + (dx < 0 ? 1 : -1));
+              x0 = null;
+            }, { passive: true });
+
+            show(0);
+            restart();
+          })();
+        </script>
       </section>
 
       <section class="section" id="stats">
