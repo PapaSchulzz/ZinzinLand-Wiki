@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Geist+Mono:wght@400;500&display=swap" />
-  <link rel="stylesheet" href="style.css?v=18" />
+  <link rel="stylesheet" href="style.css?v=19" />
   <link rel="icon" type="image/png" href="assets/logo.png?v=7" />
   <style>
     /* Visualisation 3D isometrique de l'autel */
@@ -114,7 +114,38 @@
           <a class="map-btn" href="https://github.com/PapaSchulzz/ZinzinLand-Wiki/releases/latest/download/ZinzinLand-map-2026-10-10.zip">
             <img class="i" src="assets/join_highlighted.png" alt=""> Télécharger la Map ZinZinLand 2026 &middot; 1,6 Go
           </a>
+          <span class="dl-count" id="dlCount" hidden aria-live="polite"></span>
         </div>
+
+        <script>
+          // Compteur de telechargements, lu en direct sur l'API GitHub (sans cle).
+          // Mis en cache 30 min dans le navigateur pour menager la limite de 60 appels/h par IP.
+          (function downloadCount() {
+            var el = document.getElementById('dlCount');
+            if (!el) return;
+            var URL = 'https://api.github.com/repos/PapaSchulzz/ZinzinLand-Wiki/releases/latest';
+            var KEY = 'zlDlCount', TTL = 30 * 60 * 1000;
+
+            function paint(n) {
+              el.innerHTML = '<b>' + n.toLocaleString('fr-FR') + '</b> téléchargement' + (n > 1 ? 's' : '');
+              el.hidden = false;
+            }
+            try {
+              var c = JSON.parse(localStorage.getItem(KEY) || 'null');
+              if (c && Date.now() - c.t < TTL) { paint(c.n); return; }
+            } catch (e) { /* stockage indisponible : on interroge l'API */ }
+
+            fetch(URL, { headers: { 'Accept': 'application/vnd.github+json' } })
+              .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+              .then(function (rel) {
+                var n = (rel.assets || []).reduce(function (s, a) { return s + (a.download_count || 0); }, 0);
+                if (!n) return;
+                paint(n);
+                try { localStorage.setItem(KEY, JSON.stringify({ n: n, t: Date.now() })); } catch (e) { /* ignore */ }
+              })
+              .catch(function () { /* hors ligne ou quota atteint : on n'affiche rien */ });
+          })();
+        </script>
 
         <ol class="steps">
           <li><b>Ouvre ton dossier <code>.minecraft</code>.</b> Sur Windows, <code>Windows + R</code>, puis
